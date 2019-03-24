@@ -92,7 +92,7 @@ CREATE TABLE comments(
 ); 
 
 CREATE TABLE ordeer(
-	id_order int(11),
+	id_order int(11) auto_increment primary key,
 	client int(11),
 	id_adress int(11),
 	order_date date,
