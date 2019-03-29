@@ -170,7 +170,7 @@ if(!empty($_GET['failed']))
                                 <h2>log in your account</h2>
                                 <p>Log in to your account to discovery all great features in this template.</p>
                             </div>
-                            <form class="login_form row" action="connectionLogin.php" method="POST">
+                            <form class="login_form row" action="login_code.php" method="POST">
                                 <div class="col-lg-12 form-group">
                                     <input class="form-control" type="text" name="username" placeholder="Name">
                                 </div>
