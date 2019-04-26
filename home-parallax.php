@@ -56,12 +56,12 @@
                                 Home <i class="fa fa-angle-down" aria-hidden="true"></i>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li class="nav-item"><a class="nav-link" href="index.html">Home Simple</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="home-carousel.html">Home Carousel</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="home-fullwidth.html">Home Full Width</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="home-parallax.html">Home Parallax</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="home-sidebar.html">Home Boxed</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="home-fixed-menu.html">Home Fixed</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="index.php">Home Simple</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="home-carousel.php">Home Carousel</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="home-fullwidth.php">Home Full Width</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="home-parallax.php">Home Parallax</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="home-sidebar.php">Home Boxed</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="home-fixed-menu.php">Home Fixed</a></li>
                                 </ul>
                             </li>
                             <li class="nav-item dropdown submenu">
@@ -69,12 +69,12 @@
                                 Pages <i class="fa fa-angle-down" aria-hidden="true"></i>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li class="nav-item"><a class="nav-link" href="compare.html">Compare</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="checkout.html">Checkout Method</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="register.html">Checkout Register</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="track.html">Track</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="404.html">404</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="compare.php">Compare</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="checkout.php">Checkout Method</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="register.php">Checkout Register</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="track.php">Track</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="login.php">Login</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="404.php">404</a></li>
                                 </ul>
                             </li>
                             <li class="nav-item dropdown submenu">
@@ -82,23 +82,23 @@
                                 Shop <i class="fa fa-angle-down" aria-hidden="true"></i>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li class="nav-item"><a class="nav-link" href="categories-no-sidebar-2column.html">Prodcut No Sidebar</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="categories-no-sidebar-3column.html">Prodcut Two Column</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="categories-no-sidebar-4column.html">Product Grid</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="categories-left-sidebar.html">Categories Left Sidebar</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="categories-right-sidebar.html">Categories Right Sidebar</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="categories-grid-left-sidebar.html">Categories Grid Sidebar</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="product-details.html">Prodcut Details 01</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="product-details2.html">Prodcut Details 02</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="product-details3.html">Prodcut Details 03</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="shopping-cart.html">Shopping Cart 01</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="shopping-cart2.html">Shopping Cart 02</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="empty-cart.html">Empty Cart</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="categories-no-sidebar-2column.php">Prodcut No Sidebar</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="categories-no-sidebar-3column.php">Prodcut Two Column</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="categories-no-sidebar-4column.php">Product Grid</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="categories-left-sidebar.php">Categories Left Sidebar</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="categories-right-sidebar.php">Categories Right Sidebar</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="categories-grid-left-sidebar.php">Categories Grid Sidebar</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="product-details.php">Prodcut Details 01</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="product-details2.php">Prodcut Details 02</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="product-details3.php">Prodcut Details 03</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="shopping-cart.php">Shopping Cart 01</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="shopping-cart2.php">Shopping Cart 02</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="empty-cart.php">Empty Cart</a></li>
                                 </ul>
                             </li>
                             <li class="nav-item"><a class="nav-link" href="#">Blog</a></li>
                             <li class="nav-item"><a class="nav-link" href="#">lookbook</a></li>
-                            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                            <li class="nav-item"><a class="nav-link" href="contact.php">Contact</a></li>
                         </ul>
                         <ul class="navbar-nav justify-content-end">
                             <li class="search_icon"><a href="#"><i class="icon-magnifier icons"></i></a></li>

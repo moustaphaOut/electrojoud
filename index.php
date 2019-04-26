@@ -16,7 +16,7 @@
     <body>
         
     <?php
-        include_once('header.php');
+        include_once('header2.php');
     ?>
         
         <!--================Slider Area =================-->
@@ -627,10 +627,8 @@
             </div>
         </section>
         <!--================End Form Blog Area =================-->
-        
-        <?php
-            include_once('footer.php');
-        ?>
+
+    <?php include"footer.php" ?>
         
     </body>
 </html>

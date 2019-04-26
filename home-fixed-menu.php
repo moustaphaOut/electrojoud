@@ -37,82 +37,10 @@
         <![endif]-->
     </head>
     <body>
-        
-        
-        <!--================Menu Area =================-->
-        <header class="shop_header_area fixed_tb_menu carousel_menu_area">
-            <div class="carousel_menu_inner">
-                <div class="container">
-                    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                        <a class="navbar-brand" href="#"><img src="img/logo.png" alt=""></a>
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
 
-                        </button>
-
-                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                            <ul class="navbar-nav mr-auto">
-                                <li class="nav-item dropdown submenu active">
-                                    <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Home <i class="fa fa-angle-down" aria-hidden="true"></i>
-                                    </a>
-                                    <ul class="dropdown-menu">
-                                        <li class="nav-item"><a class="nav-link" href="index.html">Home Simple</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="home-carousel.html">Home Carousel</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="home-fullwidth.html">Home Full Width</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="home-parallax.html">Home Parallax</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="home-sidebar.html">Home Boxed</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="home-fixed-menu.html">Home Fixed</a></li>
-                                    </ul>
-                                </li>
-                                <li class="nav-item dropdown submenu">
-                                    <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Pages <i class="fa fa-angle-down" aria-hidden="true"></i>
-                                    </a>
-                                    <ul class="dropdown-menu">
-                                        <li class="nav-item"><a class="nav-link" href="compare.html">Compare</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="checkout.html">Checkout Method</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="register.html">Checkout Register</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="track.html">Track</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="404.html">404</a></li>
-                                    </ul>
-                                </li>
-                                <li class="nav-item dropdown submenu">
-                                    <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Shop <i class="fa fa-angle-down" aria-hidden="true"></i>
-                                    </a>
-                                    <ul class="dropdown-menu">
-                                        <li class="nav-item"><a class="nav-link" href="categories-no-sidebar-2column.html">Prodcut No Sidebar</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="categories-no-sidebar-3column.html">Prodcut Two Column</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="categories-no-sidebar-4column.html">Product Grid</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="categories-left-sidebar.html">Categories Left Sidebar</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="categories-right-sidebar.html">Categories Right Sidebar</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="categories-grid-left-sidebar.html">Categories Grid Sidebar</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="product-details.html">Prodcut Details 01</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="product-details2.html">Prodcut Details 02</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="product-details3.html">Prodcut Details 03</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="shopping-cart.html">Shopping Cart 01</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="shopping-cart2.html">Shopping Cart 02</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="empty-cart.html">Empty Cart</a></li>
-                                    </ul>
-                                </li>
-                                <li class="nav-item"><a class="nav-link" href="#">Blog</a></li>
-                                <li class="nav-item"><a class="nav-link" href="#">lookbook</a></li>
-                                <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-                            </ul>
-                            <ul class="navbar-nav justify-content-end">
-                                <li class="search_icon"><a href="#"><i class="icon-magnifier icons"></i></a></li>
-                                <li class="user_icon"><a href="#"><i class="icon-user icons"></i></a></li>
-                                <li class="cart_cart"><a href="#"><i class="icon-handbag icons"></i></a></li>
-                            </ul>
-                        </div>
-                    </nav>
-                </div>
-            </div>
-        </header>
-        <!--================End Menu Area =================-->
-        
+    <?php
+    include_once('header2.php');
+    ?>
         
         <!--================Home Left Menu Area =================-->
         <div class="home_left_main_area">
@@ -145,46 +73,46 @@
                             <li class="dropdown side_menu">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Home <i class="fa fa-angle-right" aria-hidden="true"></i></a>
                                 <ul class="dropdown-menu">
-                                    <li class="nav-item"><a class="nav-link" href="index.html">Home Simple</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="home-carousel.html">Home Carousel</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="home-fullwidth.html">Home Full Width</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="home-parallax.html">Home Parallax</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="home-sidebar.html">Home Boxed</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="home-fixed-menu.html">Home Fixed</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="index.php">Home Simple</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="home-carousel.php">Home Carousel</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="home-fullwidth.php">Home Full Width</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="home-parallax.php">Home Parallax</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="home-sidebar.php">Home Boxed</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="home-fixed-menu.php">Home Fixed</a></li>
                                 </ul>
                             </li>
                             <li class="dropdown side_menu">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pages <i class="fa fa-angle-right" aria-hidden="true"></i></a>
                                 <ul class="dropdown-menu">
-                                    <li class="nav-item"><a class="nav-link" href="compare.html">Compare</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="checkout.html">Checkout Method</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="register.html">Checkout Register</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="track.html">Track</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="404.html">404</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="compare.php">Compare</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="checkout.php">Checkout Method</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="register.php">Checkout Register</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="track.php">Track</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="login.php">Login</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="404.php">404</a></li>
                                 </ul>
                             </li>
                             <li class="dropdown side_menu">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Shop <i class="fa fa-angle-right" aria-hidden="true"></i></a>
                                 <ul class="dropdown-menu">
-                                    <li class="nav-item"><a class="nav-link" href="categories-no-sidebar-2column.html">Prodcut No Sidebar</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="categories-no-sidebar-3column.html">Prodcut Two Column</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="categories-no-sidebar-4column.html">Product Grid</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="categories-left-sidebar.html">Categories Left Sidebar</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="categories-right-sidebar.html">Categories Right Sidebar</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="categories-grid-left-sidebar.html">Categories Grid Sidebar</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="product-details.html">Prodcut Details 01</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="product-details2.html">Prodcut Details 02</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="product-details3.html">Prodcut Details 03</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="shopping-cart.html">Shopping Cart 01</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="shopping-cart2.html">Shopping Cart 02</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="empty-cart.html">Empty Cart</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="categories-no-sidebar-2column.php">Prodcut No Sidebar</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="categories-no-sidebar-3column.php">Prodcut Two Column</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="categories-no-sidebar-4column.php">Product Grid</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="categories-left-sidebar.php">Categories Left Sidebar</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="categories-right-sidebar.php">Categories Right Sidebar</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="categories-grid-left-sidebar.php">Categories Grid Sidebar</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="product-details.php">Prodcut Details 01</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="product-details2.php">Prodcut Details 02</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="product-details3.php">Prodcut Details 03</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="shopping-cart.php">Shopping Cart 01</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="shopping-cart2.php">Shopping Cart 02</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="empty-cart.php">Empty Cart</a></li>
                                 </ul>
                             </li>
                             <li class="nav-item"><a class="nav-link" href="#">shortcode</a></li>
                             <li class="nav-item"><a class="nav-link" href="#">features</a></li>
                             <li class="nav-item"><a class="nav-link" href="#">blog</a></li>
-                            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                            <li class="nav-item"><a class="nav-link" href="contact.php">Contact</a></li>
                         </ul>
                     </div>
                     <div class="cart_list">
@@ -422,86 +350,7 @@
                         </div>
                     </div>
                 </div>
-                
-                <!--================Footer Area =================-->
-                <footer class="footer_area box_footer">
-                    <div class="container">
-                        <div class="footer_widgets">
-                            <div class="row">
-                                <div class="col-lg-4 col-md-4 col-6">
-                                    <aside class="f_widget f_about_widget">
-                                        <img src="img/logo.png" alt="">
-                                        <p>Persuit is a Premium PSD Template. Best choice for your online store. Let purchase it to enjoy now</p>
-                                        <h6>Social:</h6>
-                                        <ul>
-                                            <li><a href="#"><i class="social_facebook"></i></a></li>
-                                            <li><a href="#"><i class="social_twitter"></i></a></li>
-                                            <li><a href="#"><i class="social_pinterest"></i></a></li>
-                                            <li><a href="#"><i class="social_instagram"></i></a></li>
-                                            <li><a href="#"><i class="social_youtube"></i></a></li>
-                                        </ul>
-                                    </aside>
-                                </div>
-                                <div class="col-lg-2 col-md-4 col-6">
-                                    <aside class="f_widget link_widget f_info_widget">
-                                        <div class="f_w_title">
-                                            <h3>Information</h3>
-                                        </div>
-                                        <ul>
-                                            <li><a href="#">About us</a></li>
-                                            <li><a href="#">Delivery information</a></li>
-                                            <li><a href="#">Terms & Conditions</a></li>
-                                            <li><a href="#">Help Center</a></li>
-                                            <li><a href="#">Returns & Refunds</a></li>
-                                        </ul>
-                                    </aside>
-                                </div>
-                                <div class="col-lg-2 col-md-4 col-6">
-                                    <aside class="f_widget link_widget f_service_widget">
-                                        <div class="f_w_title">
-                                            <h3>Customer Service</h3>
-                                        </div>
-                                        <ul>
-                                            <li><a href="#">My account</a></li>
-                                            <li><a href="#">Ordr History</a></li>
-                                            <li><a href="#">Wish List</a></li>
-                                            <li><a href="#">Newsletter</a></li>
-                                            <li><a href="#">Contact Us</a></li>
-                                        </ul>
-                                    </aside>
-                                </div>
-                                <div class="col-lg-2 col-md-4 col-6">
-                                    <aside class="f_widget link_widget f_extra_widget">
-                                        <div class="f_w_title">
-                                            <h3>Extras</h3>
-                                        </div>
-                                        <ul>
-                                            <li><a href="#">Brands</a></li>
-                                            <li><a href="#">Gift Vouchers</a></li>
-                                            <li><a href="#">Affiliates</a></li>
-                                            <li><a href="#">Specials</a></li>
-                                        </ul>
-                                    </aside>
-                                </div>
-                                <div class="col-lg-2 col-md-4 col-6">
-                                    <aside class="f_widget link_widget f_account_widget">
-                                        <div class="f_w_title">
-                                            <h3>My Account</h3>
-                                        </div>
-                                        <ul>
-                                            <li><a href="#">My account</a></li>
-                                            <li><a href="#">Ordr History</a></li>
-                                            <li><a href="#">Wish List</a></li>
-                                            <li><a href="#">Newsletter</a></li>
-                                        </ul>
-                                    </aside>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </footer>
-                <!--================End Footer Area =================-->
-                
+                <?php include"footer.php" ?>
             </div>
         </div>
         <!--================End Home Left Menu Area =================-->
