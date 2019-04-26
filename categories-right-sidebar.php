@@ -39,9 +39,11 @@
     <body>
 
     <?php
-    include_once('header2.php');
+    include 'header.php';
     ?>
-        <!--================Categories Banner Area =================-->
+
+
+    <!--================Categories Banner Area =================-->
         <section class="categories_banner_area">
             <div class="container">
                 <div class="c_banner_inner">
@@ -401,7 +403,12 @@
             </div>
         </section>
         <!--================End Categories Product Area =================-->
-        <?php include"footer.php" ?>
+
+    <?php
+    include 'footer.php';
+    ?>
+        
+        
         
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="js/jquery-3.2.1.min.js"></script>

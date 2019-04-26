@@ -37,8 +37,9 @@
         <![endif]-->
     </head>
     <body>
+
     <?php
-    include_once('header2.php');
+    include 'header.php';
     ?>
         
         <!--================Categories Banner Area =================-->
@@ -166,9 +167,13 @@
         </section>
         <!--================End Shopping Cart Area =================-->
 
-        <?php include"footer.php" ?>
-
-
+    <?php
+    include 'footer.php';
+    ?>
+        
+        
+        
+        
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="js/jquery-3.2.1.min.js"></script>
         <!-- Include all compiled plugins (below), or include individual files as needed -->

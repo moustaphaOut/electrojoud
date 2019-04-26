@@ -316,7 +316,7 @@
 						if (sindex>0 || sindex<=opt.li.length) {
 							
 							var li = jQuery(opt.li[sindex]),
-								ref = li.data("index"),
+								ref = li.data("index.php"),
 								nextslideafter = false;
 										
 							opt.slideamount = opt.slideamount-1;	
@@ -739,7 +739,7 @@ jQuery.extend(true, _R, {
 			
 			container.find('.tp-revslider-slidesli').each(function() {
 				var li=jQuery(this);				
-				if (li.data('index')===direction) li.addClass("next-revslide");									
+				if (li.data('index.php')===direction) li.addClass("next-revslide");
 			})			
 		}
 
@@ -1259,7 +1259,7 @@ var initSlider = function (container,opt) {
     opt.slideamount = opt.ul.find('>li').not('.tp-invisible-slide').length;
     opt.realslideamount = opt.ul.find('>li').length;
     opt.slayers = container.find('.tp-static-layers');
-    opt.slayers.data('index','staticlayers');
+    opt.slayers.data('index.php','staticlayers');
 
     if (opt.waitForInit == true) 
     	return;
@@ -1349,12 +1349,12 @@ var initSlider = function (container,opt) {
 		
 	
 		li.addClass("tp-revslider-slidesli");
-		if (li.data('index')===undefined) li.data('index','rs-'+Math.round(Math.random()*999999));
+		if (li.data('index.php')===undefined) li.data('index.php','rs-'+Math.round(Math.random()*999999));
 
 		var obj = new Object;
 		obj.params = new Array();
 		
-		obj.id = li.data('index');
+		obj.id = li.data('index.php');
 		obj.src = li.data('thumb')!==undefined ? li.data('thumb') : img.data('lazyload') !== undefined ? img.data('lazyload') : img.attr('src');					
 		if (li.data('title') !== undefined) obj.params.push({from:RegExp("\\{\\{title\\}\\}","g"), to:li.data("title")})		
 		if (li.data('description') !== undefined) obj.params.push({from:RegExp("\\{\\{description\\}\\}","g"), to:li.data("description")})		
@@ -1376,7 +1376,7 @@ var initSlider = function (container,opt) {
 				if (linktoslide!="next" && linktoslide!="prev")
 					opt.allli.each(function() {
 						var t = jQuery(this);						
-						if (t.data('origindex')+1==checksl) linktoslide = t.data('index');
+						if (t.data('origindex')+1==checksl) linktoslide = t.data('index.php');
 					});
 			
 			
@@ -2829,7 +2829,7 @@ var letItFree = function(container,nextsh,actsh,nextli,actli,mtl) {
 	container.find('.processing-revslide').removeClass("processing-revslide").addClass("active-revslide");
 	opt.act=nextli.index();
 	
-	opt.c.attr('data-slideactive',container.find('.active-revslide').data('index'));	
+	opt.c.attr('data-slideactive',container.find('.active-revslide').data('index.php'));
 		
 	if (opt.parallax.type=="scroll" || opt.parallax.type=="scroll+mouse" || opt.parallax.type=="mouse+scroll") {
 		opt.lastscrolltop = -999;

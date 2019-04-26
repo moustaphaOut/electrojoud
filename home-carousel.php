@@ -38,10 +38,10 @@
     <body>
 
     <?php
-    include_once('header2.php');
+    include 'header.php';
     ?>
-        
-        <!--================Home Carousel Area =================-->
+
+    <!--================Home Carousel Area =================-->
         <section class="home_carousel_area">
             <div class="home_carousel_slider owl-carousel">
                 <div class="item">
@@ -579,7 +579,10 @@
             </div>
         </section>
         <!--================End Form Blog Area =================-->
-        <?php include"footer.php" ?>
+
+    <?php
+    include 'footer.php';
+    ?>
         
         
         

@@ -1,6 +1,6 @@
 <?php
 if(!empty($_GET['failed']))
-  echo "<script type='text/javascript'>alert('Invalid email or password!');</script>"; 
+    echo "<script type='text/javascript'>alert('Invalid email or password!');</script>";
 
 ?>
 <!DOCTYPE html>
@@ -44,8 +44,9 @@ if(!empty($_GET['failed']))
     <body>
 
     <?php
-    include_once('header2.php');
+    include 'header.php';
     ?>
+
         <!--================Categories Banner Area =================-->
         <section class="solid_banner_area">
             <div class="container">
@@ -59,75 +60,79 @@ if(!empty($_GET['failed']))
             </div>
         </section>
         <!--================End Categories Banner Area =================-->
-        
-        <!--================login Area =================-->
-        <section class="login_area p_100">
-            <div class="container">
-                <div class="login_inner">
-                    <div class="row">
-                        <div class="col-lg-4">
-                            <div class="login_title">
-                                <h2>log in your account</h2>
-                                <p>Log in to your account to discovery all great features in this template.</p>
-                            </div>
-                            <form class="login_form row" action="login_code.php" method="POST">
-                                <div class="col-lg-12 form-group">
-                                    <input class="form-control" type="text" name="username" placeholder="Name">
-                                </div>
-                                <div class="col-lg-12 form-group">
-                                    <input class="form-control" type="password" name="password" placeholder="User Name">
-                                </div>
-                                <div class="col-lg-12 form-group">
-                                    <div class="creat_account">
-                                        <input type="checkbox" id="f-option" name="selector">
-                                        <label for="f-option">Keep me logged in</label>
-                                        <div class="check"></div>
-                                    </div>
-                                    <h4>Forgot your password ?</h4>
-                                </div>
-                                <div class="col-lg-12 form-group">
-                                    <button type="submit" value="submit" class="btn update_btn form-control">Login</button>
-                                </div>
-                            </form>
+
+    <!--================login Area =================-->
+    <section class="login_area p_100">
+        <div class="container">
+            <div class="login_inner">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="login_title">
+                            <h2>log in your account</h2>
+                            <p>Log in to your account to discovery all great features in this template.</p>
                         </div>
-                        <div class="col-lg-8">
-                            <div class="login_title">
-                                <h2>create account</h2>
-                                <p>Follow the steps below to create email account enjoy the great mail.com emailing experience. Vivamus tempus risus vel felis condimentum, non vehicula est iaculis.</p>
+                        <form class="login_form row" action="login_code.php" method="POST">
+                            <div class="col-lg-12 form-group">
+                                <input class="form-control" type="text" name="username" placeholder="Name">
                             </div>
-                            <form class="login_form row" action="logup_code.php" method="POST">
-                                <div class="col-lg-6 form-group">
-                                    <input class="form-control" type="text" name="nom" placeholder="Name">
+                            <div class="col-lg-12 form-group">
+                                <input class="form-control" type="password" name="password" placeholder="User Name">
+                            </div>
+                            <div class="col-lg-12 form-group">
+                                <div class="creat_account">
+                                    <input type="checkbox" id="f-option" name="selector">
+                                    <label for="f-option">Keep me logged in</label>
+                                    <div class="check"></div>
                                 </div>
-                                <div class="col-lg-6 form-group">
-                                    <input class="form-control" type="email" name="e_mail" placeholder="Email">
-                                </div>
-                                <div class="col-lg-6 form-group">
-                                    <input class="form-control" type="text" name="username" placeholder="User Name">
-                                </div>
-                                <div class="col-lg-6 form-group">
-                                    <input class="form-control" type="text" name="telephone" placeholder="Phone">
-                                </div>
-                                <div class="col-lg-6 form-group">
-                                    <input class="form-control" type="password" name="password" placeholder="Password">
-                                </div>
-                                <div class="col-lg-6 form-group">
-                                    <input class="form-control" type="password" placeholder="Re-Password">
-                                </div>
-                                <div class="col-lg-6 form-group">
-                                    <button type="submit" value="submit" class="btn subs_btn form-control">register now</button>
-                                </div>
-                            </form>
+                                <h4>Forgot your password ?</h4>
+                            </div>
+                            <div class="col-lg-12 form-group">
+                                <button type="submit" value="submit" class="btn update_btn form-control">Login</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-lg-8">
+                        <div class="login_title">
+                            <h2>create account</h2>
+                            <p>Follow the steps below to create email account enjoy the great mail.com emailing experience. Vivamus tempus risus vel felis condimentum, non vehicula est iaculis.</p>
                         </div>
+                        <form class="login_form row" action="logup_code.php" method="POST">
+                            <div class="col-lg-6 form-group">
+                                <input class="form-control" type="text" name="nom" placeholder="Name">
+                            </div>
+                            <div class="col-lg-6 form-group">
+                                <input class="form-control" type="email" name="e_mail" placeholder="Email">
+                            </div>
+                            <div class="col-lg-6 form-group">
+                                <input class="form-control" type="text" name="username" placeholder="User Name">
+                            </div>
+                            <div class="col-lg-6 form-group">
+                                <input class="form-control" type="text" name="telephone" placeholder="Phone">
+                            </div>
+                            <div class="col-lg-6 form-group">
+                                <input class="form-control" type="password" name="password" placeholder="Password">
+                            </div>
+                            <div class="col-lg-6 form-group">
+                                <input class="form-control" type="password" placeholder="Re-Password">
+                            </div>
+                            <div class="col-lg-6 form-group">
+                                <button type="submit" value="submit" class="btn subs_btn form-control">register now</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
-        </section>
-        <!--================End login Area =================-->
-        <?php include"footer.php" ?>
+        </div>
+    </section>
+    <!--================End login Area =================-->
 
-
-
+    <?php
+    include 'footer.php';
+    ?>
+        
+        
+        
+        
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="js/jquery-3.2.1.min.js"></script>
         <!-- Include all compiled plugins (below), or include individual files as needed -->

@@ -39,9 +39,9 @@
     <body>
 
     <?php
-    include_once('header2.php');
+    include 'header.php';
     ?>
-        
+
         <!--================Categories Banner Area =================-->
         <section class="solid_banner_area">
             <div class="container">
@@ -197,7 +197,11 @@
             </div>
         </section>
         <!--================End Shopping Cart Area =================-->
-        <?php include"footer.php" ?>
+
+    <?php
+    include 'footer.php';
+    ?>
+        
         
         
         

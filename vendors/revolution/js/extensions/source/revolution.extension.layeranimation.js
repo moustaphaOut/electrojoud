@@ -132,7 +132,7 @@ jQuery.extend(true,_R, {
 			startSlideAnimAt = obj.startslideanimat,
 			base_offsetx = opt.sliderType==="carousel" ? 0 : opt.width/2 - (opt.gridwidth[opt.curWinRange]*opt.bw)/2,
 			base_offsety=0,
-			index = nextli.data('index');
+			index = nextli.data('index.php');
 
 		// COLLECTION OF LAYERS
 		opt.layers = opt.layers || new Object();		
@@ -337,7 +337,7 @@ jQuery.extend(true,_R, {
 		_._nctype = _.type || "none";
 		_._cbgc_auto = _._cbgc_auto===undefined ? _._nctype==="column" ?  _._pw.find('.rev_column_bg_auto_sized') : false : _._cbgc_auto;
 		_._cbgc_man = _._cbgc_man===undefined ? _._nctype==="column" ? _._pw.find('.rev_column_bg_man_sized') : false : _._cbgc_man;
-		_._slideid = _._slideid || _nc.closest('.tp-revslider-slidesli').data('index');
+		_._slideid = _._slideid || _nc.closest('.tp-revslider-slidesli').data('index.php');
 		_._id = _._id===undefined ? _nc.data('id') || _nc.attr('id') : _._id;
 		_._slidelink = _._slidelink===undefined ?  _nc.hasClass("slidelink")===undefined ? false : _nc.hasClass("slidelink") : _._slidelink;
 
@@ -776,7 +776,7 @@ jQuery.extend(true,_R, {
 		//GO THROUGH ALL LI
 		opt.c.find('.tp-revslider-slidesli, .tp-static-layers').each(function() {
 			var slide = jQuery(this),
-				index = slide.data('index');
+				index = slide.data('index.php');
 			opt.timelines[index] = opt.timelines[index] || {};
 			
 			opt.timelines[index].layers = opt.timelines[index].layers || new Object();
@@ -1334,7 +1334,7 @@ jQuery.extend(true,_R, {
 	removeTheCaptions : function(actli,opt) {	
 		if (_R.compare_version(extension).check==="stop") return false;	
 		var removetime = 0,
-			index = actli.data('index'),	
+			index = actli.data('index.php'),
 			allcaptions = new Array;
 		
 		// COLLECT ALL CAPTIONS		
@@ -1386,7 +1386,7 @@ var getTLInfos = function(obj) {
 	obj.lastframe=obj.lastframe===undefined ? "frame_999" : obj.lastframe;
 
  	_.id = obj.caption.data('id') || obj.caption.attr('id');
- 	_.slideid = obj.caption.data('slideid') || obj.caption.closest('.tp-revslider-slidesli').data('index'); 	
+ 	_.slideid = obj.caption.data('slideid') || obj.caption.closest('.tp-revslider-slidesli').data('index.php');
  	_.timeline_obj = obj.opt.timelines[_.slideid]["layers"][_.id];
  	_.timeline = _.timeline_obj.timeline; 	
  	_.ffs = _.timeline.getLabelTime(obj.firstframe);

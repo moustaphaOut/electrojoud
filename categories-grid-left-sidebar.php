@@ -9,22 +9,42 @@
         <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
         <title>Persuit</title>
 
+        <!-- Icon css link -->
+        <link href="css/font-awesome.min.css" rel="stylesheet">
+        <link href="vendors/line-icon/css/simple-line-icons.css" rel="stylesheet">
+        <link href="vendors/elegant-icon/style.css" rel="stylesheet">
+        <!-- Bootstrap -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        
+        <!-- Rev slider css -->
+        <link href="vendors/revolution/css/settings.css" rel="stylesheet">
+        <link href="vendors/revolution/css/layers.css" rel="stylesheet">
+        <link href="vendors/revolution/css/navigation.css" rel="stylesheet">
+        
+        <!-- Extra plugin css -->
+        <link href="vendors/owl-carousel/owl.carousel.min.css" rel="stylesheet">
+        <link href="vendors/bootstrap-selector/css/bootstrap-select.min.css" rel="stylesheet">
+        <link href="vendors/jquery-ui/jquery-ui.css" rel="stylesheet">
+        
+        <link href="css/style.css" rel="stylesheet">
+        <link href="css/responsive.css" rel="stylesheet">
 
-        <?php
-        include_once('link.php');
-        ?>
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
     </head>
     <body>
 
-
     <?php
-        include_once('header2.php');
+    include 'header.php';
     ?>
-        
-        <!--================Categories Banner Area =================-->
-        <section class="categories
-        +
-        _banner_area">
+
+
+    <!--================Categories Banner Area =================-->
+        <section class="categories_banner_area">
             <div class="container">
                 <div class="c_banner_inner">
                     <h3>shop grid with left sidebar</h3>
@@ -346,7 +366,12 @@
             </div>
         </section>
         <!--================End Categories Product Area =================-->
-        <?php include"footer.php" ?>
+
+    <?php
+    include 'footer.php';
+    ?>
+        
+        
         
         
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

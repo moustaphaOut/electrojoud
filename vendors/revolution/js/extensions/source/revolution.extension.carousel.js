@@ -317,7 +317,7 @@ var animateCarousel = function(opt,direction,nsae,speed) {
 			_R.organiseCarousel(opt,direction,false,true);	
 			var li = jQuery(opt.li[_.focused]);	
 			opt.c.find('.next-revslide').removeClass("next-revslide");
-			if (nsae) _R.callingNewSlide(opt.c,li.data('index'));
+			if (nsae) _R.callingNewSlide(opt.c,li.data('index.php'));
 		}, ease:_ease});	
 }
 

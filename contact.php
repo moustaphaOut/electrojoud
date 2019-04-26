@@ -39,10 +39,11 @@
     <body>
 
     <?php
-    include_once('header2.php');
+    include 'header.php';
     ?>
-        
-        <!--================Categories Banner Area =================-->
+
+
+    <!--================Categories Banner Area =================-->
         <section class="solid_banner_area">
             <div class="container">
                 <div class="solid_banner_inner">
@@ -120,7 +121,11 @@
             </div>
         </section>
         <!--================End Contact Area =================-->
-        <?php include"footer.php" ?>
+
+    <?php
+    include 'footer.php';
+    ?>
+        
         
         <!--================Contact Success and Error message Area =================-->
         <div id="success" class="modal modal-message fade" role="dialog">

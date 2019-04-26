@@ -39,10 +39,10 @@
     <body>
 
     <?php
-    include_once('header2.php');
+    include 'header.php';
     ?>
-        
-        <!--================Home Left Menu Area =================-->
+
+    <!--================Home Left Menu Area =================-->
         <div class="home_left_main_area">
             <div class="left_menu">
                 <div class="offcanvas_fixed_menu">
@@ -350,7 +350,10 @@
                         </div>
                     </div>
                 </div>
-                <?php include"footer.php" ?>
+                <?php
+                include 'footer.php';
+                ?>
+                
             </div>
         </div>
         <!--================End Home Left Menu Area =================-->

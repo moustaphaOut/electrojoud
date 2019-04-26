@@ -192,7 +192,7 @@ jQuery.extend(true,_R, {
 			
 			//cp.find('.tp-bullet, .tp-thumb, .tp-tab').removeClass("selected");			
 			
-			var si = container.find(".next-revslide").length==0 ? container.find(".active-revslide").data("index") : container.find(".next-revslide").data("index");			
+			var si = container.find(".next-revslide").length==0 ? container.find(".active-revslide").data("index.php") : container.find(".next-revslide").data("index.php");
 			
 			container.find('.tp-bullet').each(function() {
 				var _t = jQuery(this);		
@@ -952,7 +952,7 @@ var addBullet = function(container,o,li,opt) {
 	
 	// Add Bullet Structure to the Bullet Container
 	var bw = container.find('.tp-bullets'),
-		 linkto = li.data('index'),
+		 linkto = li.data('index.php'),
 		 inst = o.tmp;
 
 	jQuery.each(opt.thumbs[li.index()].params,function(i,obj) { inst = inst.replace(obj.from,obj.to);})
@@ -1053,7 +1053,7 @@ var addThumb = function(container,o,li,what,opt) {
 	
 
 	// Add Thumb/TAB Structure to the THUMB/TAB Container
-	var linkto = li.data('index'),
+	var linkto = li.data('index.php'),
 		t = container.parent().find(thumbs),
 		tm = t.find(thumbmask),
 		tw = tm.find(thumbsiw),

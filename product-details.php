@@ -37,8 +37,9 @@
         <![endif]-->
     </head>
     <body>
+
     <?php
-    include_once('header2.php');
+    include 'header.php';
     ?>
         
         <!--================Categories Banner Area =================-->
@@ -313,7 +314,12 @@
         </section>
         <!--================End Related Product Area =================-->
 
-        <?php include"footer.php" ?>
+    <?php
+    include 'footer.php';
+    ?>
+        
+        
+        
         
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="js/jquery-3.2.1.min.js"></script>

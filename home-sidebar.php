@@ -42,9 +42,10 @@
         <div class="home_box">
 
             <?php
-            include_once('header2.php');
+            include 'header.php';
             ?>
-            
+
+
             <!--================Main Content Area =================-->
             <section class="home_sidebar_area">
                 <div class="container">
@@ -525,7 +526,10 @@
             </section>
             <!--================End World Wide Service Area =================-->
 
-            <?php include"footer.php" ?>
+
+            <?php
+            include 'footer.php';
+            ?>
         </div>
         
         

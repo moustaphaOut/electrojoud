@@ -9,17 +9,40 @@
         <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
         <title>Persuit</title>
 
-        <?php
-            include_once('link.php');
-        ?>
+        <!-- Icon css link -->
+        <link href="css/font-awesome.min.css" rel="stylesheet">
+        <link href="vendors/line-icon/css/simple-line-icons.css" rel="stylesheet">
+        <link href="vendors/elegant-icon/style.css" rel="stylesheet">
+        <!-- Bootstrap -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        
+        <!-- Rev slider css -->
+        <link href="vendors/revolution/css/settings.css" rel="stylesheet">
+        <link href="vendors/revolution/css/layers.css" rel="stylesheet">
+        <link href="vendors/revolution/css/navigation.css" rel="stylesheet">
+        
+        <!-- Extra plugin css -->
+        <link href="vendors/owl-carousel/owl.carousel.min.css" rel="stylesheet">
+        <link href="vendors/bootstrap-selector/css/bootstrap-select.min.css" rel="stylesheet">
+        <link href="vendors/jquery-ui/jquery-ui.css" rel="stylesheet">
+        
+        <link href="css/style.css" rel="stylesheet">
+        <link href="css/responsive.css" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
     </head>
     <body>
-        
-       <?php
-        include_once('header2.php');
+    <?php
+    include 'header.php';
     ?>
-        
-        <!--================Categories Banner Area =================-->
+
+
+    <!--================Categories Banner Area =================-->
         <section class="categories_banner_area">
             <div class="container">
                 <div class="c_banner_inner">
@@ -70,21 +93,10 @@
                             </div>
                             <div class="categories_product_area">
                                 <div class="row">
-                                    <?php
-                                        require_once('connection.php');
-                                        $sql = "SELECT * FROM product;";
-                                        $result = mysqli_query($conn, $sql);
-                                        if(mysqli_num_rows($result) > 0){
-                                            while($row = mysqli_fetch_assoc($result)){
-                                                $name = $row["name"];
-                                                $price = $row["price"];
-                                                $old_price = $row["old_price"];
-                                                $image = $row["image"];
-                                                ?>
                                     <div class="col-lg-4 col-sm-6">
                                         <div class="l_product_item">
                                             <div class="l_p_img">
-                                                <img src="<?php echo $image;?>" alt="">
+                                                <img src="img/product/c-product-1.jpg" alt="">
                                                 <h5 class="new">New</h5>
                                             </div>
                                             <div class="l_p_text">
@@ -93,15 +105,145 @@
                                                     <li><a class="add_cart_btn" href="#">Add To Cart</a></li>
                                                     <li class="p_icon"><a href="#"><i class="icon_heart_alt"></i></a></li>
                                                 </ul>
-                                                <h4><?php echo $name;?></h4>
-                                                <h5><del><?php echo $price;?> DH</del> <?php echo $old_price;?> DH</h5>
+                                                <h4>Travel Bags</h4>
+                                                <h5><del>$45.50</del>  $40</h5>
                                             </div>
                                         </div>
                                     </div>
-                                    <?php
-                                            }
-                                        }
-                                    ?>
+                                    <div class="col-lg-4 col-sm-6">
+                                        <div class="l_product_item">
+                                            <div class="l_p_img">
+                                                <img src="img/product/c-product-2.jpg" alt="">
+                                            </div>
+                                            <div class="l_p_text">
+                                               <ul>
+                                                    <li class="p_icon"><a href="#"><i class="icon_piechart"></i></a></li>
+                                                    <li><a class="add_cart_btn" href="#">Add To Cart</a></li>
+                                                    <li class="p_icon"><a href="#"><i class="icon_heart_alt"></i></a></li>
+                                                </ul>
+                                                <h4>Summer Dress</h4>
+                                                <h5>$45.50</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-sm-6">
+                                        <div class="l_product_item">
+                                            <div class="l_p_img">
+                                                <img src="img/product/c-product-3.jpg" alt="">
+                                                <h5 class="new">New</h5>
+                                            </div>
+                                            <div class="l_p_text">
+                                               <ul>
+                                                    <li class="p_icon"><a href="#"><i class="icon_piechart"></i></a></li>
+                                                    <li><a class="add_cart_btn" href="#">Add To Cart</a></li>
+                                                    <li class="p_icon"><a href="#"><i class="icon_heart_alt"></i></a></li>
+                                                </ul>
+                                                <h4>Nike Shoes</h4>
+                                                <h5><del>$130</del> $110</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-sm-6">
+                                        <div class="l_product_item">
+                                            <div class="l_p_img">
+                                                <img src="img/product/c-product-4.jpg" alt="">
+                                                <h5 class="new">New</h5>
+                                            </div>
+                                            <div class="l_p_text">
+                                               <ul>
+                                                    <li class="p_icon"><a href="#"><i class="icon_piechart"></i></a></li>
+                                                    <li><a class="add_cart_btn" href="#">Add To Cart</a></li>
+                                                    <li class="p_icon"><a href="#"><i class="icon_heart_alt"></i></a></li>
+                                                </ul>
+                                                <h4>High Heel</h4>
+                                                <h5><del>$130.50</del>  $110</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-sm-6">
+                                        <div class="l_product_item">
+                                            <div class="l_p_img">
+                                                <img src="img/product/c-product-5.jpg" alt="">
+                                            </div>
+                                            <div class="l_p_text">
+                                               <ul>
+                                                    <li class="p_icon"><a href="#"><i class="icon_piechart"></i></a></li>
+                                                    <li><a class="add_cart_btn" href="#">Add To Cart</a></li>
+                                                    <li class="p_icon"><a href="#"><i class="icon_heart_alt"></i></a></li>
+                                                </ul>
+                                                <h4>Fossil Watch</h4>
+                                                <h5>$250.50</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-sm-6">
+                                        <div class="l_product_item">
+                                            <div class="l_p_img">
+                                                <img src="img/product/c-product-6.jpg" alt="">
+                                                <h5 class="new">New</h5>
+                                            </div>
+                                            <div class="l_p_text">
+                                               <ul>
+                                                    <li class="p_icon"><a href="#"><i class="icon_piechart"></i></a></li>
+                                                    <li><a class="add_cart_btn" href="#">Add To Cart</a></li>
+                                                    <li class="p_icon"><a href="#"><i class="icon_heart_alt"></i></a></li>
+                                                </ul>
+                                                <h4>Ricky Shirt</h4>
+                                                <h5>$45.05</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-sm-6">
+                                        <div class="l_product_item">
+                                            <div class="l_p_img">
+                                                <img src="img/product/c-product-7.jpg" alt="">
+                                                <h5 class="new">New</h5>
+                                            </div>
+                                            <div class="l_p_text">
+                                               <ul>
+                                                    <li class="p_icon"><a href="#"><i class="icon_piechart"></i></a></li>
+                                                    <li><a class="add_cart_btn" href="#">Add To Cart</a></li>
+                                                    <li class="p_icon"><a href="#"><i class="icon_heart_alt"></i></a></li>
+                                                </ul>
+                                                <h4>Nike Max Air Vapor Power</h4>
+                                                <h5>$45.05</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-sm-6">
+                                        <div class="l_product_item">
+                                            <div class="l_p_img">
+                                                <img src="img/product/c-product-8.jpg" alt="">
+                                            </div>
+                                            <div class="l_p_text">
+                                               <ul>
+                                                    <li class="p_icon"><a href="#"><i class="icon_piechart"></i></a></li>
+                                                    <li><a class="add_cart_btn" href="#">Add To Cart</a></li>
+                                                    <li class="p_icon"><a href="#"><i class="icon_heart_alt"></i></a></li>
+                                                </ul>
+                                                <h4>Nike Shoes</h4>
+                                                <h5>$45.05</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-sm-6">
+                                        <div class="l_product_item">
+                                            <div class="l_p_img">
+                                                <img src="img/product/c-product-9.jpg" alt="">
+                                                <h5 class="sale">Sale</h5>
+                                            </div>
+                                            <div class="l_p_text">
+                                               <ul>
+                                                    <li class="p_icon"><a href="#"><i class="icon_piechart"></i></a></li>
+                                                    <li><a class="add_cart_btn" href="#">Add To Cart</a></li>
+                                                    <li class="p_icon"><a href="#"><i class="icon_heart_alt"></i></a></li>
+                                                </ul>
+                                                
+                                                <h4>Summer Dress</h4>
+                                                <h5>$110</h5>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                                 <nav aria-label="Page navigation example" class="pagination_area">
                                   <ul class="pagination">
@@ -261,7 +403,10 @@
         </section>
         <!--================End Categories Product Area =================-->
 
-       <?php include"footer.php" ?>
+    <?php
+    include 'footer.php';
+    ?>
+        
         
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="js/jquery-3.2.1.min.js"></script>
