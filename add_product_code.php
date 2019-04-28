@@ -41,12 +41,18 @@ $price = $_POST['price'];
 $quantity = $_POST['quantity'];
 $created_at = date('Y-m-d H:i:s');
 $id_categorie = $_POST['id_categorie'];
-$slug = "gg-gg";
+$slugOne = explode(" ", $name);
+$slug = "" . $slugOne[0];
+$i = 1;
+while(isset($slugOne[$i])){
+  $slug = $slug .'-'. $slugOne[$i];
+  $i = $i + 1 ;
+}
 //  $id_sous_category = $_POST['id_sous_category'];
 
 
-$sql = "INSERT INTO product (name, brand, caracteristique, description, image, old_price, price, quantity, created_at, slug)
-        VALUES ('{$name}', '{$brand}', '{$caracteristique}', '{$description}', '{$image}', '{$old_price}', '{$price}', '{$quantity}', '{$created_at}','{$slug}')";//, id_categorie, id_sous_category, '{$id_categorie}', '{$id_sous_category}'
+$sql = "INSERT INTO product (id_category ,name, brand, caracteristique, description, image, old_price, price, quantity, created_at, slug)
+        VALUES ('{$id_categorie}' ,'{$name}', '{$brand}', '{$caracteristique}', '{$description}', '{$image}', '{$old_price}', '{$price}', '{$quantity}', '{$created_at}','{$slug}')";//, id_categorie, id_sous_category, '{$id_categorie}', '{$id_sous_category}'
 
 $result = mysqli_query($con, $sql);
 if($result){
