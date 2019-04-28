@@ -156,16 +156,9 @@
                   <select name="id_categorie">
                     <option  disabled selected="selected">Choisir la Categorie</option>
                     <?php
-                    //include_once('connection.php');
-                    $con = mysqli_connect('127.0.0.1:3307','root','');
-                    if(!$con){
-                      echo 'Server NOT CONNECTED';
-                    }
-                    if(!mysqli_select_db($con,'e_comerce')){
-                      echo 'DB NOT CONNECTED';
-                    }
+                    include_once('connection.php');
                     $sql = "SELECT * FROM category;";
-                    $result = mysqli_query($con, $sql);
+                    $result = mysqli_query($conn, $sql);
                     if(mysqli_num_rows($result) > 0){
                       while($row = mysqli_fetch_assoc($result)){
                         $nameCategorie = $row["name"];

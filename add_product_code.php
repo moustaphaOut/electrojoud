@@ -2,7 +2,7 @@
 //Here, we write code for addCourse1.2.
 
 // session_start();
-// require_once('connection.php');
+ require_once('connection.php');
 #---------- Start uploading file ----------
 $target_dir = "img/uploads/";
 $image = $target_dir . basename($_FILES["file"]["name"]);
@@ -22,15 +22,6 @@ $temp = explode(".", $image);
 $newfilename =$_POST['name'] . '.' . end($temp);
 move_uploaded_file($_FILES["file"]["tmp_name"],$image .$newfilename);
 #---------- End uploading file ----------
-// CONNECT TO BD
-$con = mysqli_connect('127.0.0.1:3307','root','');
-if(!$con){
-  echo 'Server NOT CONNECTED';
-}
-if(!mysqli_select_db($con,'e_comerce')){
-  echo 'DB NOT CONNECTED';
-}
-//-------------
 $name = $_POST['name'];
 $brand = $_POST['brand'];
 $caracteristique = $_POST['caracteristique'];
@@ -54,7 +45,7 @@ while(isset($slugOne[$i])){
 $sql = "INSERT INTO product (id_category ,name, brand, caracteristique, description, image, old_price, price, quantity, created_at, slug)
         VALUES ('{$id_categorie}' ,'{$name}', '{$brand}', '{$caracteristique}', '{$description}', '{$image}', '{$old_price}', '{$price}', '{$quantity}', '{$created_at}','{$slug}')";//, id_categorie, id_sous_category, '{$id_categorie}', '{$id_sous_category}'
 
-$result = mysqli_query($con, $sql);
+$result = mysqli_query($conn, $sql);
 if($result){
 
   header("Location: index.php?add=done");
