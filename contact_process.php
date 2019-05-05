@@ -1,37 +1,36 @@
 <?php
+require 'Mail/vendor/autoload.php';
+require 'Mail/class.phpmailer.php';
 
-    $to = "rockybd1995@gmail.com";
-    $from = $_REQUEST['email'];
-    $name = $_REQUEST['name'];
-    $subject = $_REQUEST['subject'];
-    $number = $_REQUEST['number'];
-    $cmessage = $_REQUEST['message'];
+$nom = $_POST['name'];
+$mail = $_POST['email'];
+$message = $_POST['message'];
 
-    $headers = "From: $from";
-	$headers = "From: " . $from . "\r\n";
-	$headers .= "Reply-To: ". $from . "\r\n";
-	$headers .= "MIME-Version: 1.0\r\n";
-	$headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
-
-    $subject = "You have a message from your Creative Agency.";
-
-    $logo = 'http://wethemez.com/test-html/consultplus/img/logo-black.png';
-    $link = '#';
-
-	$body = "<!DOCTYPE html><html lang='en'><head><meta charset='UTF-8'><title>Express Mail</title></head><body>";
-	$body .= "<table style='width: 100%;'>";
-	$body .= "<thead style='text-align: center;'><tr><td style='border:none;' colspan='2'>";
-	$body .= "<a href='{$link}'><img src='{$logo}' alt=''></a><br><br>";
-	$body .= "</td></tr></thead><tbody><tr>";
-	$body .= "<td style='border:none;'><strong>Name:</strong> {$name}</td>";
-	$body .= "<td style='border:none;'><strong>Email:</strong> {$from}</td>";
-	$body .= "</tr>";
-	$body .= "<tr><td style='border:none;'><strong>Subject:</strong> {$csubject}</td></tr>";
-	$body .= "<tr><td></td></tr>";
-	$body .= "<tr><td colspan='2' style='border:none;'>{$cmessage}</td></tr>";
-	$body .= "</tbody></table>";
-	$body .= "</body></html>";
-
-    $send = mail($to, $subject, $body, $headers);
-
-?>
+$mail = new PHPMailer;
+//$mail->SMTPDebug = 3;                               // Enable verbose debug output
+$mail->isSMTP();                                      // Set mailer to use SMTP
+$mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
+$mail->SMTPAuth = true;                               // Enable SMTP authentication
+$mail->Username = 'mohammedelyousfi19@gmail.com';                 // SMTP username
+$mail->Password = 'momo1998papa';                           // SMTP password
+$mail->SMTPSecure = 'ssl';                            // Enable TLS encryption, `ssl` also accepted
+$mail->Port = 465;                                    // TCP port to connect to
+$mail->SMTPDebug = 3;
+$mail->setFrom($mail, $nom);
+$mail->addAddress('mohammedelyousfi19@gmail.com', 'Mohammed');     // Add a recipient
+// $mail->addAddress('ellen@example.com');               // Name is optional
+// $mail->addReplyTo('info@example.com', 'Information');
+// $mail->addCC('cc@example.com');
+// $mail->addBCC('bcc@example.com');
+// $mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
+// $mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
+$mail->isHTML(true);                                  // Set email format to HTML
+$mail->Subject = 'Dear friend';
+$mail->Body    = '<b>'.$message.'</b>';
+$mail->AltBody = 'Hello brother how are you this email is send form phpmailer library its very easy!</';
+if(!$mail->send()) {
+    echo 'Message could not be sent.';
+    echo 'Mailer Error: ' . $mail->ErrorInfo;
+} else {
+    echo 'Message has been sent';
+}
