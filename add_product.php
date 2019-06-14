@@ -42,51 +42,13 @@
   include_once('header.php');
   ?>
 
-  <!--================Categories Banner Area =================-->
-  <section class="categories_banner_area">
-    <div class="container">
-      <div class="c_banner_inner">
-        <h3>shop grid with left sidebar</h3>
-        <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Shop</a></li>
-          <li class="current"><a href="#">Shop Grid with Left Sidebar</a></li>
-        </ul>
-      </div>
-    </div>
-  </section>
-  <!--================End Categories Banner Area =================-->
 
   <!--================Categories Product Area =================-->
   <section class="no_sidebar_2column_area">
     <div class="container">
-      <div class="showing_fillter">
-        <div class="row m0">
-          <div class="first_fillter">
-            <h4>Showing 1 to 12 of 30 total</h4>
-          </div>
-          <div class="secand_fillter">
-            <h4>SORT BY :</h4>
-            <select class="selectpicker">
-              <option>Name</option>
-              <option>Name 2</option>
-              <option>Name 3</option>
-            </select>
-          </div>
-          <div class="third_fillter">
-            <h4>Show : </h4>
-            <select class="selectpicker">
-              <option>09</option>
-              <option>10</option>
-              <option>10</option>
-            </select>
-          </div>
-          <div class="four_fillter">
-            <h4>View</h4>
-            <a class="active" href="#"><i class="icon_grid-2x2"></i></a>
-            <a href="#"><i class="icon_grid-3x3"></i></a>
-          </div>
-        </div>
+      <div class="row row_disable">
+        <?php include_once "menu.php"; ?>
+      <div class="col-lg-9 float-md-right" id="cont">
         <div id="frmRegistration">
           <form class="form-horizontal" action="add_product_code.php" method="POST" enctype="multipart/form-data">
             <br><br>
@@ -181,10 +143,9 @@
             </div>
           </form>
         </div>
-
-
       </div>
-    </div>
+      </div>
+      </div>
   </section>
   <!--================End Categories Product Area =================-->
   <?php include"footer.php" ?>
