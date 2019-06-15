@@ -54,9 +54,14 @@
                             <div class="sidebar_main_content_area">
                                 <div class="advanced_search_area">
                                     <select class="selectpicker">
-                                        <option>All Categories</option>
-                                        <option>All Categories</option>
-                                        <option>All Categories</option>
+                                        <?php
+                                            require_once('connection.php');
+                                            $sql = "SELECT * FROM category";
+                                            $res= mysqli_query($conn,$sql);
+                                            echo"<option value='0'>toutes les categories</option>";
+                                           while($row=mysqli_fetch_array($res)){  
+                                              echo"<option value='".$row[id_category]."'>".$row[name]."</option>"; }
+                                          echo"</select>";?>
                                     </select>
                                     <div class="input-group">
                                         <input type="text" class="form-control" placeholder="Search" aria-label="Search">
@@ -208,16 +213,22 @@
                                 </div>
                                 <div class="fillter_home_sidebar">
                                     <ul class="portfolio_filter">
-                                        <li class="active" data-filter="*"><a href="#">men's</a></li>
-                                        <li data-filter=".woman"><a href="#">Woman</a></li>
-                                        <li data-filter=".shoes"><a href="#">Shoes</a></li>
-                                        <li data-filter=".bags"><a href="#">Bags</a></li>
+                                        <li class="active" data-filter="*"><a href="#">Technology</a></li>
+                                        <li data-filter=".woman"><a href="#">Arduino</a></li>
+                                        <li data-filter=".shoes"><a href="#">rasbery</a></li>
+                                        <li data-filter=".bags"><a href="#">pc</a></li>
                                     </ul>
                                     <div class="home_l_product_slider owl-carousel">
                                         <div class="item woman shoes">
+                                            <?php 
+                                                require_once('connection.php');
+                                                $sql = "SELECT * FROM product limit 3;";
+                                                  $result = mysqli_query($conn, $sql);
+                                                  while ($row = $result->fetch_assoc()):
+                                                ?>
                                             <div class="l_product_item">
                                                 <div class="l_p_img">
-                                                    <img src="img/product/fillter-product/f-product-8.jpg" alt="">
+                                                    <a href="product-details2.php"><img src="<?php echo $row["image"];?>" alt=""></a>
                                                     <h5 class="sale">Sale</h5>
                                                 </div>
                                                 <div class="l_p_text">
@@ -226,30 +237,22 @@
                                                         <li><a class="add_cart_btn" href="#">Add To Cart</a></li>
                                                         <li class="p_icon"><a href="#"><i class="icon_heart_alt"></i></a></li>
                                                     </ul>
-                                                    <h4>Womens Libero</h4>
-                                                    <h5><del>$45.50</del>  $40</h5>
+                                                    <h4><?php echo $row["caracteristique"];?></h4>
+                                                    <h5><del>$45.50</del>  <?php echo $row["price"];?>DH</h5>
                                                 </div>
                                             </div>
-                                            <div class="l_product_item woman bags">
-                                                <div class="l_p_img">
-                                                    <img src="img/product/fillter-product/f-product-11.jpg" alt="">
-                                                    <h5 class="new">New</h5>
-                                                </div>
-                                                <div class="l_p_text">
-                                                   <ul>
-                                                        <li class="p_icon"><a href="#"><i class="icon_piechart"></i></a></li>
-                                                        <li><a class="add_cart_btn" href="#">Add To Cart</a></li>
-                                                        <li class="p_icon"><a href="#"><i class="icon_heart_alt"></i></a></li>
-                                                    </ul>
-                                                    <h4>Oxford Shirt</h4>
-                                                    <h5>$85.50</h5>
-                                                </div>
-                                            </div>
+                                            <?php endwhile;?>
                                         </div>
                                         <div class="item woman bags">
+                                            <?php 
+                                                require_once('connection.php');
+                                                $sql = "SELECT * FROM product limit 3;";
+                                                  $result = mysqli_query($conn, $sql);
+                                                  while ($row = $result->fetch_assoc()):
+                                                ?>
                                             <div class="l_product_item">
                                                 <div class="l_p_img">
-                                                    <img src="img/product/fillter-product/f-product-9.jpg" alt="">
+                                                   <a href="product-details2.php"> <img src="<?php echo $row["image"];?>" alt=""></a>
                                                 </div>
                                                 <div class="l_p_text">
                                                    <ul>
@@ -257,29 +260,22 @@
                                                         <li><a class="add_cart_btn" href="#">Add To Cart</a></li>
                                                         <li class="p_icon"><a href="#"><i class="icon_heart_alt"></i></a></li>
                                                     </ul>
-                                                    <h4>Travel Bags</h4>
-                                                    <h5><del>$45.50</del>  $40</h5>
+                                                    <h4><?php echo $row["caracteristique"];?></h4>
+                                                    <h5><del>$45.50</del>  <?php echo $row["price"];?>DH</h5>
                                                 </div>
                                             </div>
-                                            <div class="l_product_item">
-                                                <div class="l_p_img">
-                                                    <img src="img/product/fillter-product/f-product-12.jpg" alt="">
-                                                </div>
-                                                <div class="l_p_text">
-                                                   <ul>
-                                                        <li class="p_icon"><a href="#"><i class="icon_piechart"></i></a></li>
-                                                        <li><a class="add_cart_btn" href="#">Add To Cart</a></li>
-                                                        <li class="p_icon"><a href="#"><i class="icon_heart_alt"></i></a></li>
-                                                    </ul>
-                                                    <h4>High Heel</h4>
-                                                    <h5><del>$130.50</del>  $110</h5>
-                                                </div>
-                                            </div>
+                                            <?php endwhile;?>
                                         </div>
                                         <div class="item shoes bags">
+                                           <?php 
+                                                require_once('connection.php');
+                                                $sql = "SELECT * FROM product limit 3;";
+                                                  $result = mysqli_query($conn, $sql);
+                                                  while ($row = $result->fetch_assoc()):
+                                                ?>
                                             <div class="l_product_item">
                                                 <div class="l_p_img">
-                                                    <img src="img/product/fillter-product/f-product-10.jpg" alt="">
+                                                    <img src="<?php echo $row["image"];?>" alt="">
                                                     <h5 class="sale">Sale</h5>
                                                 </div>
                                                 <div class="l_p_text">
@@ -288,25 +284,11 @@
                                                         <li><a class="add_cart_btn" href="#">Add To Cart</a></li>
                                                         <li class="p_icon"><a href="#"><i class="icon_heart_alt"></i></a></li>
                                                     </ul>
-                                                    <h4>Summer Dress</h4>
-                                                    <h5>$45.05</h5>
+                                                    <h4><?php echo $row["caracteristique"];?></h4>
+                                                    <h5><?php echo $row["price"];?>DH</h5>
                                                 </div>
                                             </div>
-                                            <div class="l_product_item">
-                                                <div class="l_p_img">
-                                                    <img src="img/product/fillter-product/f-product-13.jpg" alt="">
-                                                    <h5 class="sale">Sale</h5>
-                                                </div>
-                                                <div class="l_p_text">
-                                                   <ul>
-                                                        <li class="p_icon"><a href="#"><i class="icon_piechart"></i></a></li>
-                                                        <li><a class="add_cart_btn" href="#">Add To Cart</a></li>
-                                                        <li class="p_icon"><a href="#"><i class="icon_heart_alt"></i></a></li>
-                                                    </ul>
-                                                    <h4>Fossil Watch</h4>
-                                                    <h5>$250.00</h5>
-                                                </div>
-                                            </div>
+                                            <?php endwhile;?>
                                         </div>
                                     </div>
                                 </div>
@@ -382,94 +364,24 @@
                                             </div>
                                         </div>
                                         <ul class="verticalCarouselGroup vc_list">
+                                            <?php 
+                                            require_once('connection.php');
+                                            $sql = "SELECT * FROM product";
+                                              $result = mysqli_query($conn, $sql);
+                                              while ($row = $result->fetch_assoc()):
+                                            ?>
                                             <li>
                                                 <div class="media">
                                                     <div class="d-flex">
-                                                        <img src="img/product/featured-product/f-p-1.jpg" alt="">
+                                                       <a href="product-details2.php"><img src="<?php echo $row["image"];?>" alt="" style="height: 50px; width: 50px;"></a>
                                                     </div>
                                                     <div class="media-body">
-                                                        <h4>Oxford Shirt</h4>
-                                                        <h5>$45.05</h5>
+                                                        <h4><?php echo $row['caracteristique'];?></h4>
+                                                        <h5><?php echo $row["price"];?>DH</h5>
                                                     </div>
                                                 </div>
                                             </li>
-                                            <li>
-                                                <div class="media">
-                                                    <div class="d-flex">
-                                                        <img src="img/product/featured-product/f-p-2.jpg" alt="">
-                                                    </div>
-                                                    <div class="media-body">
-                                                        <h4>Puffer Jacket</h4>
-                                                        <h5>$45.05</h5>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="media">
-                                                    <div class="d-flex">
-                                                        <img src="img/product/featured-product/f-p-3.jpg" alt="">
-                                                    </div>
-                                                    <div class="media-body">
-                                                        <h4>Leather Bag</h4>
-                                                        <h5>$45.05</h5>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="media">
-                                                    <div class="d-flex">
-                                                        <img src="img/product/featured-product/f-p-4.jpg" alt="">
-                                                    </div>
-                                                    <div class="media-body">
-                                                        <h4>Casual Shoes</h4>
-                                                        <h5>$45.05</h5>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="media">
-                                                    <div class="d-flex">
-                                                        <img src="img/product/featured-product/f-p-1.jpg" alt="">
-                                                    </div>
-                                                    <div class="media-body">
-                                                        <h4>Oxford Shirt</h4>
-                                                        <h5>$45.05</h5>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="media">
-                                                    <div class="d-flex">
-                                                        <img src="img/product/featured-product/f-p-2.jpg" alt="">
-                                                    </div>
-                                                    <div class="media-body">
-                                                        <h4>Puffer Jacket</h4>
-                                                        <h5>$45.05</h5>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="media">
-                                                    <div class="d-flex">
-                                                        <img src="img/product/featured-product/f-p-3.jpg" alt="">
-                                                    </div>
-                                                    <div class="media-body">
-                                                        <h4>Leather Bag</h4>
-                                                        <h5>$45.05</h5>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="media">
-                                                    <div class="d-flex">
-                                                        <img src="img/product/featured-product/f-p-4.jpg" alt="">
-                                                    </div>
-                                                    <div class="media-body">
-                                                        <h4>Casual Shoes</h4>
-                                                        <h5>$45.05</h5>
-                                                    </div>
-                                                </div>
-                                            </li>
+                            <?php endwhile;?>
                                         </ul>
                                     </div>
                                 </aside>

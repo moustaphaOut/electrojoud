@@ -86,150 +86,23 @@
                                     </div>
                                     <div class="four_fillter">
                                         <h4>View</h4>
-                                        <a class="active" href="#"><i class="icon_grid-2x2"></i></a>
-                                        <a href="#"><i class="icon_grid-3x3"></i></a>
+                                        <a  href="categories-grid-left-sidebar.php"><i class="icon_grid-2x2"></i></a>
+                                        <a class="active" href="categories-left-sidebar.php"><i class="icon_grid-3x3"></i></a>
                                     </div>
                                 </div>
                             </div>
                             <div class="categories_product_area">
                                 <div class="row">
+                                 <?php 
+                                    require_once('connection.php');
+                                    $sql = "SELECT * FROM product";
+                                      $result = mysqli_query($conn, $sql);
+                                      while ($row = $result->fetch_assoc()):
+                                    ?>
                                     <div class="col-lg-4 col-sm-6">
                                         <div class="l_product_item">
                                             <div class="l_p_img">
-                                                <img src="img/product/c-product-1.jpg" alt="">
-                                                <h5 class="new">New</h5>
-                                            </div>
-                                            <div class="l_p_text">
-                                               <ul>
-                                                    <li class="p_icon"><a href="#"><i class="icon_piechart"></i></a></li>
-                                                    <li><a class="add_cart_btn" href="#">Add To Cart</a></li>
-                                                    <li class="p_icon"><a href="#"><i class="icon_heart_alt"></i></a></li>
-                                                </ul>
-                                                <h4>Travel Bags</h4>
-                                                <h5><del>$45.50</del>  $40</h5>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-sm-6">
-                                        <div class="l_product_item">
-                                            <div class="l_p_img">
-                                                <img src="img/product/c-product-2.jpg" alt="">
-                                            </div>
-                                            <div class="l_p_text">
-                                               <ul>
-                                                    <li class="p_icon"><a href="#"><i class="icon_piechart"></i></a></li>
-                                                    <li><a class="add_cart_btn" href="#">Add To Cart</a></li>
-                                                    <li class="p_icon"><a href="#"><i class="icon_heart_alt"></i></a></li>
-                                                </ul>
-                                                <h4>Summer Dress</h4>
-                                                <h5>$45.50</h5>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-sm-6">
-                                        <div class="l_product_item">
-                                            <div class="l_p_img">
-                                                <img src="img/product/c-product-3.jpg" alt="">
-                                                <h5 class="new">New</h5>
-                                            </div>
-                                            <div class="l_p_text">
-                                               <ul>
-                                                    <li class="p_icon"><a href="#"><i class="icon_piechart"></i></a></li>
-                                                    <li><a class="add_cart_btn" href="#">Add To Cart</a></li>
-                                                    <li class="p_icon"><a href="#"><i class="icon_heart_alt"></i></a></li>
-                                                </ul>
-                                                <h4>Nike Shoes</h4>
-                                                <h5><del>$130</del> $110</h5>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-sm-6">
-                                        <div class="l_product_item">
-                                            <div class="l_p_img">
-                                                <img src="img/product/c-product-4.jpg" alt="">
-                                                <h5 class="new">New</h5>
-                                            </div>
-                                            <div class="l_p_text">
-                                               <ul>
-                                                    <li class="p_icon"><a href="#"><i class="icon_piechart"></i></a></li>
-                                                    <li><a class="add_cart_btn" href="#">Add To Cart</a></li>
-                                                    <li class="p_icon"><a href="#"><i class="icon_heart_alt"></i></a></li>
-                                                </ul>
-                                                <h4>High Heel</h4>
-                                                <h5><del>$130.50</del>  $110</h5>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-sm-6">
-                                        <div class="l_product_item">
-                                            <div class="l_p_img">
-                                                <img src="img/product/c-product-5.jpg" alt="">
-                                            </div>
-                                            <div class="l_p_text">
-                                               <ul>
-                                                    <li class="p_icon"><a href="#"><i class="icon_piechart"></i></a></li>
-                                                    <li><a class="add_cart_btn" href="#">Add To Cart</a></li>
-                                                    <li class="p_icon"><a href="#"><i class="icon_heart_alt"></i></a></li>
-                                                </ul>
-                                                <h4>Fossil Watch</h4>
-                                                <h5>$250.50</h5>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-sm-6">
-                                        <div class="l_product_item">
-                                            <div class="l_p_img">
-                                                <img src="img/product/c-product-6.jpg" alt="">
-                                                <h5 class="new">New</h5>
-                                            </div>
-                                            <div class="l_p_text">
-                                               <ul>
-                                                    <li class="p_icon"><a href="#"><i class="icon_piechart"></i></a></li>
-                                                    <li><a class="add_cart_btn" href="#">Add To Cart</a></li>
-                                                    <li class="p_icon"><a href="#"><i class="icon_heart_alt"></i></a></li>
-                                                </ul>
-                                                <h4>Ricky Shirt</h4>
-                                                <h5>$45.05</h5>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-sm-6">
-                                        <div class="l_product_item">
-                                            <div class="l_p_img">
-                                                <img src="img/product/c-product-7.jpg" alt="">
-                                                <h5 class="new">New</h5>
-                                            </div>
-                                            <div class="l_p_text">
-                                               <ul>
-                                                    <li class="p_icon"><a href="#"><i class="icon_piechart"></i></a></li>
-                                                    <li><a class="add_cart_btn" href="#">Add To Cart</a></li>
-                                                    <li class="p_icon"><a href="#"><i class="icon_heart_alt"></i></a></li>
-                                                </ul>
-                                                <h4>Nike Max Air Vapor Power</h4>
-                                                <h5>$45.05</h5>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-sm-6">
-                                        <div class="l_product_item">
-                                            <div class="l_p_img">
-                                                <img src="img/product/c-product-8.jpg" alt="">
-                                            </div>
-                                            <div class="l_p_text">
-                                               <ul>
-                                                    <li class="p_icon"><a href="#"><i class="icon_piechart"></i></a></li>
-                                                    <li><a class="add_cart_btn" href="#">Add To Cart</a></li>
-                                                    <li class="p_icon"><a href="#"><i class="icon_heart_alt"></i></a></li>
-                                                </ul>
-                                                <h4>Nike Shoes</h4>
-                                                <h5>$45.05</h5>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-sm-6">
-                                        <div class="l_product_item">
-                                            <div class="l_p_img">
-                                                <img src="img/product/c-product-9.jpg" alt="">
+                                                <a href="product-details2.php"><img src="<?php echo $row["image"];?>" alt=""></a>
                                                 <h5 class="sale">Sale</h5>
                                             </div>
                                             <div class="l_p_text">
@@ -239,11 +112,12 @@
                                                     <li class="p_icon"><a href="#"><i class="icon_heart_alt"></i></a></li>
                                                 </ul>
                                                 
-                                                <h4>Summer Dress</h4>
-                                                <h5>$110</h5>
+                                                <h4><?php echo $row["caracteristique"];?></h4>
+                                                <h5><?php echo $row["price"];?>DH</h5>
                                             </div>
                                         </div>
                                     </div>
+                            <?php endwhile;?>
                                 </div>
                                 <nav aria-label="Page navigation example" class="pagination_area">
                                   <ul class="pagination">
@@ -264,62 +138,26 @@
                                     <div class="l_w_title">
                                         <h3>Categories</h3>
                                     </div>
+                                    <?php 
+                                    require_once('connection.php');
+                                    $sql = "SELECT * FROM category";
+                                      $result = mysqli_query($conn, $sql);
+                                      while ($row = $result->fetch_assoc()):
+                                    ?>
                                     <ul class="navbar-nav">
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">Men’s Fashion
-                                                <i class="icon_plus" aria-hidden="true"></i>
-                                            <i class="icon_minus-06" aria-hidden="true"></i>
-                                            </a>
-                                        </li>
                                         <li class="nav-item dropdown">
                                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            Women’s Fashion
+                                            <?php echo $row['name'];?>
                                             <i class="icon_plus" aria-hidden="true"></i>
                                             <i class="icon_minus-06" aria-hidden="true"></i>
                                             </a>
                                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                                <li class="nav-item"><a class="nav-link" href="#">Hoodies & Sweatshirts</a></li>
-                                                <li class="nav-item"><a class="nav-link" href="#">Jackets & Coats</a></li>
                                                 <li class="nav-item"><a class="nav-link" href="#">Blouses & Shirts</a></li>
                                             </ul>
                                         </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">Phone & Accessories 
-                                                <i class="icon_plus" aria-hidden="true"></i>
-                                            <i class="icon_minus-06" aria-hidden="true"></i>
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">Electronic Appliance
-                                                <i class="icon_plus" aria-hidden="true"></i>
-                                            <i class="icon_minus-06" aria-hidden="true"></i>
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link disabled" href="#">Computer & Networking
-                                                <i class="icon_plus" aria-hidden="true"></i>
-                                                <i class="icon_minus-06" aria-hidden="true"></i>
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link disabled" href="#">TV, Audiio & Gaming
-                                                <i class="icon_plus" aria-hidden="true"></i>
-                                                <i class="icon_minus-06" aria-hidden="true"></i>
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link disabled" href="#">Office Supplies
-                                                <i class="icon_plus" aria-hidden="true"></i>
-                                                <i class="icon_minus-06" aria-hidden="true"></i>
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link disabled" href="#">All Categories
-                                                <i class="icon_plus" aria-hidden="true"></i>
-                                                <i class="icon_minus-06" aria-hidden="true"></i>
-                                            </a>
-                                        </li>
                                     </ul>
+                            <?php endwhile;?>
+
                                 </aside>
                                 <aside class="l_widgest l_fillter_widget">
                                     <div class="l_w_title">

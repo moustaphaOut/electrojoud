@@ -67,43 +67,48 @@
                             <div class="showing_fillter">
                                 <div class="row m0">
                                     <div class="first_fillter">
-                                        <h4>Showing 1 to 12 of 30 total</h4>
+                                        <h4>Afficher 1 sur 12 de 30 total</h4>
                                     </div>
                                     <div class="secand_fillter">
                                         <h4>SORT BY :</h4>
                                         <select class="selectpicker">
-                                            <option>Name</option>
-                                            <option>Name 2</option>
-                                            <option>Name 3</option>
+                                            <option>Prix</option>
+                                            <option>Date</option>
                                         </select>
                                     </div>
                                     <div class="third_fillter">
-                                        <h4>Show : </h4>
+                                        <h4>Afficher : </h4>
                                         <select class="selectpicker">
-                                            <option>09</option>
                                             <option>10</option>
-                                            <option>10</option>
+                                            <option>15</option>
+                                            <option>20</option>
                                         </select>
                                     </div>
                                     <div class="four_fillter">
                                         <h4>View</h4>
-                                        <a class="active" href="#"><i class="icon_grid-2x2"></i></a>
-                                        <a href="#"><i class="icon_grid-3x3"></i></a>
+                                        <a class="active" href="categories-grid-left-sidebar.php"><i class="icon_grid-2x2"></i></a>
+                                        <a href="categories-left-sidebar.php"><i class="icon_grid-3x3"></i></a>
                                     </div>
                                 </div>
                             </div>
                             <div class="c_product_grid_details">
+                                <?php 
+                                require_once('connection.php');
+                                $sql = "SELECT * FROM product";
+                                  $result = mysqli_query($conn, $sql);
+                                  while ($row = $result->fetch_assoc()):
+                                ?>
                                 <div class="c_product_item">
                                     <div class="row">
                                         <div class="col-lg-4 col-md-6">
                                             <div class="c_product_img">
-                                                <img class="img-fluid" src="img/product/l-product-2.jpg" alt="">
+                                                <a href="product-details2.php"><img class="img-fluid" src="<?php echo $row["image"];?>" alt=""></a>
                                             </div>
                                         </div>
                                         <div class="col-lg-8 col-md-6">
                                             <div class="c_product_text">
-                                                <h3>Nike Max Air Vapor Power</h3>
-                                                <h5>$45.05</h5>
+                                                <h3><?php echo $row["caracteristique"];?></h3>
+                                                <h5><?php echo $row["price"];?>DH</h5>
                                                 <ul class="product_rating">
                                                     <li><a href="#"><i class="fa fa-star"></i></a></li>
                                                     <li><a href="#"><i class="fa fa-star"></i></a></li>
@@ -112,103 +117,17 @@
                                                     <li><a href="#"><i class="fa fa-star"></i></a></li>
                                                 </ul>
                                                 <h6>Available In <span>Stock</span></h6>
-                                                <p>Curabitur semper varius lectus sed consequat. Nam accumsan dapibus sem, sed lobortis nisi porta vitae. Ut quam tortor, facilisis nec laoreet consequat, malesuada a massa. Proin pretium tristique leo et imperdiet.</p>
+                                                <p><?php echo $row["description"];?></p>
                                                 <ul class="c_product_btn">
                                                     <li class="p_icon"><a href="#"><i class="icon_piechart"></i></a></li>
-                                                    <li><a class="add_cart_btn" href="#">Add To Cart</a></li>
+                                                    <li><a class="add_cart_btn" href="product-details2.php">Add To Cart</a></li>
                                                     <li class="p_icon"><a href="#"><i class="icon_heart_alt"></i></a></li>
                                                 </ul>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="c_product_item">
-                                    <div class="row">
-                                        <div class="col-lg-4 col-md-6">
-                                            <div class="c_product_img">
-                                                <img class="img-fluid" src="img/product/l-product-4.jpg" alt="">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-8 col-md-6">
-                                            <div class="c_product_text">
-                                                <h3>Max Air Vapor Power</h3>
-                                                <h5>$110.50</h5>
-                                                <ul class="product_rating">
-                                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                </ul>
-                                                <h6>Available In <span>Stock</span></h6>
-                                                <p>Curabitur semper varius lectus sed consequat. Nam accumsan dapibus sem, sed lobortis nisi porta vitae. Ut quam tortor, facilisis nec laoreet consequat, malesuada a massa. Proin pretium tristique leo et imperdiet.</p>
-                                                <ul class="c_product_btn">
-                                                    <li class="p_icon"><a href="#"><i class="icon_piechart"></i></a></li>
-                                                    <li><a class="add_cart_btn" href="#">Add To Cart</a></li>
-                                                    <li class="p_icon"><a href="#"><i class="icon_heart_alt"></i></a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="c_product_item">
-                                    <div class="row">
-                                        <div class="col-lg-4 col-md-6">
-                                            <div class="c_product_img">
-                                                <img class="img-fluid" src="img/product/l-product-7.jpg" alt="">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-8 col-md-6">
-                                            <div class="c_product_text">
-                                                <h3>Fossil Watch</h3>
-                                                <h5>$250</h5>
-                                                <ul class="product_rating">
-                                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                </ul>
-                                                <h6>Available In <span>Stock</span></h6>
-                                                <p>Curabitur semper varius lectus sed consequat. Nam accumsan dapibus sem, sed lobortis nisi porta vitae. Ut quam tortor, facilisis nec laoreet consequat, malesuada a massa. Proin pretium tristique leo et imperdiet.</p>
-                                                <ul class="c_product_btn">
-                                                    <li class="p_icon"><a href="#"><i class="icon_piechart"></i></a></li>
-                                                    <li><a class="add_cart_btn" href="#">Add To Cart</a></li>
-                                                    <li class="p_icon"><a href="#"><i class="icon_heart_alt"></i></a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="c_product_item">
-                                    <div class="row">
-                                        <div class="col-lg-4 col-md-6">
-                                            <div class="c_product_img">
-                                                <img class="img-fluid" src="img/product/l-product-8.jpg" alt="">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-8 col-md-6">
-                                            <div class="c_product_text">
-                                                <h3>Jens T-Shirt</h3>
-                                                <h5>$45.05</h5>
-                                                <ul class="product_rating">
-                                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                </ul>
-                                                <h6>Available In <span>Stock</span></h6>
-                                                <p>Curabitur semper varius lectus sed consequat. Nam accumsan dapibus sem, sed lobortis nisi porta vitae. Ut quam tortor, facilisis nec laoreet consequat, malesuada a massa. Proin pretium tristique leo et imperdiet.</p>
-                                                <ul class="c_product_btn">
-                                                    <li class="p_icon"><a href="#"><i class="icon_piechart"></i></a></li>
-                                                    <li><a class="add_cart_btn" href="#">Add To Cart</a></li>
-                                                    <li class="p_icon"><a href="#"><i class="icon_heart_alt"></i></a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                            <?php endwhile;?>
                                 <nav aria-label="Page navigation example" class="pagination_area">
                                   <ul class="pagination">
                                     <li class="page-item"><a class="page-link" href="#">1</a></li>
@@ -228,62 +147,25 @@
                                     <div class="l_w_title">
                                         <h3>Categories</h3>
                                     </div>
+                                    <?php 
+                                    require_once('connection.php');
+                                    $sql = "SELECT * FROM category";
+                                      $result = mysqli_query($conn, $sql);
+                                      while ($row = $result->fetch_assoc()):
+                                    ?>
                                     <ul class="navbar-nav">
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">Men’s Fashion
-                                                <i class="icon_plus" aria-hidden="true"></i>
-                                            <i class="icon_minus-06" aria-hidden="true"></i>
-                                            </a>
-                                        </li>
                                         <li class="nav-item dropdown">
                                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            Women’s Fashion
+                                            <?php echo $row['name'];?>
                                             <i class="icon_plus" aria-hidden="true"></i>
                                             <i class="icon_minus-06" aria-hidden="true"></i>
                                             </a>
                                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                                <li class="nav-item"><a class="nav-link" href="#">Hoodies & Sweatshirts</a></li>
-                                                <li class="nav-item"><a class="nav-link" href="#">Jackets & Coats</a></li>
                                                 <li class="nav-item"><a class="nav-link" href="#">Blouses & Shirts</a></li>
                                             </ul>
                                         </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">Phone & Accessories 
-                                                <i class="icon_plus" aria-hidden="true"></i>
-                                            <i class="icon_minus-06" aria-hidden="true"></i>
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">Electronic Appliance
-                                                <i class="icon_plus" aria-hidden="true"></i>
-                                            <i class="icon_minus-06" aria-hidden="true"></i>
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link disabled" href="#">Computer & Networking
-                                                <i class="icon_plus" aria-hidden="true"></i>
-                                                <i class="icon_minus-06" aria-hidden="true"></i>
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link disabled" href="#">TV, Audiio & Gaming
-                                                <i class="icon_plus" aria-hidden="true"></i>
-                                                <i class="icon_minus-06" aria-hidden="true"></i>
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link disabled" href="#">Office Supplies
-                                                <i class="icon_plus" aria-hidden="true"></i>
-                                                <i class="icon_minus-06" aria-hidden="true"></i>
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link disabled" href="#">All Categories
-                                                <i class="icon_plus" aria-hidden="true"></i>
-                                                <i class="icon_minus-06" aria-hidden="true"></i>
-                                            </a>
-                                        </li>
                                     </ul>
+                            <?php endwhile;?>
                                 </aside>
                                 <aside class="l_widgest l_fillter_widget">
                                     <div class="l_w_title">
@@ -292,37 +174,6 @@
                                     <div id="slider-range" class="ui_slider"></div>
                                     <label for="amount">Price:</label>
                                     <input type="text" id="amount" readonly>
-                                </aside>
-                                <aside class="l_widgest l_color_widget">
-                                    <div class="l_w_title">
-                                        <h3>Color</h3>
-                                    </div>
-                                    <ul>
-                                        <li><a href="#"></a></li>
-                                        <li><a href="#"></a></li>
-                                        <li><a href="#"></a></li>
-                                        <li><a href="#"></a></li>
-                                        <li><a href="#"></a></li>
-                                        <li><a href="#"></a></li>
-                                        <li><a href="#"></a></li>
-                                        <li><a href="#"></a></li>
-                                        <li><a href="#"></a></li>
-                                        <li><a href="#"></a></li>
-                                        <li><a href="#"></a></li>
-                                        <li><a href="#"></a></li>
-                                        <li><a href="#"></a></li>
-                                        <li><a href="#"></a></li>
-                                        <li><a href="#"></a></li>
-                                        <li><a href="#"></a></li>
-                                        <li><a href="#"></a></li>
-                                        <li><a href="#"></a></li>
-                                        <li><a href="#"></a></li>
-                                        <li><a href="#"></a></li>
-                                        <li><a href="#"></a></li>
-                                        <li><a href="#"></a></li>
-                                        <li><a href="#"></a></li>
-                                        <li><a href="#"></a></li>
-                                    </ul>
                                 </aside>
                                 <aside class="l_widgest l_menufacture_widget">
                                     <div class="l_w_title">

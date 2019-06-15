@@ -66,6 +66,13 @@
                             <div class="table-responsive-md">
                                 <table class="table">
                                     <tbody>
+                                        <?php 
+                                            require_once('connection.php');
+                                            $sql = "SELECT * FROM wishlist join product on (wishlist.product = product.id_product) group by client";
+                                            var_dump($sql);
+                                              $result = mysqli_query($conn, $sql);
+                                              while ($row = $result->fetch_assoc()):
+                                            ?>
                                         <tr>
                                             <th scope="row">
                                                 <img src="img/icon/close-icon.png" alt="">
@@ -73,41 +80,14 @@
                                             <td>
                                                 <div class="media">
                                                     <div class="d-flex">
-                                                        <img src="img/product/cart-product/cart-3.jpg" alt="">
+                                                        <img src="<?php echo $row["image"];?>" alt="" style="height: 150px; width: 150px;">
                                                     </div>
                                                     <div class="media-body">
-                                                        <h4>Round Sunglasses</h4>
+                                                        <h4><?php echo $row["price"];?>DH</h4>
                                                     </div>
                                                 </div>
                                             </td>
-                                            <td><p class="red">$150</p></td>
-                                            <td>
-                                                <div class="quantity">
-                                                    <h6>Quantity</h6>
-                                                    <div class="custom">
-                                                        <button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst ) &amp;&amp; sst > 0 ) result.value--;return false;" class="reduced items-count" type="button"><i class="icon_minus-06"></i></button>
-                                                        <input type="text" name="qty" id="sst" maxlength="12" value="1" title="Quantity:" class="input-text qty">
-                                                        <button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst )) result.value++;return false;" class="increase items-count" type="button"><i class="icon_plus"></i></button>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td><p>$150</p></td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">
-                                                <img src="img/icon/close-icon.png" alt="">
-                                            </th>
-                                            <td>
-                                                <div class="media">
-                                                    <div class="d-flex">
-                                                        <img src="img/product/cart-product/cart-4.jpg" alt="">
-                                                    </div>
-                                                    <div class="media-body">
-                                                        <h4>Adidas Trefoil Black </h4>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td><p class="red">$150</p></td>
+                                            <td><p class="red"><?php echo $row["price"];?>DH</p></td>
                                             <td>
                                                 <div class="quantity">
                                                     <h6>Quantity</h6>
@@ -120,6 +100,7 @@
                                             </td>
                                             <td><p>$250</p></td>
                                         </tr>
+                            <?php endwhile;?>
                                         <tr>
                                             <th scope="row">
                                             </th>
