@@ -24,7 +24,7 @@ $result = mysqli_query($conn, $sql);
   <link href="vendors/elegant-icon/style.css" rel="stylesheet">
   <!-- Bootstrap -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
-
+  <link href="css/update.css" rel="stylesheet">
   <!-- Rev slider css -->
   <link href="vendors/revolution/css/settings.css" rel="stylesheet">
   <link href="vendors/revolution/css/layers.css" rel="stylesheet">
@@ -102,7 +102,7 @@ $result = mysqli_query($conn, $sql);
                       <th><?php echo $price ?></th>
                       <th><?php echo $quantity ?></th>
                       <th>
-                        <a class="btn btn-danger btn-sm" href="supprimer_produit.php?delete=<?php echo $idR; ?>">-</a><a class="btn btn-info btn-sm" href="">*</a>
+                        <a class="btn btn-danger btn-sm" href="supprimer_produit.php?delete=<?php echo $idR; ?>">-</a><a class="btn btn-info btn-sm" class="update_product" id="<?php echo $idR ?>">*</a>
                     <?php endwhile;?>
                   </th>
                 </tr>
@@ -114,6 +114,73 @@ $result = mysqli_query($conn, $sql);
       </div>
     </div>
   </div>
+
+  <!-- POP UP modifier produit-->
+  <div class="cadre-updatematiere" >
+  <div class="content-updatematiere" style="margin-top : 20px;">
+    <div class="x_panel">
+      <div class="x_title">
+        <h2>Modifier Matiere</h2>
+        <div class="clearfix"></div>
+      </div>
+      <div class="x_content">
+        <br>
+        <form class="form-horizontal">
+          <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12">Nom de Matiere
+            </label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              <input type="text" required="required" class="form-control col-md-7 col-xs-12" id="popup_upmatiere_matiere">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Module
+            </label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              <input type="text" name="last-name" required="required" class="form-control col-md-7 col-xs-12" id="popup_upmatiere_module">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12">Filiere</label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              <select class="form-control" id="up_select_filiere">
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Volume Horaire
+            </label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              <input type="number" min="0" name="last-name" required="required" class="form-control col-md-7 col-xs-12" id="popup_upmatiere_vh">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Coefficient
+            </label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              <input type="number" min="0" name="last-name" required="required" class="form-control col-md-7 col-xs-12" id="popup_upmatiere_coeff">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Semestre
+            </label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              <input type="number" min="0" name="last-name" required="required" class="form-control col-md-7 col-xs-12" id="popup_upmatiere_semestre">
+            </div>
+          </div>
+        </form>
+        <div class="ln_solid"></div>
+        <div class="form-group">
+          <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+            <button class="btn btn-primary" type="button" id="cancel-popup-matiere_update">Cancel</button>
+            <button class="btn btn-success" id="submit-popup-matiere_update">Submit</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  <!-- END POP UP modifier produit-->
 </section>
 <!--================End Categories Product Area =================-->
 <?php include"footer.php" ?>
@@ -146,7 +213,7 @@ $result = mysqli_query($conn, $sql);
 <script src="vendors/magnify-popup/jquery.magnific-popup.min.js"></script>
 <script src="vendors/vertical-slider/js/jQuery.verticalCarousel.js"></script>
 <script src="vendors/jquery-ui/jquery-ui.js"></script>
-
+<script src="js/script_update.js"></script>
 <script src="js/theme.js"></script>
 </body>
 </html>
