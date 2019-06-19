@@ -1,0 +1,140 @@
+.right_col{
+  background-color: #F7F7F7;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin-top: 58px;
+}
+.departement{
+  float: left;
+  background-color:	#778899;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 25%;
+  background-color: white;
+  /*border-right: 3px solid black;*/
+  overflow-y: auto;
+}
+.filiere{
+  float: right;
+  background: white;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 75%;
+  overflow-y: auto;
+}
+.unselectable{
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none; /* Standard */
+}
+.departement_name{
+  display: inherit;
+  margin-left: 10px;
+  font-size: 16px;
+  text-transform: capitalize;
+}
+.departement_name-add{
+  display: inherit;
+  margin-left: 10px;
+  font-size: 16px;
+}
+.departement_name:hover , .departement_name-add:hover{
+	cursor: pointer;
+}
+.departement-content{
+  /*background-color: #ddffff;*/
+  line-height: 1.5;
+  border-left: 6px solid #2196F3;
+  padding: 10px;
+  /*background-image: radial-gradient(73% 147%, #EADFDF 59%, #ECE2DF 100%), 
+  radial-gradient(91% 146%, rgba(255,255,255,0.50) 47%, rgba(0,0,0,0.50) 100%);
+  background-blend-mode: screen;*/
+  background-image: linear-gradient(to top, #dfe9f3 0%, white 100%);
+}
+.departement-content-add{
+  background-color: #E0E0F8;
+  line-height: 1.5;
+  border-left: 6px solid black;
+  padding: 10px;
+}
+.cadre-filiere{
+  position:fixed;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,0.7);
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	display: none;
+
+}
+.content-filiere{
+  position:absolute;
+	width: 50%;
+	background-color: white;
+	margin-left: 15px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	display: block;
+	top: 10%;
+	left: 25%;
+  margin-top: 50px;
+}
+.add_matiere_button:hover{
+  cursor: pointer;
+}
+.cadre-addmatiere{
+  position:fixed;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,0.7);
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	display: none;
+}
+.content-matiere{
+  position:absolute;
+	width: 50%;
+	background-color: white;
+	margin-left: 15px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	display: block;
+	top: 10%;
+	left: 25%;
+  margin-top: 50px;
+}
+.update_matiere:hover ,.filiere_name:hover{
+  cursor: pointer;
+}
+.cadre-updatematiere{
+  position:fixed;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,0.7);
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	display: none;
+}
+.content-updatematiere{
+  position:absolute;
+	width: 50%;
+	background-color: white;
+	margin-left: 15px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	display: block;
+	top: 10%;
+	left: 25%;
+  margin-top: 50px;
+}
