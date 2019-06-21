@@ -47,11 +47,11 @@
         <section class="categories_banner_area">
             <div class="container">
                 <div class="c_banner_inner">
-                    <h3>shop grid with left sidebar</h3>
+                    <h3>Produits avec details</h3>
                     <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Shop</a></li>
-                        <li class="current"><a href="#">Shop Grid with Left Sidebar</a></li>
+                        <li><a href="#">Accueil</a></li>
+                        <li><a href="#">Produits</a></li>
+                        <li class="current"><a href="#">Produits avec details</a></li>
                     </ul>
                 </div>
             </div>
@@ -67,10 +67,10 @@
                             <div class="showing_fillter">
                                 <div class="row m0">
                                     <div class="first_fillter">
-                                        <h4>Afficher 1 sur 12 de 30 total</h4>
+                                        <h4>Afficher 1 sur 12 de 30 en totale</h4>
                                     </div>
                                     <div class="secand_fillter">
-                                        <h4>SORT BY :</h4>
+                                        <h4>ORDRE PAR:</h4>
                                         <select class="selectpicker">
                                             <option>Prix</option>
                                             <option>Date</option>
@@ -102,12 +102,12 @@
                                     <div class="row">
                                         <div class="col-lg-4 col-md-6">
                                             <div class="c_product_img">
-                                                <a href="product-details2.php"><img class="img-fluid" src="<?php echo $row["image"];?>" alt=""></a>
+                                                <a href="product-details2.php?id=<?php echo $row["id_product"];?>"><img class="img-fluid" src="<?php echo $row["image"];?>" alt=""></a>
                                             </div>
                                         </div>
                                         <div class="col-lg-8 col-md-6">
                                             <div class="c_product_text">
-                                                <h3><?php echo $row["caracteristique"];?></h3>
+                                                <h3><?php echo $row["name_product"];?></h3>
                                                 <h5><?php echo $row["price"];?>DH</h5>
                                                 <ul class="product_rating">
                                                     <li><a href="#"><i class="fa fa-star"></i></a></li>
@@ -116,12 +116,11 @@
                                                     <li><a href="#"><i class="fa fa-star"></i></a></li>
                                                     <li><a href="#"><i class="fa fa-star"></i></a></li>
                                                 </ul>
-                                                <h6>Available In <span>Stock</span></h6>
+                                                <h6><?php echo $row["quantity"];?> pièces <span>disponibles</span></h6>
                                                 <p><?php echo $row["description"];?></p>
                                                 <ul class="c_product_btn">
-                                                    <li class="p_icon"><a href="#"><i class="icon_piechart"></i></a></li>
-                                                    <li><a class="add_cart_btn" href="product-details2.php">Add To Cart</a></li>
-                                                    <li class="p_icon"><a href="#"><i class="icon_heart_alt"></i></a></li>
+                                                    <li><a id="<?php echo $row["id_product"];?>" class="add_cart_btn" onclick="add_to_cart(this.id)" href="" >Ajouter au panier</a></li>
+                                                    <li class="p_icon"><a href="product-details2.php?id=<?php echo $row["id_product"];?>"><i class="icon_info"></i></a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -166,48 +165,17 @@
                                         </li>
                                     </ul>
                             <?php endwhile;?>
+
                                 </aside>
-                                <aside class="l_widgest l_fillter_widget">
-                                    <div class="l_w_title">
-                                        <h3>Filter section</h3>
-                                    </div>
-                                    <div id="slider-range" class="ui_slider"></div>
-                                    <label for="amount">Price:</label>
-                                    <input type="text" id="amount" readonly>
-                                </aside>
-                                <aside class="l_widgest l_menufacture_widget">
-                                    <div class="l_w_title">
-                                        <h3>Manufacturer</h3>
-                                    </div>
-                                    <ul>
-                                        <li><a href="#">Nigel Cabourn.</a></li>
-                                        <li><a href="#">Cacharel.</a></li>
-                                        <li><a href="#">Calibre (Menswear)</a></li>
-                                        <li><a href="#">Calvin Klein.</a></li>
-                                        <li><a href="#">Camilla and Marc</a></li>
-                                    </ul>
-                                </aside>
-                                <aside class="l_widgest l_feature_widget">
-                                    <div class="l_w_title">
-                                        <h3>Featured Products</h3>
-                                    </div>
-                                    <div class="media">
-                                        <div class="d-flex">
-                                            <img src="img/product/featured-product/f-p-5.jpg" alt="">
-                                        </div>
-                                        <div class="media-body">
-                                            <h4>Jeans with <br /> Frayed Hems</h4>
-                                            <h5>$45.05</h5>
-                                        </div>
-                                    </div>
-                                    <div class="media">
-                                        <div class="d-flex">
-                                            <img src="img/product/featured-product/f-p-6.jpg" alt="">
-                                        </div>
-                                        <div class="media-body">
-                                            <h4>Crysp Denim<br />Montana</h4>
-                                            <h5>$45.05</h5>
-                                        </div>
+                                
+                                <aside class="l_widget l_news_widget">
+                                    <h3>Nouveaux produits ?</h3>
+                                    <p>Inserer votre email pour être informé sur nos nouveaux produits !</p>
+                                    <div class="input-group">
+                                        <input type="email" class="form-control" placeholder="yourmail@domain.com" aria-label="Search for...">
+                                        <span class="input-group-btn">
+                                            <button class="btn btn-secondary subs_btn" type="button">Je veux être informer</button>
+                                        </span>
                                     </div>
                                 </aside>
                             </div>

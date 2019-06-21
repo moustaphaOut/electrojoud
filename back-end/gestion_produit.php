@@ -297,8 +297,8 @@
                     </li>
                     <li>
                       <a class="dropdown-item">
-                        <input id="skuC" onchange="hide_columns('sku',this.id)" type="checkbox" data-toggle="toggle">
-                        <span class="lbl"> sku</span>
+                        <input id="slugC" onchange="hide_columns('slug',this.id)" type="checkbox" data-toggle="toggle">
+                        <span class="lbl"> Slug</span>
                       </a>
                     </li>
                     <li>

@@ -63,38 +63,26 @@
                     <div class="row">
                         <div class="col-lg-7">
                             <div class="billing_details">
-                                <h2 class="reg_title">Billing Detail</h2>
+                                <h2 class="reg_title">Details de client</h2>
                                 <form class="billing_inner row">
                                     <div class="col-lg-12">
                                         <div class="form-group">
-                                            <label for="cun">Country <span>*</span></label>
+                                            <label for="cun">Paye <span>*</span></label>
                                             <select class="selectpicker" id="cun">
-                                                <option>United State America (USA)</option>
-                                                <option>Bangladesh (BAN)</option>
-                                                <option>United State America (USA)</option>
+                                                <option>Maroc</option>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-lg-12">
                                         <div class="form-group">
-                                            <label for="name">First Name <span>*</span></label>
+                                            <label for="name">Prènom <span>*</span></label>
                                             <input type="text" class="form-control" id="name" aria-describedby="name" placeholder="">
                                         </div>
                                     </div>
                                     <div class="col-lg-12">
                                         <div class="form-group">
-                                            <label for="last">Last Name <span>*</span></label>
+                                            <label for="last">Nom <span>*</span></label>
                                             <input type="text" class="form-control" id="last" aria-describedby="last">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <div class="form-group">
-                                            <label for="cname">Company Name <span>*</span></label>
-                                            <select class="selectpicker" id="cname">
-                                                <option>United State America (USA)</option>
-                                                <option>Bangladesh (BAN)</option>
-                                                <option>United State America (USA)</option>
-                                            </select>
                                         </div>
                                     </div>
                                     <div class="col-lg-12">
@@ -106,12 +94,8 @@
                                     </div>
                                     <div class="col-lg-12">
                                         <div class="form-group">
-                                            <label for="ctown">City / Town <span>*</span></label>
-                                            <select class="selectpicker" id="ctown">
-                                                <option>United State America (USA)</option>
-                                                <option>Bangladesh (BAN)</option>
-                                                <option>United State America (USA)</option>
-                                            </select>
+                                            <label for="ctown">Ville <span>*</span></label>
+                                            <input type="text" class="form-control" id="city" aria-describedby="city">
                                         </div>
                                     </div>
                                     <div class="col-lg-12">
@@ -122,56 +106,13 @@
                                     </div>
                                     <div class="col-lg-12">
                                         <div class="form-group">
-                                            <label for="phone">Phone <span>*</span></label>
+                                            <label for="phone">Telephone <span>*</span></label>
                                             <input type="text" class="form-control" id="phone" aria-describedby="phone">
                                         </div>
                                     </div>
                                     <div class="col-lg-12">
                                         <div class="form-group">
-                                            <div class="creat_account">
-                                                <input type="checkbox" id="f-option" name="selector">
-                                                <label for="f-option">Ship to a different address?</label>
-                                                <div class="check"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <div class="form-group">
-                                            <label for="cunt">Country <span>*</span></label>
-                                            <select class="selectpicker" id="cunt">
-                                                <option>United State America (USA)</option>
-                                                <option>Bangladesh (BAN)</option>
-                                                <option>United State America (USA)</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <div class="form-group">
-                                            <label for="name2">First Name <span>*</span></label>
-                                            <input type="text" class="form-control" id="name2" aria-describedby="name2" placeholder="">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <div class="form-group">
-                                            <label for="last2">Last Name <span>*</span></label>
-                                            <input type="text" class="form-control" id="last2" aria-describedby="last2">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <div class="form-group">
-                                            <label for="company">Company Name <span>*</span></label>
-                                            <input type="text" class="form-control" id="company" aria-describedby="company">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <div class="form-group">
-                                            <label for="city">City / Town <span>*</span></label>
-                                            <input type="text" class="form-control" id="city" aria-describedby="city">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <div class="form-group">
-                                            <label for="order">Order Notes <span>*</span></label>
+                                            <label for="order">Notes <span>*</span></label>
                                             <textarea class="form-control" id="order" rows="3"></textarea>
                                         </div>
                                     </div>
@@ -184,12 +125,13 @@
                                 <div class="payment_list">
                                     <div class="price_single_cost">
                                         <?php
+                                    require_once('connection.php');
                                             $sql = "SELECT *, wishlist.quantity*price as tt, wishlist.quantity as qq, sum(wishlist.quantity*price) as sum_tt, wishlist.id_product as id_prod  FROM wishlist join product on (wishlist.id_product = product.id_product) where id_client={$_SESSION['idUser']} group by wishlist.id_product";
                                             //var_dump($sql);
                                               $result = mysqli_query($conn, $sql);
                                               while ($row = $result->fetch_assoc()):
                                             ?>  
-                                        <h5><?php echo $row["name"];?> <span><?php echo $row["price"];?>DH</span></h5>
+                                        <h5><?php echo $row["name_product"];?> <span><?php echo $row["price"];?>DH</span></h5>
                             <?php endwhile;?>
                                         <?php
                                 $sqlt = "SELECT sum(wishlist.quantity*price) as sum_tt FROM wishlist join product on (wishlist.id_product = product.id_product) where id_client={$_SESSION['idUser']};";
@@ -204,14 +146,14 @@
                                             <div class="card-header" role="tab" id="headingOne">
                                                 <h5 class="mb-0">
                                                     <a data-toggle="collapse" href="#collapseOne" role="button" aria-expanded="true" aria-controls="collapseOne">
-                                                    direct bank transfer
+                                                    Payer par WAFACASH
                                                     </a>
                                                 </h5>
                                             </div>
 
                                             <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
                                                 <div class="card-body">
-                                                    Lorem Ipsum is simply dummy text of the print-ing and typesetting industry. Lorem Ipsum has been the industry's. 
+                                                    Garder le recu de wafacash pour justifier votre achats quand vous recevoiez la livraison. 
                                                 </div>
                                             </div>
                                         </div>
@@ -219,7 +161,7 @@
                                             <div class="card-header" role="tab" id="headingTwo">
                                                 <h5 class="mb-0">
                                                     <a class="collapsed" data-toggle="collapse" href="#collapseTwo" role="button" aria-expanded="false" aria-controls="collapseTwo">
-                                                    cheque payment
+                                                    Payment par cart (master cart, visa)
                                                     </a>
                                                 </h5>
                                             </div>
@@ -233,33 +175,19 @@
                                             <div class="card-header" role="tab" id="headingThree">
                                                 <h5 class="mb-0">
                                                     <a class="collapsed" data-toggle="collapse" href="#collapseThree" role="button" aria-expanded="false" aria-controls="collapseThree">
-                                                    cash on delivery
+                                                    cash on livraison
                                                     </a>
                                                 </h5>
                                             </div>
                                             <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree" data-parent="#accordion">
                                                 <div class="card-body">
-                                                    Lorem Ipsum is simply dummy text of the print-ing and typesetting industry. Lorem Ipsum has been the industry's. 
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="card">
-                                            <div class="card-header" role="tab" id="headingfour">
-                                                <h5 class="mb-0">
-                                                    <a class="collapsed" data-toggle="collapse" href="#collapsefour" role="button" aria-expanded="false" aria-controls="collapsefour">
-                                                    paypal
-                                                    </a>
-                                                </h5>
-                                            </div>
-                                            <div id="collapsefour" class="collapse" role="tabpanel" aria-labelledby="headingfour" data-parent="#accordion">
-                                                <div class="card-body">
-                                                    Lorem Ipsum is simply dummy text of the print-ing and typesetting industry. Lorem Ipsum has been the industry's. 
+                                                    Vous dovrais payer surplace quand la commande est livrai. 
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <button type="submit" value="submit" class="btn subs_btn form-control">place order</button>
+                                <button type="submit" value="submit" class="btn subs_btn form-control">terminer l'achat</button>
                             </div>
                         </div>
                     </div>

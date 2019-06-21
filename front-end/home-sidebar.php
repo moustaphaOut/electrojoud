@@ -187,48 +187,22 @@
                                     </div>
                                 </div>
                                 
-                                <div class="promotion_area">
-                                    <div class="feature_inner row m0">
-                                        <div class="left_promotion">
-                                            <div class="f_add_item">
-                                                <div class="f_add_img"><img class="img-fluid" src="img/feature-add/f-add-6.jpg" alt=""></div>
-                                                <div class="f_add_hover">
-                                                    <div class="sale">Sale</div>
-                                                    <h4>Best Summer <br />Collection</h4>
-                                                    <a class="add_btn" href="#">Shop Now <i class="arrow_right"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="right_promotion">
-                                            <div class="f_add_item right_dir">
-                                                <div class="f_add_img"><img class="img-fluid" src="img/feature-add/f-add-7.jpg" alt=""></div>
-                                                <div class="f_add_hover">
-                                                    <div class="off">10% off</div>
-                                                    <h4>Best Summer <br />Collection</h4>
-                                                    <a class="add_btn" href="#">Shop Now <i class="arrow_right"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                                 <div class="fillter_home_sidebar">
                                     <ul class="portfolio_filter">
-                                        <li class="active" data-filter="*"><a href="#">Technology</a></li>
-                                        <li data-filter=".woman"><a href="#">Arduino</a></li>
-                                        <li data-filter=".shoes"><a href="#">rasbery</a></li>
-                                        <li data-filter=".bags"><a href="#">pc</a></li>
+                                        <li class="active" data-filter="*"><a href="#">Nos produits</a></li>
                                     </ul>
-                                    <div class="home_l_product_slider owl-carousel">
-                                        <div class="item woman shoes">
+                                    <div class="categories_product_area">
+                                        <div class="row">
                                             <?php 
                                                 require_once('connection.php');
                                                 $sql = "SELECT * FROM product limit 3;";
                                                   $result = mysqli_query($conn, $sql);
                                                   while ($row = $result->fetch_assoc()):
                                                 ?>
-                                            <div class="l_product_item">
+                                            <div class="col-lg-4 col-sm-6">
+                                        <div class="l_product_item">
                                                 <div class="l_p_img">
-                                                    <a href="product-details2.php"><img src="<?php echo $row["image"];?>" alt=""></a>
+                                                    <a href="product-details2.php"><img src="<?php echo $row["image"];?>" alt="" style="height: 200px; width: 300px;"></a>
                                                     <h5 class="sale">Sale</h5>
                                                 </div>
                                                 <div class="l_p_text">
@@ -237,95 +211,14 @@
                                                         <li><a class="add_cart_btn" href="#">Add To Cart</a></li>
                                                         <li class="p_icon"><a href="#"><i class="icon_heart_alt"></i></a></li>
                                                     </ul>
-                                                    <h4><?php echo $row["caracteristique"];?></h4>
+                                                    <h4><?php echo $row["name_product"];?></h4>
                                                     <h5><del>$45.50</del>  <?php echo $row["price"];?>DH</h5>
                                                 </div>
                                             </div>
-                                            <?php endwhile;?>
-                                        </div>
-                                        <div class="item woman bags">
-                                            <?php 
-                                                require_once('connection.php');
-                                                $sql = "SELECT * FROM product limit 3;";
-                                                  $result = mysqli_query($conn, $sql);
-                                                  while ($row = $result->fetch_assoc()):
-                                                ?>
-                                            <div class="l_product_item">
-                                                <div class="l_p_img">
-                                                   <a href="product-details2.php"> <img src="<?php echo $row["image"];?>" alt=""></a>
-                                                </div>
-                                                <div class="l_p_text">
-                                                   <ul>
-                                                        <li class="p_icon"><a href="#"><i class="icon_piechart"></i></a></li>
-                                                        <li><a class="add_cart_btn" href="#">Add To Cart</a></li>
-                                                        <li class="p_icon"><a href="#"><i class="icon_heart_alt"></i></a></li>
-                                                    </ul>
-                                                    <h4><?php echo $row["caracteristique"];?></h4>
-                                                    <h5><del>$45.50</del>  <?php echo $row["price"];?>DH</h5>
-                                                </div>
                                             </div>
                                             <?php endwhile;?>
                                         </div>
-                                        <div class="item shoes bags">
-                                           <?php 
-                                                require_once('connection.php');
-                                                $sql = "SELECT * FROM product limit 3;";
-                                                  $result = mysqli_query($conn, $sql);
-                                                  while ($row = $result->fetch_assoc()):
-                                                ?>
-                                            <div class="l_product_item">
-                                                <div class="l_p_img">
-                                                    <img src="<?php echo $row["image"];?>" alt="">
-                                                    <h5 class="sale">Sale</h5>
-                                                </div>
-                                                <div class="l_p_text">
-                                                   <ul>
-                                                        <li class="p_icon"><a href="#"><i class="icon_piechart"></i></a></li>
-                                                        <li><a class="add_cart_btn" href="#">Add To Cart</a></li>
-                                                        <li class="p_icon"><a href="#"><i class="icon_heart_alt"></i></a></li>
-                                                    </ul>
-                                                    <h4><?php echo $row["caracteristique"];?></h4>
-                                                    <h5><?php echo $row["price"];?>DH</h5>
-                                                </div>
-                                            </div>
-                                            <?php endwhile;?>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="home_sidebar_blog">
-                                    <h3 class="single_title">From The Blog</h3>
-                                    <div class="row">
-                                        <div class="col-lg-4 col-sm-6">
-                                            <div class="from_blog_item">
-                                                <img class="img-fluid" src="img/blog/from-blog/f-blog-4.jpg" alt="">
-                                                <div class="f_blog_text">
-                                                    <h5>fashion</h5>
-                                                    <p>Neque porro quisquam est qui dolorem ipsum</p>
-                                                    <h6>21.09.2017</h6>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4 col-sm-6">
-                                            <div class="from_blog_item">
-                                                <img class="img-fluid" src="img/blog/from-blog/f-blog-5.jpg" alt="">
-                                                <div class="f_blog_text">
-                                                    <h5>fashion</h5>
-                                                    <p>Neque porro quisquam est qui dolorem ipsum</p>
-                                                    <h6>21.09.2017</h6>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4 col-sm-6">
-                                            <div class="from_blog_item">
-                                                <img class="img-fluid" src="img/blog/from-blog/f-blog-6.jpg" alt="">
-                                                <div class="f_blog_text">
-                                                    <h5>fashion</h5>
-                                                    <p>Neque porro quisquam est qui dolorem ipsum</p>
-                                                    <h6>21.09.2017</h6>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        
                                     </div>
                                 </div>
                                 
@@ -348,58 +241,17 @@
                                         <li><a href="#">Lookbook</a></li>
                                     </ul>
                                 </aside>
-                                <aside class="l_widget l_supper_widget">
-                                    <img class="img-fluid" src="img/supper-add-1.jpg" alt="">
-                                    <h4>Super Summer Collection</h4>
-                                </aside>
-                                <aside class="l_widget l_feature_widget">
-                                    <div class="verticalCarousel">
-                                        <div class="verticalCarouselHeader">
-                                            <div class="float-md-left">
-                                                <h3>Featured Products</h3>
-                                            </div>
-                                            <div class="float-md-right">
-                                                <a href="#" class="vc_goUp"><i class="arrow_carrot-left"></i></a>
-                                                <a href="#" class="vc_goDown"><i class="arrow_carrot-right"></i></a>
-                                            </div>
-                                        </div>
-                                        <ul class="verticalCarouselGroup vc_list">
-                                            <?php 
-                                            require_once('connection.php');
-                                            $sql = "SELECT * FROM product";
-                                              $result = mysqli_query($conn, $sql);
-                                              while ($row = $result->fetch_assoc()):
-                                            ?>
-                                            <li>
-                                                <div class="media">
-                                                    <div class="d-flex">
-                                                       <a href="product-details2.php"><img src="<?php echo $row["image"];?>" alt="" style="height: 50px; width: 50px;"></a>
-                                                    </div>
-                                                    <div class="media-body">
-                                                        <h4><?php echo $row['caracteristique'];?></h4>
-                                                        <h5><?php echo $row["price"];?>DH</h5>
-                                                    </div>
-                                                </div>
-                                            </li>
-                            <?php endwhile;?>
-                                        </ul>
-                                    </div>
-                                </aside>
                                 <aside class="l_widget l_news_widget">
-                                    <h3>newsletter</h3>
-                                    <p>Sign up for our Newsletter !</p>
+                                    <h3>Nouveaux produits ?</h3>
+                                    <p>Inserer votre email pour être informé sur nos nouveaux produits !</p>
                                     <div class="input-group">
                                         <input type="email" class="form-control" placeholder="yourmail@domain.com" aria-label="Search for...">
                                         <span class="input-group-btn">
-                                            <button class="btn btn-secondary subs_btn" type="button">Subscribe</button>
+                                            <button class="btn btn-secondary subs_btn" type="button">Je veux être informer</button>
                                         </span>
                                     </div>
                                 </aside>
-                                <aside class="l_widget l_hot_widget">
-                                    <h3>Summer Hot Sale</h3>
-                                    <p>Premium 700 Product , Titles and Content Ideas</p>
-                                    <a class="discover_btn" href="#">shop now</a>
-                                </aside>
+                                
                             </div>
                         </div>
                     </div>

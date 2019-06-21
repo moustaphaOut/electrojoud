@@ -51,7 +51,7 @@
 }
 .c_banner_inner{
     text-align: center;
-    padding : 170px 0px;
+    
     h3{
         color: #fff;
         font-size: 24px;

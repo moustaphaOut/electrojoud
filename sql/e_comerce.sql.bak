@@ -33,7 +33,7 @@ use e_comerce;
 
 CREATE TABLE `adress` (
   `id_adress` int(11) NOT NULL,
-  `id_client` int(11) DEFAULT NULL,
+  `client` int(11) DEFAULT NULL,
   `adresse` varchar(50) DEFAULT NULL,
   `city` varchar(20) DEFAULT NULL,
   `postcode` varchar(10) DEFAULT NULL
@@ -266,7 +266,7 @@ CREATE TABLE `wishlist` (
 --
 ALTER TABLE `adress`
   ADD PRIMARY KEY (`id_adress`),
-  ADD KEY `client` (`id_client`);
+  ADD KEY `client` (`client`);
 
 --
 -- Index pour la table `cartline`
@@ -464,7 +464,7 @@ ALTER TABLE `wishlist`
 -- Contraintes pour la table `adress`
 --
 ALTER TABLE `adress`
-  ADD CONSTRAINT `adress_ibfk_1` FOREIGN KEY (`id_client`) REFERENCES `client` (`id_client`);
+  ADD CONSTRAINT `adress_ibfk_1` FOREIGN KEY (`client`) REFERENCES `client` (`id_client`);
 
 --
 -- Contraintes pour la table `cartline`

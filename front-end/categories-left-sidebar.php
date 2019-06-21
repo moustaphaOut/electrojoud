@@ -44,13 +44,13 @@
 
     <!--================Categories Banner Area =================-->
         <section class="categories_banner_area">
-            <div class="container">
+            <div class="container" style="padding:0px;">
                 <div class="c_banner_inner">
-                    <h3>shop grid with left sidebar</h3>
+                    <h3>Produits listes</h3>
                     <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Shop</a></li>
-                        <li class="current"><a href="#">Shop Grid with Left Sidebar</a></li>
+                        <li><a href="#">Accueil</a></li>
+                        <li><a href="#">Produits</a></li>
+                        <li class="current"><a href="#">Produits listes</a></li>
                     </ul>
                 </div>
             </div>
@@ -95,24 +95,23 @@
                                 <div class="row">
                                  <?php 
                                     require_once('connection.php');
-                                    $sql = "SELECT * FROM product";
+                                    $sql = "SELECT * FROM product limit 4;";
                                       $result = mysqli_query($conn, $sql);
                                       while ($row = $result->fetch_assoc()):
                                     ?>
                                     <div class="col-lg-4 col-sm-6">
                                         <div class="l_product_item">
                                             <div class="l_p_img">
-                                                <a href="product-details2.php"><img src="<?php echo $row["image"];?>" alt=""></a>
+                                                <a href="product-details2.php?id=<?php echo $row["id_product"];?>"><img src="<?php echo $row["image"];?>" alt="" style="height: 200px; width: 300px;"></a>
                                                 <h5 class="sale">Sale</h5>
                                             </div>
                                             <div class="l_p_text">
-                                               <ul>
-                                                    <li class="p_icon"><a href="#"><i class="icon_piechart"></i></a></li>
-                                                    <li><a id="<?php echo $row["id_product"];?>" class="add_cart_btn" onclick="add_to_cart(this.id)">Add To Cart</a></li>
-                                                    <li class="p_icon"><a href="#"><i class="icon_heart_alt"></i></a></li>
+                                               <ul class="c_product_btn">
+                                                    <li><a id="<?php echo $row["id_product"];?>" class="add_cart_btn" onclick="add_to_cart(this.id)">Ajouter au panier</a></li>
+                                                    <li class="p_icon"><a href="product-details2.php?id=<?php echo $row["id_product"];?>"><i class="icon_info"></i></a></li>
                                                 </ul>
                                                 
-                                                <h4><?php echo $row["caracteristique"];?></h4>
+                                                <h4><?php echo $row["name_product"];?></h4>
                                                 <h5><?php echo $row["price"];?>DH</h5>
                                             </div>
                                         </div>
@@ -159,78 +158,16 @@
                             <?php endwhile;?>
 
                                 </aside>
-                                <aside class="l_widgest l_fillter_widget">
-                                    <div class="l_w_title">
-                                        <h3>Filter section</h3>
-                                    </div>
-                                    <div id="slider-range" class="ui_slider"></div>
-                                    <label for="amount">Price:</label>
-                                    <input type="text" id="amount" readonly>
-                                </aside>
-                                <aside class="l_widgest l_color_widget">
-                                    <div class="l_w_title">
-                                        <h3>Color</h3>
-                                    </div>
-                                    <ul>
-                                        <li><a href="#"></a></li>
-                                        <li><a href="#"></a></li>
-                                        <li><a href="#"></a></li>
-                                        <li><a href="#"></a></li>
-                                        <li><a href="#"></a></li>
-                                        <li><a href="#"></a></li>
-                                        <li><a href="#"></a></li>
-                                        <li><a href="#"></a></li>
-                                        <li><a href="#"></a></li>
-                                        <li><a href="#"></a></li>
-                                        <li><a href="#"></a></li>
-                                        <li><a href="#"></a></li>
-                                        <li><a href="#"></a></li>
-                                        <li><a href="#"></a></li>
-                                        <li><a href="#"></a></li>
-                                        <li><a href="#"></a></li>
-                                        <li><a href="#"></a></li>
-                                        <li><a href="#"></a></li>
-                                        <li><a href="#"></a></li>
-                                        <li><a href="#"></a></li>
-                                        <li><a href="#"></a></li>
-                                        <li><a href="#"></a></li>
-                                        <li><a href="#"></a></li>
-                                        <li><a href="#"></a></li>
-                                    </ul>
-                                </aside>
-                                <aside class="l_widgest l_menufacture_widget">
-                                    <div class="l_w_title">
-                                        <h3>Manufacturer</h3>
-                                    </div>
-                                    <ul>
-                                        <li><a href="#">Nigel Cabourn.</a></li>
-                                        <li><a href="#">Cacharel.</a></li>
-                                        <li><a href="#">Calibre (Menswear)</a></li>
-                                        <li><a href="#">Calvin Klein.</a></li>
-                                        <li><a href="#">Camilla and Marc</a></li>
-                                    </ul>
-                                </aside>
-                                <aside class="l_widgest l_feature_widget">
-                                    <div class="l_w_title">
-                                        <h3>Featured Products</h3>
-                                    </div>
-                                    <div class="media">
-                                        <div class="d-flex">
-                                            <img src="img/product/featured-product/f-p-5.jpg" alt="">
-                                        </div>
-                                        <div class="media-body">
-                                            <h4>Jeans with <br /> Frayed Hems</h4>
-                                            <h5>$45.05</h5>
-                                        </div>
-                                    </div>
-                                    <div class="media">
-                                        <div class="d-flex">
-                                            <img src="img/product/featured-product/f-p-6.jpg" alt="">
-                                        </div>
-                                        <div class="media-body">
-                                            <h4>Crysp Denim<br />Montana</h4>
-                                            <h5>$45.05</h5>
-                                        </div>
+                                
+                                
+                                <aside class="l_widget l_news_widget">
+                                    <h3>Nouveaux produits ?</h3>
+                                    <p>Inserer votre email pour être informé sur nos nouveaux produits !</p>
+                                    <div class="input-group">
+                                        <input type="email" class="form-control" placeholder="yourmail@domain.com" aria-label="Search for...">
+                                        <span class="input-group-btn">
+                                            <button class="btn btn-secondary subs_btn" type="button">Je veux être informer</button>
+                                        </span>
                                     </div>
                                 </aside>
                             </div>

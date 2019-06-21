@@ -229,7 +229,7 @@
               $requtte = "SELECT * from product where id_product={$_GET['edit']};";
               $result = mysqli_query($conn, $requtte);
               $row = mysqli_fetch_array($result);
-              $name = $row["name"];
+              $name = $row["name_product"];
               $brand = $row["brand"];
               $description = $row["description"];
               $caracteristique = $row["caracteristique"];
@@ -306,7 +306,7 @@
                 <div class="col-sm-6">
                   <div class="col-sm-6">
                     <select name="id_categorie">
-                      <option  disabled selected="selected">Choisir la Categorie</option>
+                      <option  value="0" disabled selected="selected">Choisir la Categorie</option>
                       <?php
                       include_once('connection.php');
                       $sql = "SELECT * FROM category;";

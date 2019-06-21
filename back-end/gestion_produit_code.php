@@ -2,7 +2,7 @@
 require_once('connection.php');
 
 if(isset($_GET["t"]) && $_GET["t"] == 'delete') {
-  $sql = "DELETE from product where id_product = {$_GET["id"]}";
+  $sql = "DELETE from product where id_product = {$_GET["id"]};";
   var_dump($sql);
   $result = mysqli_query($conn, $sql);
   if(!$result)
@@ -26,7 +26,7 @@ if(isset($_GET["t"]) && $_GET["t"] == 'afficher') {
 				<th class='meta_keywords'>meta_keywords</th>
 				<th class='price'>old_price / price</th>
 				<th class='quantity'>quantity</th>
-				<th class='sku'>sku / slug</th>
+				<th class='slug'>Slug</th>
 				<th class='category'>Category-sous_category</th>
 				<th>Action</th>
 			</tr>
@@ -36,7 +36,7 @@ if(isset($_GET["t"]) && $_GET["t"] == 'afficher') {
 			$result = mysqli_query($conn, $requtte);
 			while ($row = $result->fetch_assoc()):
 			echo "<tr>
-				<td class='brand'>".$row['brand'].': '.$row['name']."</td>
+				<td class='brand'>".$row['brand'].': '.$row['name_product']."</td>
 				<td class='caracteristique'>".$row['caracteristique']."</td>
 				<td class='description'>".$row['description']."</td>
 				<td class='image'>".$row['image']."</td>
@@ -45,7 +45,7 @@ if(isset($_GET["t"]) && $_GET["t"] == 'afficher') {
 				<td class='meta_keywords'>".$row['meta_keywords']."</td>
 				<td class='price'>".$row['old_price'].' / '.$row['price']."</td>
 				<td class='quantity'>".$row['quantity']."</td>
-				<td class='sku'>".$row['sku'].' / '.$row['slug']."</td>
+				<td class='slug'>".$row['slug']."</td>
 				<td class='category'>".$row['id_category'].'-'.$row['id_sous_category']."</td>
 				<td>
 					<div  id='".$row['id_product']."' onclick='delet(this.id)' style='cursor: pointer;'>
