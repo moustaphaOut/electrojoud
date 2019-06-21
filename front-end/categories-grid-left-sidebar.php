@@ -109,13 +109,7 @@
                                             <div class="c_product_text">
                                                 <h3><?php echo $row["name_product"];?></h3>
                                                 <h5><?php echo $row["price"];?>DH</h5>
-                                                <ul class="product_rating">
-                                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                </ul>
+                                                
                                                 <h6><?php echo $row["quantity"];?> pièces <span>disponibles</span></h6>
                                                 <p><?php echo $row["description"];?></p>
                                                 <ul class="c_product_btn">
