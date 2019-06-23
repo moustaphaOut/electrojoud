@@ -295,6 +295,29 @@
     </div>
   </div>
   <!-- POP UP END-->
+  <!-- POP UP START Updaye-->
+  <div class="update_cat_model">
+    <div class="card mb-4 update_cat_model_sus">
+      <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Modifier Categorie</h6>
+      </div>
+      <div class="card-body">
+        Nom Du Categorie
+        <input type="email" class="form-control form-control-user" id="up_category" aria-describedby="emailHelp" style="width: 60%; display: inline-block;margin-left: 130px;">
+        <br><br>
+        <div  style="float: right; margin-right: 36px;">
+          <a href="#" class="btn btn-primary btn-icon-split" id="modifier_add_popup" style="width: 200px;">
+            <span class="text"> Modifier </span>
+          </a>
+          <a href="#" class="btn btn-secondary btn-icon-split" id="annuler_up_add_popup" style="width: 200px;">
+            <span class="text"> Annuler </span>
+          </a>
+        </div> 
+        <br><br>
+      </div>
+    </div>
+  </div>
+  <!-- POP UP END-->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <!-- Core plugin JavaScript-->
