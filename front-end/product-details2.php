@@ -69,11 +69,11 @@
                             $result = mysqli_query($conn, $sql);
                             $row = mysqli_fetch_array($result);
                             $name_product = $row["name_product"];
-                            $quantity = $row["quantity"];
-                            $price = $row["price"];
-                            $description = $row["description"];
-                            $caracteristique = $row["caracteristique"];
-                            $image = $row["image"];
+                            $quantity = $row["quantity_product"];
+                            $price = $row["price_product"];
+                            $description = $row["description_product"];
+                            $caracteristique = $row["caracteristique_product"];
+                            $image = $row["image_product"];
                             ?>
                             <div id="product_slider2" class="rev_slider" data-version="5.3.1.6">
                                 <ul>	<!-- SLIDE  -->
@@ -184,14 +184,14 @@
                     <div class="row">
                          <?php 
                                     require_once('connection.php');
-                                    $sql = "SELECT * FROM product";
+                                    $sql = "SELECT * FROM product where is_active=1;";
                                       $result = mysqli_query($conn, $sql);
                                       while ($row = $result->fetch_assoc()):
                                     ?>
                         <div class="col-lg-3 col-sm-6">
                             <div class="l_product_item">
                                 <div class="l_p_img">
-                                    <img class="img-fluid" src="<?php echo $row["image"];?>" alt="" style="height: 200px; width: 300px;">
+                                    <img class="img-fluid" src="<?php echo $row["image_product"];?>" alt="" style="height: 200px; width: 300px;">
                                 </div>
                                 <div class="l_p_text">
                                    <ul>
@@ -199,7 +199,7 @@
                                         <li class="p_icon"><a href="product-details2.php?id=<?php echo $row["id_product"];?>"><i class="icon_info"></i></a></li>
                                     </ul>
                                     <h4><?php echo $row["name_product"];?></h4>
-                                    <h5><?php echo $row["price"];?>DH</h5>
+                                    <h5><?php echo $row["price_product"];?>DH</h5>
                                 </div>
                             </div>
                         </div>

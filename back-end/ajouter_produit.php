@@ -230,14 +230,14 @@
               $result = mysqli_query($conn, $requtte);
               $row = mysqli_fetch_array($result);
               $name = $row["name_product"];
-              $brand = $row["brand"];
-              $description = $row["description"];
-              $caracteristique = $row["caracteristique"];
-              $old_price = $row["old_price"];
-              $price = $row["price"];
-              $quantity = $row["quantity"];
+              $brand = $row["brand_product"];
+              $description = $row["description_product"];
+              $caracteristique = $row["caracteristique_product"];
+              $old_price = $row["old_price_product"];
+              $price = $row["price_product"];
+              $quantity = $row["quantity_product"];
               $is_active = $row["is_active"];
-              $image = $row["image"];
+              $image = $row["image_product"];
               $id_category = $row["id_category"];
               }?>
             <form class="form-horizontal" action="add_product_code.php" method="POST" enctype="multipart/form-data">
@@ -309,11 +309,11 @@
                       <option  value="0" disabled selected="selected">Choisir la Categorie</option>
                       <?php
                       include_once('connection.php');
-                      $sql = "SELECT * FROM category;";
+                      $sql = "SELECT * FROM category where id_sous_category is null;";
                       $result = mysqli_query($conn, $sql);
                       if(mysqli_num_rows($result) > 0){
                         while($row = mysqli_fetch_assoc($result)){
-                          $nameCategorie = $row["name"];
+                          $nameCategorie = $row["name_category"];
                           $idCategorie = $row["id_category"];
                           ?>
                           <option value="<?php echo $idCategorie;?>"><?php echo $nameCategorie;?></option>

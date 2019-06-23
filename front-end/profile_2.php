@@ -67,59 +67,75 @@ if(isset($_GET['idRow'])){
                             </div>
 
                             <!-- end of skills -->
-<?php 
-    $query = "SELECT * FROM client WHERE e_mail_client='m.el_youssfi@mundiapolis.ma'";
-    $result = mysqli_query($conn, $query);
-    $row = mysqli_fetch_array($result);
-    $nom = $row['nom_client'];
-    $prenom = $row['prenom_client'];
-    $email = $row['e_mail_client'];
-    $password = $row['password_client'];
-    $image = $row['image_client'];
-    $phone = $row['telephone_client'];
-    $adresse = $row['adresse_client'];
-    $idR = $row['id_client'];
-?>
+                            <?php 
+                                $query = "SELECT * FROM client where id_client={$_SESSION['idUser']};";
+                                var_dump($query);
+                                $result = mysqli_query($conn, $query);
+                                $row = mysqli_fetch_array($result);
+                                $idR = $row['id_client'];
+                                $nom = $row['nom_client'];
+                                $prenom = $row['prenom_client'];
+                                $email = $row['email_client'];
+                                $password = $row['password_client'];
+                                $image = $row['image_client'];
+                                $phone = $row['telephone_client'];
+                                $query2 = "SELECT * FROM adress where id_client={$_SESSION['idUser']};";
+                                $result2 = mysqli_query($conn, $query2);
+                                $row2 = mysqli_fetch_array($result2);
+                                $adresse = $row2['adresse'];
+                                $city = $row2['city'];
+                                $postcode = $row2['postcode'];
+                            ?>
 
                         </div>
                         <div class="col-md-9 col-sm-9 col-xs-12">
                         <div class="row">
                     <div class="col-sm-6 col-md-4">
-                        <img src="<?php echo $image ?>" alt="" class="img-rounded img-responsive" />
+                        <img src="<?php echo $image ?>" alt="" class="img-rounded img-responsive" style="height: 250px; width: 250px;"/>
                     </div>
 
                         <div class="col-sm-6 col-md-8">
 
                             <h3><?php echo $nom.' '.$prenom ?></h3>
 
-                            <cite title="San Francisco, USA"><?php echo $adresse ?> <i class="glyphicon glyphicon-map-marker">
-                        </i></cite>
-                        <p>
-                            <i class="glyphicon glyphicon-envelope"></i><?php echo $email ?>
-                            <br />
-                            <i class="glyphicon glyphicon-globe"></i><?php echo $phone ?>
-                            <br />
-                            <i class="glyphicon glyphicon-gift"></i></p>
+                            
+                            <p>
+                                <i class="glyphicon glyphicon-envelope"></i><b>Email:</b> <?php echo $email ?>
+                                <br />
+                                <i class="glyphicon glyphicon-globe"></i><b>Phone number:</b> <?php echo $phone ?>
+                                <br />
+                                <i class="glyphicon glyphicon-gift"></i>
+                            </p>
+                            <cite title="San Francisco, USA">
+                                <i class="glyphicon glyphicon-map-marker"><b>Adresse:</b> <?php echo $adresse;?></i><br>
+                                <i class="glyphicon glyphicon-map-marker"><b>City:</b> <?php echo $city;?></i><br>
+                                <i class="glyphicon glyphicon-map-marker"><b>Postcode:</b> <?php echo $postcode;?></i><br>
+                            </cite>
 
-                            <a class="btn btn-info" href="profile_2.php?idRow=<?php echo $idR; ?>"><i class="fa fa-edit m-right-xs"></i>Editer Profile</a>
+                            <a class="btn btn-info btn-sm" href="profile_2.php?idRow=<?php echo $idR; ?>"><i class="fa fa-edit m-right-xs"></i>Editer Profile</a>
                             <br />
                         
                             <?php 
 
                             if(!empty($idRow)):
                             
-                                $query = "SELECT * FROM client WHERE id_client={$idRow}";
+                                $query = "SELECT * FROM client where id_client={$idRow}";
                                 //var_dump($query);
                                 $resultat = mysqli_query($conn, $query);
                                 $row1 = mysqli_fetch_array($resultat);
+                                $idR = $row1['id_client'];
                                 $nom = $row1['nom_client'];
                                 $prenom = $row1['prenom_client'];
-                                $email = $row1['e_mail_client'];
+                                $email = $row1['email_client'];
                                 $password = $row1['password_client'];
                                 $image = $row1['image_client'];
                                 $phone = $row1['telephone_client'];
-                                $adresse = $row1['adresse_client'];
-                                $idR = $row1['id_client'];
+                                $query2 = "SELECT * FROM adress where id_client={$_SESSION['idUser']};";
+                                $result2 = mysqli_query($conn, $query2);
+                                $row2 = mysqli_fetch_array($result2);
+                                $adresse = $row2['adresse'];
+                                $city = $row2['city'];
+                                $postcode = $row2['postcode'];
 
                                 ?>
                                 <div class="row justify-content-center">
@@ -131,18 +147,18 @@ if(isset($_GET['idRow'])){
                                             </div>
                                             <div hidden>
                                                 <i>id</i>
-                                                <input value="<?php echo $idR ?>" name="id" type="text"class="form-control validate" >
+                                                <input value="<?php echo $idR ?>" name="id" type="text" class="form-control validate" >
                                             </div>
                                             <br>
                                             <i>Prenom</i>
                                             <input value="<?php echo $prenom ?>" name="prenom" type="text"
-                                                   class="form-control validate"><br>
+                                                   class="form-control validate" required><br>
                                             <i>Nom</i>
                                             <input value="<?php echo $nom ?>" name="nom" type="text"
-                                                   class="form-control validate"><br>
+                                                   class="form-control validate" required><br>
                                             <i>Email</i>
                                             <input value="<?php echo $email ?>" name="mail" type="email"
-                                                   class="form-control validate"><br>
+                                                   class="form-control validate" required><br>
                                             <i>Password</i>
                                             <input value="<?php echo $password ?>" name="password" type="password"
                                                    class="form-control validate"><br>
@@ -152,11 +168,17 @@ if(isset($_GET['idRow'])){
                                             <i>Adresse</i>
                                             <input value="<?php echo $adresse ?>" name="adress" type="text"
                                                    class="form-control validate"><br>
+                                            <i>city</i>
+                                            <input value="<?php echo $city ?>" name="city" type="text"
+                                                   class="form-control validate"><br>
+                                            <i>postcode</i>
+                                            <input value="<?php echo $postcode ?>" name="postcode" type="text"
+                                                   class="form-control validate"><br>
                                             <i>image</i>
                                             <input value="<?php echo $image;?>" name="file" type="file"
                                                    class="form-control validate"><br>        
                                             <i></i>
-                                            <input type="submit" value="Confirmer" class="btn sbtn-info"
+                                            <input type="submit" value="Confirmer" class="btn btn-info"
                                                    class="fa fa-edit m-right-xs" align="right">
                                         </form>
                                     </div>
@@ -168,7 +190,7 @@ if(isset($_GET['idRow'])){
             </div>
       </div>
       <!-- End of Main Content -->
-
+<br>
     <?php
     include 'footer.php';
     ?>

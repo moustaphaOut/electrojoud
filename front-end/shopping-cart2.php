@@ -1,5 +1,6 @@
 <?php
     require_once('connection.php');
+    //session_start();
     ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -70,7 +71,7 @@
                                 <table class="table">
                                     <tbody>
                                         <?php
-                                            $sql = "SELECT *, wishlist.quantity*price as tt, wishlist.quantity as qq, sum(wishlist.quantity*price) as sum_tt, wishlist.id_product as id_prod  FROM wishlist join product on (wishlist.id_product = product.id_product) where id_client={$_SESSION['idUser']} group by wishlist.id_product";
+                                            $sql = "SELECT *, quantity_wishlist*price_product as tt, sum(quantity_wishlist*price_product) as sum_tt, wishlist.id_product as id_prod FROM wishlist join product on (wishlist.id_product = product.id_product) where id_client={$_SESSION['idUser']} group by wishlist.id_product;";
                                             //var_dump($sql);
                                               $result = mysqli_query($conn, $sql);
                                               while ($row = $result->fetch_assoc()):
@@ -84,20 +85,20 @@
                                             <td>
                                                 <div class="media">
                                                     <div class="d-flex">
-                                                        <img src="<?php echo $row["image"];?>" alt="" style="height: 150px; width: 150px;">
+                                                        <img src="<?php echo $row["image_product"];?>" alt="" style="height: 150px; width: 150px;">
                                                     </div>
                                                     <div class="media-body">
                                                         <h4><?php echo $row["name_product"];?></h4>
                                                     </div>
                                                 </div>
                                             </td>
-                                            <td><p class="red"><?php echo $row["price"];?></p>DH</td>
+                                            <td><p class="red"><?php echo $row["price_product"];?></p>DH</td>
                                             <td>
                                                 <div class="quantity">
                                                     <h6>Quantity</h6>
                                                     <div class="custom">
                                                         <button id="<?php echo $row['id_prod'];?>" onclick="add_quentity(this.id,'sub')" class="reduced items-count" type="button"><i class="icon_minus-06"></i></button>
-                                                        <input type="text" name="qty" id="sst<?php echo $row['id_prod'];?>" maxlength="12" title="Quantity:" class="input-text qty" value="<?php echo $row["qq"];?>">
+                                                        <input type="text" name="qty" id="sst<?php echo $row['id_prod'];?>" maxlength="12" title="Quantity:" class="input-text qty" value="<?php echo $row["quantity_wishlist"];?>">
                                                         <button id="<?php echo $row['id_prod'];?>" onclick="add_quentity(this.id,'add')" class="increase items-count" type="button"><i class="icon_plus"></i></button>
                                                     </div>
                                                 </div>
@@ -106,7 +107,7 @@
                                         </tr>
                             <?php endwhile;?>
                              <?php
-                                $sqlt = "SELECT sum(wishlist.quantity*price) as sum_tt FROM wishlist join product on (wishlist.id_product = product.id_product) where id_client={$_SESSION['idUser']};";
+                                $sqlt = "SELECT sum(quantity_wishlist*price_product) as sum_tt FROM wishlist join product on (wishlist.id_product = product.id_product) where id_client={$_SESSION['idUser']};";
                                 //var_dump($sqlt);
                                 $resultt = mysqli_query($conn, $sqlt);
                                 $rowt = $resultt->fetch_assoc();

@@ -526,6 +526,12 @@ ALTER TABLE `product`
   ADD CONSTRAINT `product_ibfk_1` FOREIGN KEY (`id_category`) REFERENCES `category` (`id_category`);
 
 --
+-- Contraintes pour la table `sous_category`
+--
+ALTER TABLE `sous_category`
+  ADD CONSTRAINT `sous_category_ibfk_1` FOREIGN KEY (`id_categorie`) REFERENCES `category` (`id_category`);
+
+--
 -- Contraintes pour la table `thumb`
 --
 ALTER TABLE `thumb`

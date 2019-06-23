@@ -60,7 +60,7 @@
                                             $res= mysqli_query($conn,$sql);
                                             echo"<option value='0'>toutes les categories</option>";
                                            while($row=mysqli_fetch_array($res)){  
-                                              echo"<option value='".$row[id_category]."'>".$row[name]."</option>"; }
+                                              echo"<option value='".$row[id_category]."'>".$row[name_category]."</option>"; }
                                           echo"</select>";?>
                                     </select>
                                     <div class="input-group">
@@ -195,14 +195,14 @@
                                         <div class="row">
                                             <?php 
                                                 require_once('connection.php');
-                                                $sql = "SELECT * FROM product limit 3;";
+                                                $sql = "SELECT * FROM product where is_active=1;";
                                                   $result = mysqli_query($conn, $sql);
                                                   while ($row = $result->fetch_assoc()):
                                                 ?>
                                             <div class="col-lg-4 col-sm-6">
                                         <div class="l_product_item">
                                                 <div class="l_p_img">
-                                                    <a href="product-details2.php"><img src="<?php echo $row["image"];?>" alt="" style="height: 200px; width: 300px;"></a>
+                                                    <a href="product-details2.php"><img src="<?php echo $row["image_product"];?>" alt="" style="height: 200px; width: 300px;"></a>
                                                     <h5 class="sale">Sale</h5>
                                                 </div>
                                                 <div class="l_p_text">
@@ -212,7 +212,7 @@
                                                         <li class="p_icon"><a href="#"><i class="icon_heart_alt"></i></a></li>
                                                     </ul>
                                                     <h4><?php echo $row["name_product"];?></h4>
-                                                    <h5><?php echo $row["price"];?>DH</h5>
+                                                    <h5><?php echo $row["price_product"];?>DH</h5>
                                                 </div>
                                             </div>
                                             </div>
@@ -231,14 +231,24 @@
                                         <h3>categories</h3>
                                     </div>
                                     <ul>
-                                        <li><a href="#">Men</a></li>
-                                        <li><a href="#">Women</a></li>
-                                        <li><a href="#">jewelry</a></li>
-                                        <li><a href="#">Accessories</a></li>
-                                        <li><a href="#">appliances</a></li>
-                                        <li><a href="#">beauty & personal care</a></li>
-                                        <li><a href="#">gift card</a></li>
-                                        <li><a href="#">Lookbook</a></li>
+                                        <?php 
+                                            $sql = "SELECT * FROM category where id_sous_category is null";
+                                              $result = mysqli_query($conn, $sql);
+                                              while ($row = $result->fetch_assoc()):
+                                            ?>
+                                        <li id="<?php echo $row['id_category'];?>" class="nav-item dropdown">
+                                            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo $row['name_category'];?></a>
+                                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                            <?php 
+                                                $sql2 = "SELECT * FROM category where id_sous_category={$row['id_category']}";
+                                                  $result2 = mysqli_query($conn, $sql2);
+                                                  while ($row2 = $result2->fetch_assoc()):
+                                                ?>
+                                                <li id="<?php echo $row['id_sous_category'];?>" class="nav-item"><a class="nav-link" href="#"><?php echo $row2['name_category'];?></a></li>
+                                            <?php endwhile;?>
+                                            </ul>
+                                        </li>
+                                        <?php endwhile;?>
                                     </ul>
                                 </aside>
                                 <aside class="l_widget l_news_widget">

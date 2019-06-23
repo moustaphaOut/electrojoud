@@ -1,4 +1,6 @@
 <?php
+session_start();
+session_destroy();
 if(!empty($_GET['failed']))
     echo "<script type='text/javascript'>alert('Invalid email or password!');</script>";
 

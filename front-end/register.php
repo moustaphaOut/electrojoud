@@ -126,15 +126,15 @@
                                     <div class="price_single_cost">
                                         <?php
                                     require_once('connection.php');
-                                            $sql = "SELECT *, wishlist.quantity*price as tt, wishlist.quantity as qq, sum(wishlist.quantity*price) as sum_tt, wishlist.id_product as id_prod  FROM wishlist join product on (wishlist.id_product = product.id_product) where id_client={$_SESSION['idUser']} group by wishlist.id_product";
+                                            $sql = "SELECT *, quantity_wishlist*price_product as tt, sum(quantity_wishlist*price_product) as sum_tt, wishlist.id_product as id_prod FROM wishlist join product on (wishlist.id_product = product.id_product) where id_client={$_SESSION['idUser']} group by wishlist.id_product;";
                                             //var_dump($sql);
                                               $result = mysqli_query($conn, $sql);
                                               while ($row = $result->fetch_assoc()):
                                             ?>  
-                                        <h5><?php echo $row["name_product"];?> <span><?php echo $row["price"];?>DH</span></h5>
+                                        <h5><?php echo $row["name_product"];?> <span><?php echo $row["price_product"];?>DH</span></h5>
                             <?php endwhile;?>
                                         <?php
-                                $sqlt = "SELECT sum(wishlist.quantity*price) as sum_tt FROM wishlist join product on (wishlist.id_product = product.id_product) where id_client={$_SESSION['idUser']};";
+                                $sqlt = "SELECT sum(quantity_wishlist*price_product) as sum_tt FROM wishlist join product on (wishlist.id_product = product.id_product) where id_client={$_SESSION['idUser']};";
                                 //var_dump($sqlt);
                                 $resultt = mysqli_query($conn, $sqlt);
                                 $rowt = $resultt->fetch_assoc();

@@ -8,7 +8,11 @@ if(isset($_POST["id"]) && $_POST['type'] == "delete") {
   if(!$result)
     echo "Error :".$sql;
 }else if(isset($_POST["id"]) && $_POST['type'] == "set_quentity") {
-  $sql = "UPDATE wishlist SET quantity={$_POST["quentity"]} WHERE id_product={$_POST["id"]} and id_client={$_SESSION['idUser']}";
+  if($_POST["quentity"] > 0)
+    $sql = "UPDATE wishlist SET quantity_wishlist={$_POST["quentity"]} WHERE id_product={$_POST["id"]} and id_client={$_SESSION['idUser']}";
+  else
+    $sql = "DELETE FROM wishlist WHERE id_product={$_POST["id"]} and id_client={$_SESSION['idUser']}";
+
   var_dump($sql);
   $result = mysqli_query($conn, $sql);
   if(!$result)

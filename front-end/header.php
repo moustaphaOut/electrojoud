@@ -22,12 +22,16 @@
                         </li>
                         <li class="nav-item"><a class="nav-link" href="shopping-cart2.php">Panier</a></li>
                         <li class="nav-item"><a class="nav-link" href="contact.php">Contact</a></li>
-                        <li class="nav-item"><a class="nav-link" href="login.php">Se connecter</a></li>
+                        <?php if(!isset($_SESSION['idUser'])):?>
+                            <li class="nav-item"><a class="nav-link" href="login.php">Se connecter</a></li>
+                        <?php else:?>
+                            <li class="nav-item"><a class="nav-link" href="login.php">Se deconnecter</a></li>
+                        <?php endif;?>
                     </ul>
                     <ul class="navbar-nav justify-content-end">
                         <li class="search_icon"><a href="#"><i class="icon-magnifier icons"></i></a></li>
-                        <li class="user_icon"><a href="#"><i class="icon-user icons"></i></a></li>
-                        <li class="cart_cart"><a href="#"><i class="icon-handbag icons"></i></a></li>
+                        <li class="user_icon"><a href="profile_2.php"><i class="icon-user icons"></i></a></li>
+                        <li class="cart_cart"><a href="shopping-cart2.php"><i class="icon-handbag icons"></i></a></li>
                     </ul>
                 </div>
             </nav>

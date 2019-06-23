@@ -36,16 +36,16 @@ if(isset($_GET["t"]) && $_GET["t"] == 'afficher') {
 			$result = mysqli_query($conn, $requtte);
 			while ($row = $result->fetch_assoc()):
 			echo "<tr>
-				<td class='brand'>".$row['brand'].': '.$row['name_product']."</td>
-				<td class='caracteristique'>".$row['caracteristique']."</td>
-				<td class='description'>".$row['description']."</td>
-				<td class='image'>".$row['image']."</td>
+				<td class='brand'>".$row['brand_product'].': '.$row['name_product']."</td>
+				<td class='caracteristique'>".$row['caracteristique_product']."</td>
+				<td class='description'>".$row['description_product']."</td>
+				<td class='image'>".$row['image_product']."</td>
 				<td class='is_active'>".$row['is_active']."</td>
-				<td class='meta_description'>".$row['meta_description']."</td>
-				<td class='meta_keywords'>".$row['meta_keywords']."</td>
-				<td class='price'>".$row['old_price'].' / '.$row['price']."</td>
-				<td class='quantity'>".$row['quantity']."</td>
-				<td class='slug'>".$row['slug']."</td>
+				<td class='meta_description'>".$row['meta_description_product']."</td>
+				<td class='meta_keywords'>".$row['meta_keywords_product']."</td>
+				<td class='price'>".$row['old_price_product'].' / '.$row['price_product']."</td>
+				<td class='quantity'>".$row['quantity_product']."</td>
+				<td class='slug'>".$row['slug_product']."</td>
 				<td class='category'>".$row['id_category'].'-'.$row['id_sous_category']."</td>
 				<td>
 					<div  id='".$row['id_product']."' onclick='delet(this.id)' style='cursor: pointer;'>
