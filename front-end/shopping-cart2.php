@@ -49,10 +49,10 @@
         <section class="solid_banner_area">
             <div class="container">
                 <div class="solid_banner_inner">
-                    <h3>shopping cart 02</h3>
+                    <h3>Panier</h3>
                     <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="shopping-cart2.php">Shopping cart 02</a></li>
+                        <li><a href="#">Accueil</a></li>
+                        <li><a href="shopping-cart2.php">Panier</a></li>
                     </ul>
                 </div>
             </div>
@@ -87,7 +87,7 @@
                                                         <img src="<?php echo $row["image"];?>" alt="" style="height: 150px; width: 150px;">
                                                     </div>
                                                     <div class="media-body">
-                                                        <h4><?php echo $row["name"];?></h4>
+                                                        <h4><?php echo $row["name_product"];?></h4>
                                                     </div>
                                                 </div>
                                             </td>
@@ -105,27 +105,26 @@
                                             <td><p><?php echo $row["tt"];?></p>DH</td>
                                         </tr>
                             <?php endwhile;?>
+                             <?php
+                                $sqlt = "SELECT sum(wishlist.quantity*price) as sum_tt FROM wishlist join product on (wishlist.id_product = product.id_product) where id_client={$_SESSION['idUser']};";
+                                //var_dump($sqlt);
+                                $resultt = mysqli_query($conn, $sqlt);
+                                $rowt = $resultt->fetch_assoc();
+                                $sum_tt = $rowt["sum_tt"];?>
                                         <tr>
                                             <th scope="row">
                                             </th>
                                         </tr>
                                         <tr class="last">
                                             <th scope="row">
-                                                <img src="img/icon/cart-icon.png" alt="">
+                                                
                                             </th>
                                             <td>
-                                                <div class="media">
-                                                    <div class="d-flex">
-                                                        <h5>Cupon code</h5>
-                                                    </div>
-                                                    <div class="media-body">
-                                                        <input type="text" placeholder="Apply cuopon">
-                                                    </div>
-                                                </div>
+                                                <h6>Totale des articles</h6>
                                             </td>
-                                            <td><p class="red"></p></td>
+                                            <td><h6 class="red"><?php echo $sum_tt;?>DH</h6></td>
                                             <td>
-                                                <h3>update cart</h3>
+                                                <a href="categories-left-sidebar.php"><h3>Continuer mes achats</h3></a>
                                             </td>
                                             <td></td>
                                         </tr>
@@ -136,12 +135,7 @@
                     </div>
                     <div class="col-lg-4">
                         <div class="cart_totals_area">
-                            <?php
-                                $sqlt = "SELECT sum(wishlist.quantity*price) as sum_tt FROM wishlist join product on (wishlist.id_product = product.id_product) where id_client={$_SESSION['idUser']};";
-                                //var_dump($sqlt);
-                                $resultt = mysqli_query($conn, $sqlt);
-                                $rowt = $resultt->fetch_assoc();
-                                $sum_tt = $rowt["sum_tt"];?>
+                           
                             <h4>Totale</h4>
                             <div class="cart_t_list">
                                 <div class="media">
@@ -154,10 +148,10 @@
                                 </div>
                                 <div class="media">
                                     <div class="d-flex">
-                                        <h5>Shipping</h5>
+                                        <h5>Prix de livraison</h5>
                                     </div>
                                     <div class="media-body">
-                                        <p>FREE CHIPPING</p>
+                                        <p>GRATUIT</p>
                                     </div>
                                 </div>
                                 <div class="media">
@@ -166,21 +160,21 @@
                                     </div>
                                     <div class="media-body">
                                         <select class="selectpicker">
-                                            <option>Calculate Shipping</option>
+                                            <option>MAROC</option>
                                         </select>
                                     </div>
                                 </div>
                             </div>
                             <div class="total_amount row m0 row_disable">
                                 <div class="float-left">
-                                    Total
+                                    Totale
                                 </div>
                                 <div class="float-right">
                                    <?php echo $sum_tt;?>DH
                                 </div>
                             </div>
                         </div>
-                        <a type="submit" href="register.php" class="btn subs_btn form-control">Proceed to checkout</a>
+                        <a type="submit" href="register.php" class="btn subs_btn form-control"><p class="black">Passer la commande</p></a>
                     </div>
                 </div>
             </div>

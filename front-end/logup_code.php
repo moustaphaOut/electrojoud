@@ -9,9 +9,10 @@
     $telephone = $_POST['telephone'];
     
     $sql = "INSERT INTO client (username, e_mail, nom, password, telephone) VALUES ('{$username}', '{$e_mail}', '{$nom}', '{$password}', '{$telephone}')";
-
     $result = mysqli_query($conn, $sql);
     if($result){
+        //$_SESSION['idUser'] = $id_client;
+        $_SESSION['username'] = $_email;
         header("Location: index.php?signup=done");
     }
     else{

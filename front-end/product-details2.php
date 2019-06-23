@@ -63,28 +63,40 @@
                 <div class="row">
                     <div class="col-lg-5">
                         <div class="product_details_slider">
+                            <?php
+                                require_once('connection.php');
+                            $sql = "SELECT * FROM product where id_product = {$_GET['id']}";
+                            $result = mysqli_query($conn, $sql);
+                            $row = mysqli_fetch_array($result);
+                            $name_product = $row["name_product"];
+                            $quantity = $row["quantity"];
+                            $price = $row["price"];
+                            $description = $row["description"];
+                            $caracteristique = $row["caracteristique"];
+                            $image = $row["image"];
+                            ?>
                             <div id="product_slider2" class="rev_slider" data-version="5.3.1.6">
                                 <ul>	<!-- SLIDE  -->
-                                    <li data-index="rs-28" data-transition="scaledownfromleft" data-slotamount="default"  data-easein="default" data-easeout="default" data-masterspeed="1500"  data-thumb="img/product/product-details/p-details-tab-1.jpg"  data-rotate="0"  data-fstransition="fade" data-fsmasterspeed="1500" data-fsslotamount="7" data-saveperformance="off"  data-title="Umbrella" data-param1="September 7, 2015" data-param2="Alfon Much, The Precious Stones" data-description="">
+                                    <li data-index="rs-28" data-transition="scaledownfromleft" data-slotamount="default"  data-easein="default" data-easeout="default" data-masterspeed="1500"  data-thumb="<?php echo $image;?>"  data-rotate="0"  data-fstransition="fade" data-fsmasterspeed="1500" data-fsslotamount="7" data-saveperformance="off"  data-title="Umbrella" data-param1="September 7, 2015" data-param2="Alfon Much, The Precious Stones" data-description="">
                                         <!-- MAIN IMAGE -->
-                                        <img src="img/product/product-details/p-details-big-1.jpg"  alt=""  width="1920" height="1080" data-lazyload="img/product/product-details/p-details-big-1.jpg" data-bgposition="center center" data-bgfit="contain" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
+                                        <img src="<?php echo $image;?>"  alt=""  width="1920" height="1080" data-lazyload="<?php echo $image;?>" data-bgposition="center center" data-bgfit="contain" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
                                         <!-- LAYERS -->
                                     </li>
-                                   <li data-index="rs-303" data-transition="scaledownfromleft" data-slotamount="default"  data-easein="default" data-easeout="default" data-masterspeed="1500"  data-thumb="img/product/product-details/p-details-tab-2.jpg"  data-rotate="0"  data-saveperformance="off"  data-title="The Dreaming Girl" data-param1="September 6, 2015" data-param2="Lol" data-description="">
+                                   <li data-index="rs-303" data-transition="scaledownfromleft" data-slotamount="default"  data-easein="default" data-easeout="default" data-masterspeed="1500"  data-thumb="<?php echo $image;?>"  data-rotate="0"  data-saveperformance="off"  data-title="The Dreaming Girl" data-param1="September 6, 2015" data-param2="Lol" data-description="">
                                         <!-- MAIN IMAGE -->
-                                        <img src="img/product/product-details/p-details-big-1.jpg"  alt=""  width="1920" height="1080" data-lazyload="img/product/product-details/p-details-big-1.jpg" data-bgposition="center center" data-bgfit="contain" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
-                                        <!-- LAYERS -->
-                                    </li>
-                                    <!-- SLIDE  -->
-                                    <li data-index="rs-301" data-transition="scaledownfromleft" data-slotamount="default"  data-easein="default" data-easeout="default" data-masterspeed="1500"  data-thumb="img/product/product-details/p-details-tab-4.jpg"  data-rotate="0"  data-saveperformance="off"  data-title="Ride my Bike" data-param1="September 4, 2015" data-param2="Why not another Image?" data-description="">
-                                        <!-- MAIN IMAGE -->
-                                        <img src="img/product/product-details/p-details-big-1.jpg"  alt=""  width="1920" height="1080" data-lazyload="img/product/product-details/p-details-big-1.jpg" data-bgposition="center center" data-bgfit="contain" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
+                                        <img src="<?php echo $image;?>"  alt=""  width="1920" height="1080" data-lazyload="<?php echo $image;?>" data-bgposition="center center" data-bgfit="contain" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
                                         <!-- LAYERS -->
                                     </li>
                                     <!-- SLIDE  -->
-                                    <li data-index="rs-302" data-transition="scaledownfromleft" data-slotamount="default"  data-easein="default" data-easeout="default" data-masterspeed="1500"  data-thumb="img/product/product-details/p-details-tab-3.jpg"  data-rotate="0"  data-saveperformance="off"  data-title="Ride my Bike" data-param1="September 4, 2015" data-param2="Why not another Image?" data-description="">
+                                    <li data-index="rs-301" data-transition="scaledownfromleft" data-slotamount="default"  data-easein="default" data-easeout="default" data-masterspeed="1500"  data-thumb="<?php echo $image;?>"  data-rotate="0"  data-saveperformance="off"  data-title="Ride my Bike" data-param1="September 4, 2015" data-param2="Why not another Image?" data-description="">
                                         <!-- MAIN IMAGE -->
-                                        <img src="img/product/product-details/p-details-big-1.jpg"  alt=""  width="1920" height="1080" data-lazyload="img/product/product-details/p-details-big-1.jpg" data-bgposition="center center" data-bgfit="contain" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
+                                        <img src="<?php echo $image;?>"  alt=""  width="1920" height="1080" data-lazyload="<?php echo $image;?>" data-bgposition="center center" data-bgfit="contain" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
+                                        <!-- LAYERS -->
+                                    </li>
+                                    <!-- SLIDE  -->
+                                    <li data-index="rs-302" data-transition="scaledownfromleft" data-slotamount="default"  data-easein="default" data-easeout="default" data-masterspeed="1500"  data-thumb="<?php echo $image;?>"  data-rotate="0"  data-saveperformance="off"  data-title="Ride my Bike" data-param1="September 4, 2015" data-param2="Why not another Image?" data-description="">
+                                        <!-- MAIN IMAGE -->
+                                        <img src="<?php echo $image;?>"  alt=""  width="1920" height="1080" data-lazyload="<?php echo $image;?>" data-bgposition="center center" data-bgfit="contain" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
                                         <!-- LAYERS -->
                                     </li>
                                 </ul>
@@ -92,48 +104,20 @@
                         </div>
                     </div>
                     <div class="col-lg-7">
+                        
                         <div class="product_details_text">
-                            <h3>Nike Flex Run Tracksuit</h3>
-                            <ul class="p_rating">
-                                <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                <li><a href="#"><i class="fa fa-star"></i></a></li>
-                            </ul>
-                            <div class="add_review">
-                                <a href="#">5 Reviews</a>
-                                <a href="#">Add your review</a>
-                            </div>
-                            <h6>Available In <span>Stock</span></h6>
-                            <h4>$45.05</h4>
-                            <p>Curabitur semper varius lectus sed consequat. Nam accumsan dapibus sem, sed lobortis nisi porta vitae. Ut quam tortor, facilisis nec laoreet consequat, malesuada a massa. Proin pretium tristique leo et imperdiet.</p>
-                            <div class="p_color">
-                                <h4 class="p_d_title">color <span>*</span></h4>
-                                <ul class="color_list">
-                                    <li><a href="#"></a></li>
-                                    <li><a href="#"></a></li>
-                                    <li><a href="#"></a></li>
-                                    <li><a href="#"></a></li>
-                                    <li><a href="#"></a></li>
-                                    <li><a href="#"></a></li>
-                                </ul>
-                            </div>
-                            <div class="p_color">
-                                <h4 class="p_d_title">size <span>*</span></h4>
-                                <select class="selectpicker">
-                                    <option>Select your size</option>
-                                    <option>Select your size M</option>
-                                    <option>Select your size XL</option>
-                                </select>
-                            </div>
+                            <h3><?php echo $name_product;?></h3>
+                            <h6><?php echo $quantity;?> pièces <span>disponibles</span></h6>
+                            <p><b>DESCRIPTION:</b><br><?php echo $description;?></p>
+                            <p><b>CARACTERISTIQUE:</b><br><?php echo $caracteristique;?></p>
+                            <h4><b>Prix: </b><?php echo $price;?>DH</h4>
                             <div class="quantity">
                                 <div class="custom">
                                     <button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst ) &amp;&amp; sst > 0 ) result.value--;return false;" class="reduced items-count" type="button"><i class="icon_minus-06"></i></button>
                                     <input type="text" name="qty" id="sst" maxlength="12" value="01" title="Quantity:" class="input-text qty">
                                     <button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst )) result.value++;return false;" class="increase items-count" type="button"><i class="icon_plus"></i></button>
                                 </div>
-                                <a class="add_cart_btn" href="#">add to cart</a>
+                                <a class="add_cart_btn" onclick="add_to_cart(this.id)">Ajouter au panier</a>
                             </div>
                             <div class="shareing_icon">
                                 <h5>share :</h5>
@@ -198,72 +182,28 @@
                 <div class="related_product_inner">
                     <h2 class="single_c_title">Related Product</h2>
                     <div class="row">
+                         <?php 
+                                    require_once('connection.php');
+                                    $sql = "SELECT * FROM product";
+                                      $result = mysqli_query($conn, $sql);
+                                      while ($row = $result->fetch_assoc()):
+                                    ?>
                         <div class="col-lg-3 col-sm-6">
                             <div class="l_product_item">
                                 <div class="l_p_img">
-                                    <img class="img-fluid" src="img/product/related-product/r-product-1.jpg" alt="">
+                                    <img class="img-fluid" src="<?php echo $row["image"];?>" alt="" style="height: 200px; width: 300px;">
                                 </div>
                                 <div class="l_p_text">
                                    <ul>
-                                        <li class="p_icon"><a href="#"><i class="icon_piechart"></i></a></li>
-                                        <li><a class="add_cart_btn" href="#">Add To Cart</a></li>
-                                        <li class="p_icon"><a href="#"><i class="icon_heart_alt"></i></a></li>
+                                        <li><a class="add_cart_btn" onclick="add_to_cart(this.id)">Ajouter au panier</a></li>
+                                        <li class="p_icon"><a href="product-details2.php?id=<?php echo $row["id_product"];?>"><i class="icon_info"></i></a></li>
                                     </ul>
-                                    <h4>Run Tracksuit</h4>
-                                    <h5>$85.50</h5>
+                                    <h4><?php echo $row["name_product"];?></h4>
+                                    <h5><?php echo $row["price"];?>DH</h5>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-3 col-sm-6">
-                            <div class="l_product_item">
-                                <div class="l_p_img">
-                                    <img class="img-fluid" src="img/product/related-product/r-product-2.jpg" alt="">
-                                    <h5 class="new">New</h5>
-                                </div>
-                                <div class="l_p_text">
-                                   <ul>
-                                        <li class="p_icon"><a href="#"><i class="icon_piechart"></i></a></li>
-                                        <li><a class="add_cart_btn" href="#">Add To Cart</a></li>
-                                        <li class="p_icon"><a href="#"><i class="icon_heart_alt"></i></a></li>
-                                    </ul>
-                                    <h4>Nike Men Trouser</h4>
-                                    <h5><del>$130.50</del>  $110</h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-sm-6">
-                            <div class="l_product_item">
-                                <div class="l_p_img">
-                                    <img class="img-fluid" src="img/product/related-product/r-product-3.jpg" alt="">
-                                </div>
-                                <div class="l_p_text">
-                                   <ul>
-                                        <li class="p_icon"><a href="#"><i class="icon_piechart"></i></a></li>
-                                        <li><a class="add_cart_btn" href="#">Add To Cart</a></li>
-                                        <li class="p_icon"><a href="#"><i class="icon_heart_alt"></i></a></li>
-                                    </ul>
-                                    <h4>Nike Track Pants</h4>
-                                    <h5>$250.00</h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-sm-6">
-                            <div class="l_product_item">
-                                <div class="l_p_img">
-                                    <img class="img-fluid" src="img/product/related-product/r-product-4.jpg" alt="">
-                                    <h5 class="sale">Sale</h5>
-                                </div>
-                                <div class="l_p_text">
-                                   <ul>
-                                        <li class="p_icon"><a href="#"><i class="icon_piechart"></i></a></li>
-                                        <li><a class="add_cart_btn" href="#">Add To Cart</a></li>
-                                        <li class="p_icon"><a href="#"><i class="icon_heart_alt"></i></a></li>
-                                    </ul>
-                                    <h4>Therma Pants</h4>
-                                    <h5>$45.50</h5>
-                                </div>
-                            </div>
-                        </div>
+                            <?php endwhile;?>
                     </div>
                     <nav aria-label="Page navigation example" class="pagination_area">
                       <ul class="pagination">
@@ -313,5 +253,6 @@
         <script src="vendors/jquery-ui/jquery-ui.js"></script>
         
         <script src="js/theme.js"></script>
+  <script src="js/add_cart.js"></script>
     </body>
 </html>
