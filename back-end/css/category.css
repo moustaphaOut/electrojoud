@@ -1,0 +1,140 @@
+.unselectable{
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none; /* Standard */
+}
+.content {
+    overflow:hidden;
+}
+.category_principal{
+	background-color:	#778899;
+    width: 20%;
+    height: 90%;
+    float: left;
+    margin-top: -24px;
+    text-align: center;
+    background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
+    padding-top: 12px;
+    overflow: auto;
+    position: absolute;
+}
+.category_sub{
+	background-color: white;
+    float: right;
+    width: 77%;
+    margin-top: -24px;
+    height: 90%;
+    background-color: #CDDCDC;
+	background-image: radial-gradient(at 50% 100%, rgba(255,255,255,0.50) 0%, rgba(0,0,0,0.50) 100%), linear-gradient(to bottom, rgba(255,255,255,0.25) 0%, rgba(0,0,0,0.25) 100%);
+	background-blend-mode: screen, overlay;
+}
+.category_principal span{
+	color: white;
+	font-size: 20px;
+	padding-top: 5px;
+}
+.category_principal_content{
+ 	margin-top: 60px;
+}
+.category_class{
+	line-height: 1.5;
+	color: white;
+    border-left: 6px solid #2196F3;
+    padding: 10px;
+    background-image: linear-gradient(to left, #BDBBBE 0%, #9D9EA3 100%), radial-gradient(88% 271%, rgba(255, 255, 255, 0.25) 0%, rgba(254, 254, 254, 0.25) 1%, rgba(0, 0, 0, 0.25) 100%), radial-gradient(50% 100%, rgba(255, 255, 255, 0.30) 0%, rgba(0, 0, 0, 0.30) 100%);
+ 	background-blend-mode: normal, lighten, soft-light;
+}
+.category_class:hover, #add_cat:hover{
+	cursor: pointer;
+}
+#add_cat{
+	line-height: 1.5;
+	color: black;
+    border-left: 6px solid black;
+    padding: 15px;
+ 	background-image: linear-gradient(-225deg, #5D9FFF 0%, #B8DCFF 48%, #6BBBFF 100%);
+}
+.subcategory_principal_content{
+	padding: 15px;
+}
+.subcategory_class{
+	width: 290px;
+	height: 120px;
+    display: inline-block;
+    margin-right: 25px;
+}
+/*THEME Scrollbar*/
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+.add_cat_model{
+  position:fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.7);
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  display: none;
+}
+.update_cat_model{
+  position:fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.7);
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  display: none;
+}
+.add_cat_model_sus{
+  position:absolute;
+  width: 50%;
+  margin-left: 15px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  display: block;
+  top: 10%;
+  left: 25%;
+  margin-top: 120px;
+}.update_cat_model_sus{
+  position:absolute;
+  width: 50%;
+  margin-left: 15px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  display: block;
+  top: 10%;
+  left: 25%;
+  margin-top: 120px;
+}
+.modifier_category_link:hover{
+  cursor: pointer;
+}
+.ajouter_category_link:hover{
+  cursor: pointer;
+}
+.supprimer_category_link:hover{
+  cursor: pointer;
+}
+.gestion_sous:hover{
+  cursor: pointer;
+}

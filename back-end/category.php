@@ -1,63 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-
   <title>SB Admin 2 - Blank</title>
-
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <script src="js/jquery-3.3.1.min.js"></script>
+  <script src="js/category.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-
   <!-- Custom styles for this template-->
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
-
+  <link href="css/category.css" rel="stylesheet">
 </head>
-
 <body id="page-top">
-
   <!-- Page Wrapper -->
   <div id="wrapper">
-
     <!-- Sidebar -->
-    <?php include 'menu.php';?>
+    <?php 
+    include 'menu.php'; 
+    include 'connection.php';
+    ?>
     <!-- End of Sidebar -->
-
     <!-- Content Wrapper -->
-    <div id="content-wrapper" class="d-flex flex-column">
-
+    <div id="content-wrapper" class="d-flex flex-column" style="overflow: hidden;">
       <!-- Main Content -->
       <div id="content">
-
         <!-- Topbar -->
         <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-
           <!-- Sidebar Toggle (Topbar) -->
           <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
             <i class="fa fa-bars"></i>
           </button>
-
           <!-- Topbar Search -->
           <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
             <div class="input-group">
               <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
               <div class="input-group-append">
-                <button class="btn btn-primary" type="button">
+                <button class="btn btn-primary" type="button" style="z-index: 0;">
                   <i class="fas fa-search fa-sm"></i>
                 </button>
               </div>
             </div>
           </form>
-
           <!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">
-
             <!-- Nav Item - Search Dropdown (Visible Only XS) -->
             <li class="nav-item dropdown no-arrow d-sm-none">
               <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -77,7 +67,6 @@
                 </form>
               </div>
             </li>
-
             <!-- Nav Item - Alerts -->
             <li class="nav-item dropdown no-arrow mx-1">
               <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -126,7 +115,6 @@
                 <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
               </div>
             </li>
-
             <!-- Nav Item - Messages -->
             <li class="nav-item dropdown no-arrow mx-1">
               <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -182,9 +170,7 @@
                 <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
               </div>
             </li>
-
             <div class="topbar-divider d-none d-sm-block"></div>
-
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -212,86 +198,46 @@
                 </a>
               </div>
             </li>
-
           </ul>
-
         </nav>
         <!-- End of Topbar -->
-
         <!-- Begin Page Content -->
-        <div class="container-fluid">
-
-          <!-- Page Heading -->
-          <table class="table">
-  <thead class="thead-dark">
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-    </tr>
-  </tbody>
-</table>
-
-<table class="table">
-  <thead class="thead-light">
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-    </tr>
-  </tbody>
-</table>
-
+        <div class="category_principal">
+          <span class="unselectable"><b>CATEGORIE PRINCIPALE</b></span>
+          <div class="category_principal_content">
+            <?php 
+            $res = mysqli_query($conn, "SELECT * from category where id_sup_cat is null");
+            if(!$res){
+              echo 'pproblem';
+            }
+            if (mysqli_num_rows($res) > 0)
+              while ($row = mysqli_fetch_assoc($res)){
+                $name = $row["name_category"];
+                $id_cat = $row["id_category"];
+                ?>
+                <div class="category_class" id=<?php echo $id_cat;?> >
+                  <a class="unselectable"><?php echo $name; ?></a>
+                </div>
+                <br class="unselectable">
+              <?php } ?>
+            </div>
+            <div id="add_cat">
+              <a><b>Ajouter Categorie</b></a>
+            </div>
+          </div>
+          <div class="category_sub">
+            <h1 style="margin-left: 15px;margin-top: 5px;" id="cate_name">Category Name</h1>
+            <span id="span_category" style="margin-left: 20px;margin-top: 5px;color: #36b9cc;font-size: 18px;"></span>
+            <div class="subcategory_principal_content" >
+          </div>
+          <div style="margin-left: 19px;" class="adding">
+          </div>
         </div>
         <!-- /.container-fluid -->
-
       </div>
       <!-- End of Main Content -->
-
       <!-- Footer -->
-      <footer class="sticky-footer bg-white">
+      <footer class="sticky-footer bg-white" style="display: none;">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
             <span>Copyright &copy; Your Website 2019</span>
@@ -299,18 +245,14 @@
         </div>
       </footer>
       <!-- End of Footer -->
-
     </div>
     <!-- End of Content Wrapper -->
-
   </div>
   <!-- End of Page Wrapper -->
-
   <!-- Scroll to Top Button-->
   <a class="scroll-to-top rounded" href="#page-top">
     <i class="fas fa-angle-up"></i>
   </a>
-
   <!-- Logout Modal-->
   <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -329,17 +271,58 @@
       </div>
     </div>
   </div>
-
   <!-- Bootstrap core JavaScript-->
+  <!-- POP UP START-->
+  <div class="add_cat_model">
+    <div class="card mb-4 add_cat_model_sus">
+      <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Ajouter Une Categorie</h6>
+      </div>
+      <div class="card-body">
+        Nom Du Categorie
+        <input type="email" class="form-control form-control-user" id="in_category" aria-describedby="emailHelp" placeholder="entrez nom du categorie" style="width: 60%; display: inline-block;margin-left: 130px;">
+        <br><br>
+        <div  style="float: right; margin-right: 36px;">
+          <a href="#" class="btn btn-primary btn-icon-split" id="ajouter_add_popup" style="width: 200px;">
+            <span class="text"> Ajouter </span>
+          </a>
+          <a href="#" class="btn btn-secondary btn-icon-split" id="annuler_add_popup" style="width: 200px;">
+            <span class="text"> Annuler </span>
+          </a>
+        </div> 
+        <br><br>
+      </div>
+    </div>
+  </div>
+  <!-- POP UP END-->
+  <!-- POP UP START Updaye-->
+  <div class="update_cat_model">
+    <div class="card mb-4 update_cat_model_sus">
+      <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Modifier Categorie</h6>
+      </div>
+      <div class="card-body">
+        Nom Du Categorie
+        <input type="email" class="form-control form-control-user" id="up_category" aria-describedby="emailHelp" style="width: 60%; display: inline-block;margin-left: 130px;">
+        <br><br>
+        <div  style="float: right; margin-right: 36px;">
+          <a href="#" class="btn btn-primary btn-icon-split" id="modifier_add_popup" style="width: 200px;">
+            <span class="text"> Modifier </span>
+          </a>
+          <a href="#" class="btn btn-secondary btn-icon-split" id="annuler_up_add_popup" style="width: 200px;">
+            <span class="text"> Annuler </span>
+          </a>
+        </div> 
+        <br><br>
+      </div>
+    </div>
+  </div>
+  <!-- POP UP END-->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
   <!-- Core plugin JavaScript-->
   <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-
   <!-- Custom scripts for all pages-->
   <script src="js/sb-admin-2.min.js"></script>
-
 </body>
-
 </html>
