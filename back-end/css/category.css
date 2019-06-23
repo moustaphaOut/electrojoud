@@ -135,3 +135,6 @@
 .supprimer_category_link:hover{
   cursor: pointer;
 }
+.gestion_sous:hover{
+  cursor: pointer;
+}

@@ -227,7 +227,7 @@
           </div>
           <div class="category_sub">
             <h1 style="margin-left: 15px;margin-top: 5px;" id="cate_name">Category Name</h1>
-            <span style="margin-left: 20px;margin-top: 5px;color: #36b9cc;font-size: 18px;">Category name</span>
+            <span id="span_category" style="margin-left: 20px;margin-top: 5px;color: #36b9cc;font-size: 18px;"></span>
             <div class="subcategory_principal_content" >
           </div>
           <div style="margin-left: 19px;" class="adding">

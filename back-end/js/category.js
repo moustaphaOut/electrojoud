@@ -10,7 +10,6 @@ $(document).ready(function(){
 				id : id
 			},
 			success: function(data){
-				console.log(data);
 				if(data == "false"){
 					$(".subcategory_principal_content").empty();
 				}else{
@@ -21,7 +20,7 @@ $(document).ready(function(){
 						var created_at = data_Ar[1];
 						var is_active = data_Ar[2];
 						var name_cate = data_Ar[3];
-						$(".subcategory_principal_content").append('<div class="card shadow mb-4 subcategory_class"><div class="card-header py-3"><h6 class="m-0 font-weight-bold text-primary">'+name_cate+'</h6><div style="position: absolute;right: 0;top: 0;margin-top: 10px;margin-right: 6px;"><a  href ="#" class="btn btn-info btn-circle btn-sm editable" id='+id_cat+'><i class="fas fa-info-circle"></i></a><a href ="#" style="margin-left: 5px;" class="btn btn-danger btn-circle btn-sm delete" id='+id_cat+'><i class="fas fa-trash"></i></a></div></div><div style="margin-left: 5px;"><a href="">Voir Sous_Categories(12)</a><br>Created At : <span>'+created_at+'</span></div></div>');
+						$(".subcategory_principal_content").append('<div class="card shadow mb-4 subcategory_class"><div class="card-header py-3"><h6 class="m-0 font-weight-bold text-primary">'+name_cate+'</h6><div style="position: absolute;right: 0;top: 0;margin-top: 10px;margin-right: 6px;"><a  href ="#" class="btn btn-info btn-circle btn-sm editable" id='+id_cat+'><i class="fas fa-info-circle"></i></a><a href ="#" style="margin-left: 5px;" class="btn btn-danger btn-circle btn-sm delete" id='+id_cat+'><i class="fas fa-trash"></i></a></div></div><div style="margin-left: 5px;"><a style="color: #0083FB;"  class="gestion_sous" id ='+id_cat+'>Gerer Sous Categories</a><br>Created At : <span>'+created_at+'</span></div></div>');
 					}
 				}
 			}
@@ -72,7 +71,7 @@ $(document).ready(function(){
 					var id = Dt[0];
 					var nom = Dt[1];
 					var c_at = Dt[2];
-					$(".subcategory_principal_content").append('<div class="card shadow mb-4 subcategory_class"><div class="card-header py-3"><h6 class="m-0 font-weight-bold text-primary">'+nom+'</h6><div style="position: absolute;right: 0;top: 0;margin-top: 10px;margin-right: 6px;"><a  href ="#" class="btn btn-info btn-circle btn-sm editable" id='+id+'><i class="fas fa-info-circle"></i></a><a href ="#" style="margin-left: 5px;" class="btn btn-danger btn-circle btn-sm delete" id='+id+'><i class="fas fa-trash"></i></a></div></div><div style="margin-left: 5px;"><a href="">Voir Sous_Categories(12)</a><br>Created At : <span>'+c_at+'</span></div></div>');
+					$(".subcategory_principal_content").append('<div class="card shadow mb-4 subcategory_class"><div class="card-header py-3"><h6 class="m-0 font-weight-bold text-primary">'+nom+'</h6><div style="position: absolute;right: 0;top: 0;margin-top: 10px;margin-right: 6px;"><a  href ="#" class="btn btn-info btn-circle btn-sm editable" id='+id+'><i class="fas fa-info-circle"></i></a><a href ="#" style="margin-left: 5px;" class="btn btn-danger btn-circle btn-sm delete" id='+id+'><i class="fas fa-trash"></i></a></div></div><div style="margin-left: 5px;"><a style="color: #0083FB;" class ="gestion_sous" id='+id+'>Gerer Sous Categories</a><br>Created At : <span>'+c_at+'</span></div></div>');
 					$('#in_category').val('');
 					$(".add_cat_model").hide();
 				}
@@ -82,6 +81,7 @@ $(document).ready(function(){
 	$(document).on('click','.editable',function(){
 		var id = $(this).attr("id");
 		sessionStorage.setItem("id", id);
+		sessionStorage.setItem("ud_coming", '1');
 		var name = $(this).parent().parent().children("h6").text();
 		$(".update_cat_model").show();
 		$('#up_category').val(name);
@@ -103,20 +103,36 @@ $(document).ready(function(){
 	$(document).on('click','#modifier_add_popup',function(){
 		var new_name = $('#up_category').val();
 		var id = sessionStorage.getItem("id");
-		// sessionStorage.removeItem("id");
-		$.ajax({
-			url: "category-updateData.php",
-			data:{
-				name : new_name,
-				id : id
-			},
-			success: function(data){
-				$("#"+id+":first").parent().parent().children("h6").text(new_name);
-				$(".update_cat_model").hide();
-				$('#up_category').val("");
-				// location.reload();
-			}
-		});	
+		var state = sessionStorage.getItem("ud_coming");
+		if(state == '1'){
+			$.ajax({
+				url: "category-updateData.php",
+				data:{
+					name : new_name,
+					id : id
+				},
+				success: function(data){
+					$("#"+id+":first").parent().parent().children("h6").text(new_name);
+					$(".update_cat_model").hide();
+					$('#up_category').val("");
+					// location.reload();
+				}
+			});	
+		}else if(state == '0'){
+			$.ajax({
+				url: "category-updateData.php",
+				data:{
+					name : new_name,
+					id : id
+				},
+				success: function(data){
+					$("#cate_name").text(new_name);
+					$(".update_cat_model").hide();
+					$('#up_category').val("");
+					$('.category_principal_content').children("#"+id).children("a").text(new_name);
+				}
+			});	
+		}
 	});
 	$(document).on('click','#annuler_up_add_popup',function(){
 		$(".update_cat_model").hide();
@@ -143,9 +159,41 @@ $(document).ready(function(){
 		sessionStorage.setItem("id_cate",id);
 	});
 	$(document).on('click','.modifier_category_link',function(){
+		var id = $(this).attr("id");
+		sessionStorage.setItem("id", id);
+		sessionStorage.setItem("ud_coming", '0');
+		var name = $("#cate_name").text();
+		$(".update_cat_model").show();
+		$('#up_category').val(name);
 	});
-	$(document).on('click','',function(){
-		
+	$(document).on('click','.gestion_sous',function(){
+		var id = $(this).attr("id");
+		var name = $(this).parent().parent().find("h6").text();
+		$("#cate_name").text(name);
+		$.ajax({
+			url: "category-getData.php",
+			dataType: "json",
+			data:{
+				id : id
+			},
+			success: function(data){
+				if(data == "false"){
+					$(".subcategory_principal_content").empty();
+				}else{
+					$(".subcategory_principal_content").empty();
+					for(var i = 0;i<data.length ; i++){
+						var data_Ar = data[i].split('_');
+						var id_cat = data_Ar[0];
+						var created_at = data_Ar[1];
+						var is_active = data_Ar[2];
+						var name_cate = data_Ar[3];
+						$(".subcategory_principal_content").append('<div class="card shadow mb-4 subcategory_class"><div class="card-header py-3"><h6 class="m-0 font-weight-bold text-primary">'+name_cate+'</h6><div style="position: absolute;right: 0;top: 0;margin-top: 10px;margin-right: 6px;"><a  href ="#" class="btn btn-info btn-circle btn-sm editable" id='+id_cat+'><i class="fas fa-info-circle"></i></a><a href ="#" style="margin-left: 5px;" class="btn btn-danger btn-circle btn-sm delete" id='+id_cat+'><i class="fas fa-trash"></i></a></div></div><div style="margin-left: 5px;"><a style="color: #0083FB;"  class="gestion_sous" id ='+id_cat+'>Gerer Sous Categories</a><br>Created At : <span>'+created_at+'</span></div></div>');
+					}
+				}
+			}
+		});
+		$(".adding").empty();
+		$(".adding").append('<a class="ajouter_category_link" style="color: #0083FB;"  id='+id+'>Ajouter Sous Category</a><br><a  class="modifier_category_link" style="color: #0083FB;" id='+id+'>Modifier Cette Category</a>');
 	});
 
 
