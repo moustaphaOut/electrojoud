@@ -46,16 +46,59 @@
         <section class="solid_banner_area">
             <div class="container">
                 <div class="solid_banner_inner">
-                    <h3>track item</h3>
+                    <h3>Mes commandes</h3>
                     <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="track.php">Track Item</a></li>
+                        <li><a href="#">Accueil</a></li>
+                        <li><a href="track.php">Mes commandes</a></li>
                     </ul>
                 </div>
             </div>
         </section>
+        <br>
         <!--================End Categories Banner Area =================-->
-        
+        <?php if(isset($_SESSION['idUser'])):?>
+            <section class="solid_banner_area">
+                <div class="container">
+                    <table class="table">
+                      <thead class="thead-dark">
+                        <tr>
+                          <th scope="col">Num de commande</th>
+                          <th scope="col">nom de client</th>
+                          <th scope="col">Date de commande</th>
+                          <th scope="col">Date de livraison</th>
+                          <th scope="col">Status de livraison</th>
+                          <th scope="col">Totale a payer</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <?php
+                        require_once('connection.php');
+                        $sqll = "SELECT * from client where id_client={$_SESSION['idUser']};";
+                        $rsst = mysqli_query($conn, $sqll);
+                        $roow = mysqli_fetch_array($rsst);
+                        $client_name = $roow['nom_client']." ".$roow['prenom_client'];
+
+                        $requtte = "SELECT * FROM ordeer where id_client={$_SESSION['idUser']};";
+                        $result = mysqli_query($conn, $requtte);
+                        while ($row = $result->fetch_assoc()):
+                        $sql = "SELECT sum(qty*product_unit_price) as sum_tt FROM orderdetail where id_order={$row['id_order']};";
+                        $rst = mysqli_query($conn, $sql);
+                        $row2 = $rst->fetch_assoc();
+                        ?>
+                        <tr>
+                          <th scope="row"><?php echo $row['id_order'];?></th>
+                          <td><?php echo $client_name;?></td>
+                          <td><?php echo $row['order_date'];?></td>
+                          <td><?php echo $row['shipping_date'];?></td>
+                          <td><?php echo $row['shipping_status'];?></td>
+                          <td><?php echo $row2['sum_tt'];?></td>
+                        </tr>
+                    <?php endwhile;?>
+                      </tbody>
+                    </table>
+                </div>
+        </section>
+        <?php else:?>
         <!--================Track Area =================-->
         <section class="track_area p_100">
             <div class="container">
@@ -81,6 +124,7 @@
             </div>
         </section>
         <!--================End Track Area =================-->
+        <?php endif;?>
 
     <?php
     include 'footer.php';

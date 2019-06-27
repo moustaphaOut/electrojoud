@@ -306,17 +306,30 @@
                 <div class="col-sm-6">
                   <div class="col-sm-6">
                     <select name="id_categorie">
-                      <option  value="0" disabled selected="selected">Choisir la Categorie</option>
+                      <option  value="0" selected="selected">Choisir une Categorie</option>
                       <?php
                       include_once('connection.php');
-                      $sql = "SELECT * FROM category where id_sous_category is null;";
+                      $sql = "SELECT * FROM category where id_sup_cat is null;";
                       $result = mysqli_query($conn, $sql);
                       if(mysqli_num_rows($result) > 0){
                         while($row = mysqli_fetch_assoc($result)){
                           $nameCategorie = $row["name_category"];
                           $idCategorie = $row["id_category"];
                           ?>
-                          <option value="<?php echo $idCategorie;?>"><?php echo $nameCategorie;?></option>
+                          <option value="<?php echo $idCategorie;?>" style="font-style:italic" disabled><?php echo $nameCategorie;?></option>
+                          <optgroup label="______________________" >
+                          <?php 
+                            $sql2 = "SELECT * FROM category where id_sup_cat = {$idCategorie};";
+                            $result2 = mysqli_query($conn, $sql2);
+                            if(mysqli_num_rows($result2) > 0){
+                              while($row2 = mysqli_fetch_assoc($result2)){?>
+                          <option value="<?php echo $row2["id_category"];?>"><?php echo $row2["name_category"];?></option>
+                          <?php
+                              }
+                            }
+                            ?>
+                            <option disabled style="font-style:italic"></option> 
+                          </optgroup>
                           <?php
                         }
                       }

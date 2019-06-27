@@ -5,8 +5,8 @@
             <div class="row">
                 <div class="col-lg-4 col-md-4 col-6">
                     <aside class="f_widget f_about_widget">
-                        <img src="img/logo.png" alt="">
-                        <p>Persuit is a Premium PSD Template. Best choice for your online store. Let purchase it to enjoy now</p>
+                        <img src="img/logo.jpg" alt="" style="width: 200px;">
+                        <p>Spécialiste de l'électronique au Maroc</p>
                         <h6>Social:</h6>
                         <ul>
                             <li><a href="#"><i class="social_facebook"></i></a></li>
@@ -23,38 +23,22 @@
                             <h3>Information</h3>
                         </div>
                         <ul>
-                            <li><a href="#">About us</a></li>
-                            <li><a href="#">Delivery information</a></li>
+                            <li><a href="#">Qui nos sommes</a></li>
+                            <li><a href="#">Les etaps d'une commande</a></li>
                             <li><a href="#">Terms & Conditions</a></li>
-                            <li><a href="#">Help Center</a></li>
-                            <li><a href="#">Returns & Refunds</a></li>
                         </ul>
                     </aside>
                 </div>
                 <div class="col-lg-2 col-md-4 col-6">
                     <aside class="f_widget link_widget f_service_widget">
                         <div class="f_w_title">
-                            <h3>Customer Service</h3>
+                            <h3>Service de client</h3>
                         </div>
                         <ul>
-                            <li><a href="#">My account</a></li>
-                            <li><a href="#">Ordr History</a></li>
-                            <li><a href="#">Wish List</a></li>
-                            <li><a href="#">Newsletter</a></li>
-                            <li><a href="#">Contact Us</a></li>
-                        </ul>
-                    </aside>
-                </div>
-                <div class="col-lg-2 col-md-4 col-6">
-                    <aside class="f_widget link_widget f_extra_widget">
-                        <div class="f_w_title">
-                            <h3>Extras</h3>
-                        </div>
-                        <ul>
-                            <li><a href="#">Brands</a></li>
-                            <li><a href="#">Gift Vouchers</a></li>
-                            <li><a href="#">Affiliates</a></li>
-                            <li><a href="#">Specials</a></li>
+                            <li><a href="track.php">Mes commandes</a></li>
+                            <li><a href="profile_2.php">Mes informations personnelles</a></li>
+                            <li><a href="shopping-cart2.php">Panier</a></li>
+                            <li><a href="contact.php">Nos contacter</a></li>
                         </ul>
                     </aside>
                 </div>
@@ -64,20 +48,14 @@
                             <h3>My Account</h3>
                         </div>
                         <ul>
-                            <li><a href="#">My account</a></li>
-                            <li><a href="#">Ordr History</a></li>
-                            <li><a href="#">Wish List</a></li>
+                            <li><a href="profile_2.php">Profile</a></li>
+                            <li><a href="track.php">Historique de commandes</a></li>
+                            <li><a href="contact.php">Nos contacter</a></li>
                             <li><a href="#">Newsletter</a></li>
                         </ul>
                     </aside>
                 </div>
             </div>
-        </div>
-        <div class="footer_copyright">
-            <h5>© <script>document.write(new Date().getFullYear());</script> <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-            </h5>
         </div>
     </div>
 </footer>

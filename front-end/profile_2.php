@@ -69,7 +69,7 @@ if(isset($_GET['idRow'])){
                             <!-- end of skills -->
                             <?php 
                                 $query = "SELECT * FROM client where id_client={$_SESSION['idUser']};";
-                                var_dump($query);
+                                //var_dump($query);
                                 $result = mysqli_query($conn, $query);
                                 $row = mysqli_fetch_array($result);
                                 $idR = $row['id_client'];
@@ -118,7 +118,8 @@ if(isset($_GET['idRow'])){
                             <?php 
 
                             if(!empty($idRow)):
-                            
+                                if($_GET['err'] == 2)
+                                    echo "<script> alert('complete information first');</script>";
                                 $query = "SELECT * FROM client where id_client={$idRow}";
                                 //var_dump($query);
                                 $resultat = mysqli_query($conn, $query);

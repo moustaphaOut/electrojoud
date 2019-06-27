@@ -27,12 +27,12 @@ if(isset($_GET["t"]) && $_GET["t"] == 'afficher') {
 				<th class='price'>old_price / price</th>
 				<th class='quantity'>quantity</th>
 				<th class='slug'>Slug</th>
-				<th class='category'>Category-sous_category</th>
+				<th class='category'>Category</th>
 				<th>Action</th>
 			</tr>
 		</thead>
 		<tbody>";
-			$requtte = "SELECT * from product;";
+			$requtte = "SELECT * from product join category on (product.id_category = category.id_category);";
 			$result = mysqli_query($conn, $requtte);
 			while ($row = $result->fetch_assoc()):
 			echo "<tr>
@@ -46,7 +46,7 @@ if(isset($_GET["t"]) && $_GET["t"] == 'afficher') {
 				<td class='price'>".$row['old_price_product'].' / '.$row['price_product']."</td>
 				<td class='quantity'>".$row['quantity_product']."</td>
 				<td class='slug'>".$row['slug_product']."</td>
-				<td class='category'>".$row['id_category'].'-'.$row['id_sous_category']."</td>
+				<td class='category'>".$row['name_category']."</td>
 				<td>
 					<div  id='".$row['id_product']."' onclick='delet(this.id)' style='cursor: pointer;'>
 						<i class='fa fa-trash' style='font-size:24px'></i></i>

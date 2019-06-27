@@ -1,3 +1,6 @@
+<?php
+                        session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -226,8 +229,8 @@
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800">Tables</h1>
-          <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net">official DataTables documentation</a>.</p>
+          <h1 class="h3 mb-2 text-gray-800">Commande</h1>
+          <p class="mb-4">Voici toutes les commandes</p>
 
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
@@ -239,6 +242,7 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                   <thead>
                     <tr>
+                      <th>action</th>
                       <th>num commande</th>
                       <th>Nom client</th>
                       <th>adress client</th>
@@ -247,23 +251,43 @@
                       <th>date de livraison</th>
                       <th>livraison status</th>
                       <th>status</th>
+                      <th>Totale</th>
                     </tr>
                   </thead>
                   <tbody>
                     <?php 
                         require_once('connection.php');
+                        
                         $requtte = "SELECT * from ordeer;";
                         $result = mysqli_query($conn, $requtte);
-                        while ($row = $result->fetch_assoc()):?>
+                        while ($row = $result->fetch_assoc()):
+                          //get full name client
+                          $sqll = "SELECT * from client where id_client={$row['id_client']};";
+                          $rsst = mysqli_query($conn, $sqll);
+                          $roow = mysqli_fetch_array($rsst);
+                          $client_name = $roow['nom_client']." ".$roow['prenom_client'];
+                          //get total price
+                          $sql = "SELECT sum(qty*product_unit_price) as sum_tt FROM orderdetail where id_order={$row['id_order']};";
+                        $rst = mysqli_query($conn, $sql);
+                        $row2 = $rst->fetch_assoc();?>
                     <tr>
+                      <td>
+                        <div  style='cursor: pointer;'>
+                          <a class='fa fa-external-link-alt' style='font-size:24px' href="sales2.php?num_order=<?php echo $row['id_order'];?>"></a>
+                        </div>
+                        <a name='edit' id="" style='cursor: pointer;' href="sales_edit.php?num_order=<?php echo $row['id_order'];?>">
+                          <i class='fa fa-edit' style='font-size:24px'></i></i>
+                        </a>
+                      </td>
                       <td><?php echo $row['id_order'] ;?></td>
-                      <td><?php echo $row['client'] ;?></td>
+                      <td><?php echo $client_name ;?></td>
                       <td><?php echo $row['id_adress'] ;?></td>
                       <td><?php echo $row['order_date'] ;?></td>
                       <td><?php echo $row['prix_livraison'] ;?></td>
                       <td><?php echo $row['shipping_date'] ;?></td>
                       <td><?php echo $row['shipping_status'] ;?></td>
                       <td><?php echo $row['status'] ;?></td>
+                      <td><?php echo $row2['sum_tt'] ;?></td>
                     </tr>
                     <?php endwhile;?>
 

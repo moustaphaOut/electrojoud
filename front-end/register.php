@@ -61,6 +61,40 @@
             <div class="container">
                 <div class="register_inner">
                     <div class="row">
+                        <?php if(isset($_SESSION['idUser'])):?>
+                            <?php 
+                                require_once('connection.php');
+                                $query = "SELECT * FROM client where id_client={$_SESSION['idUser']};";
+                                $result = mysqli_query($conn, $query);
+                                $row = mysqli_fetch_array($result);
+                                $query2 = "SELECT * FROM adress where id_client={$_SESSION['idUser']};";
+                                $result2 = mysqli_query($conn, $query2);
+                                if(mysqli_num_rows($result2)==0)
+                                    echo "<script> location.replace('profile_2.php?err=2&idRow={$_SESSION['idUser']}'); </script>";
+
+                                $row2 = mysqli_fetch_array($result2);?>
+                                <div class="col-lg-7">
+
+                                    <h3><?php echo $row['nom_client'].' '.$row['prenom_client'] ?></h3>
+
+                                    
+                                    <p>
+                                        <i class="glyphicon glyphicon-envelope"></i><b>Email:</b> <?php echo $row['email_client'] ?>
+                                        <br />
+                                        <i class="glyphicon glyphicon-globe"></i><b>Phone number:</b> <?php echo $row['telephone_client'] ?>
+                                        <br />
+                                        <i class="glyphicon glyphicon-gift"></i>
+                                    </p>
+                                    <cite title="San Francisco, USA">
+                                        <i class="glyphicon glyphicon-map-marker"><b>Adresse:</b> <?php echo $row2['adresse'];?></i><br>
+                                        <i class="glyphicon glyphicon-map-marker"><b>City:</b> <?php echo $row2['city'];?></i><br>
+                                        <i class="glyphicon glyphicon-map-marker"><b>Postcode:</b> <?php echo $row2['postcode'];?></i><br>
+                                    </cite>
+
+                                    <a class="btn btn-info btn-sm" href="profile_2.php?idRow=<?php echo $idR; ?>"><i class="fa fa-edit m-right-xs"></i>Editer Profile</a>
+                                    <br />
+                                </div>
+                        <?php else:?>
                         <div class="col-lg-7">
                             <div class="billing_details">
                                 <h2 class="reg_title">Details de client</h2>
@@ -119,6 +153,7 @@
                                 </form>
                             </div>
                         </div>
+                        <?php endif;?>
                         <div class="col-lg-5">
                             <div class="order_box_price">
                                 <h2 class="reg_title">Your Order</h2>
@@ -146,48 +181,21 @@
                                             <div class="card-header" role="tab" id="headingOne">
                                                 <h5 class="mb-0">
                                                     <a data-toggle="collapse" href="#collapseOne" role="button" aria-expanded="true" aria-controls="collapseOne">
-                                                    Payer par WAFACASH
+                                                    cash on livraison
                                                     </a>
                                                 </h5>
                                             </div>
 
                                             <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
                                                 <div class="card-body">
-                                                    Garder le recu de wafacash pour justifier votre achats quand vous recevoiez la livraison. 
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="card">
-                                            <div class="card-header" role="tab" id="headingTwo">
-                                                <h5 class="mb-0">
-                                                    <a class="collapsed" data-toggle="collapse" href="#collapseTwo" role="button" aria-expanded="false" aria-controls="collapseTwo">
-                                                    Payment par cart (master cart, visa)
-                                                    </a>
-                                                </h5>
-                                            </div>
-                                            <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo" data-parent="#accordion">
-                                                <div class="card-body">
-                                                    Lorem Ipsum is simply dummy text of the print-ing and typesetting industry. Lorem Ipsum has been the industry's. 
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="card">
-                                            <div class="card-header" role="tab" id="headingThree">
-                                                <h5 class="mb-0">
-                                                    <a class="collapsed" data-toggle="collapse" href="#collapseThree" role="button" aria-expanded="false" aria-controls="collapseThree">
-                                                    cash on livraison
-                                                    </a>
-                                                </h5>
-                                            </div>
-                                            <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree" data-parent="#accordion">
-                                                <div class="card-body">
                                                     Vous dovrais payer surplace quand la commande est livrai. 
                                                 </div>
                                             </div>
                                         </div>
+                                        
                                     </div>
                                 </div>
-                                <button type="submit" value="submit" class="btn subs_btn form-control">terminer l'achat</button>
+                                <a href="commande.php" class="btn subs_btn form-control">terminer l'achat</a>
                             </div>
                         </div>
                     </div>

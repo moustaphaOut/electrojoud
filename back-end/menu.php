@@ -32,32 +32,18 @@
         Interface
       </div>
 
-      <!-- Nav Item - Pages Collapse Menu -->
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-          <i class="fas fa-fw fa-cog"></i>
-          <span>Gestion produits</span>
-        </a>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="ajouter_produit.php">Ajouter produit</a>
-            <a class="collapse-item" href="gestion_produit.php">Modifier produit</a>
-          </div>
-        </div>
+      <li class="nav-item active">
+        <a class="nav-link" href="gestion_produit.php">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>Gestion produits</span></a>
       </li>
-      <!-- Nav Item - Pages Collapse Menu -->
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse3" aria-expanded="true" aria-controls="collapse3">
-          <i class="fas fa-fw fa-cog"></i>
-          <span>Gestion category</span>
-        </a>
-        <div id="collapse3" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="category.php">Categorie</a>
-            <a class="collapse-item" href="gestion_produit.php">Sous Categorie</a>
-          </div>
-        </div>
+
+      <li class="nav-item active">
+        <a class="nav-link" href="category.php">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>Gestion category</span></a>
       </li>
+      
 
       <!-- Nav Item - Utilities Collapse Menu -->
       <li class="nav-item">

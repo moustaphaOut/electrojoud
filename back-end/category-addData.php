@@ -1,9 +1,6 @@
 <?php 
-$conn = mysqli_connect("localhost","root","","e_commerce");
-if(!$conn)
-{
-    echo "Database connection faild...";
-}
+require_once('connection.php');
+
 $name_cat = $_GET['name'] ;
 $date = date('Y-m-d H:i:s');
 $state = $_GET['comingFrom'] ;

@@ -232,7 +232,7 @@
                                     </div>
                                     <ul>
                                         <?php 
-                                            $sql = "SELECT * FROM category where id_sous_category is null";
+                                            $sql = "SELECT * FROM category where id_sup_cat is null";
                                               $result = mysqli_query($conn, $sql);
                                               while ($row = $result->fetch_assoc()):
                                             ?>
@@ -240,11 +240,11 @@
                                             <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo $row['name_category'];?></a>
                                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                             <?php 
-                                                $sql2 = "SELECT * FROM category where id_sous_category={$row['id_category']}";
+                                                $sql2 = "SELECT * FROM category where id_sup_cat={$row['id_category']}";
                                                   $result2 = mysqli_query($conn, $sql2);
                                                   while ($row2 = $result2->fetch_assoc()):
                                                 ?>
-                                                <li id="<?php echo $row['id_sous_category'];?>" class="nav-item"><a class="nav-link" href="#"><?php echo $row2['name_category'];?></a></li>
+                                                <li id="<?php echo $row['id_sup_cat'];?>" class="nav-item"><a class="nav-link" href="#"><?php echo $row2['name_category'];?></a></li>
                                             <?php endwhile;?>
                                             </ul>
                                         </li>

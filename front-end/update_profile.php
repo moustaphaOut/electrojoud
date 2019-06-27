@@ -16,7 +16,14 @@ $file_name = "";
 include_once("../back-end/uploadFile.php");
 $image = $fileDestination;
 
-$sql = " UPDATE adress SET  adresse ='$adresse', city ='$city', postcode ='$postcode' WHERE id_client = '".$_POST['id']."' ";
+$sqlCheck = "SELECT * from adress WHERE id_client = '".$_POST['id']."' ";
+$result2 = mysqli_query($conn, $sqlCheck);
+if(mysqli_num_rows($result2)==0)
+	$sql = "INSERT INTO adress (adresse, city, postcode, id_client) VALUES ('$adresse', '$city', '$postcode', '".$_POST['id']."')";
+else
+	$sql = "UPDATE adress SET adresse ='$adresse', city ='$city', postcode ='$postcode' where id_client = '".$_POST['id']."'";
+
+var_dump($sql);
 $conn->query($sql);
 
 $query = " UPDATE client SET  nom_client ='$nom', prenom_client ='$prenom', email_client ='$email', password_client ='$pass', telephone_client ='$phone', image_client = '$image' WHERE id_client = '".$_POST['id']."' ";

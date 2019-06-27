@@ -1,10 +1,6 @@
 <?php 
-$conn = mysqli_connect("localhost","root","","e_commerce");
+require_once('connection.php');
 
-if(!$conn)
-{
-    echo "Database connection faild...";
-}
 $cat_id = $_GET['id'] ;
 $arr = array();
 for ($i=0; $i < 5 ; $i--) { 

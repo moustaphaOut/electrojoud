@@ -1,10 +1,6 @@
 <?php 
-$conn = mysqli_connect("localhost","root","","e_commerce");
+require_once('connection.php');
 
-if(!$conn)
-{
-    echo "Database connection faild...";
-}
 $cat_id = $_GET['id'] ;
 $sql = "SELECT * FROM category WHERE id_sup_cat='$cat_id'";
 $res = mysqli_query($conn, $sql);
