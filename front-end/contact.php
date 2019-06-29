@@ -44,9 +44,9 @@ include 'header.php';
 
 
 <!--================Categories Banner Area =================-->
-<section class="solid_banner_area">
+<section class="categories_banner_area">
     <div class="container">
-        <div class="solid_banner_inner">
+        <div class="c_banner_inner" style="padding: 50px 0px">
             <h3>Contact</h3>
             <ul>
                 <li><a href="#">Accueil</a></li>
@@ -71,7 +71,7 @@ include 'header.php';
                         <i class="fa fa-map-marker" aria-hidden="true"></i>
                     </div>
                     <div class="media-body">
-                        <p>House # 402, Roboto Street,<br />Casablanca, Maroc.</p>
+                        <p>Maarif,<br />Casablanca, Maroc.</p>
                     </div>
                 </div>
             </div>
@@ -81,7 +81,7 @@ include 'header.php';
                         <i class="fa fa-phone" aria-hidden="true"></i>
                     </div>
                     <div class="media-body">
-                        <a href="tel:+1109171234567">+212 - 661 - 587 - 4567</a>
+                        <a href="tel:+1109171234567">+212 - 670 - 707 - 807</a>
                     </div>
                 </div>
             </div>
@@ -91,8 +91,7 @@ include 'header.php';
                         <i class="fa fa-envelope" aria-hidden="true"></i>
                     </div>
                     <div class="media-body">
-                        <a href="mailto:busines@persuit.com">busines@gmail.com</a>
-                        <a href="mailto:support@persuit.com">support@gmail.com</a>
+                        <a href="mailto:busines@persuit.com">rabyeauni@gmail.com</a>
                     </div>
                 </div>
             </div>
@@ -101,13 +100,13 @@ include 'header.php';
             <h3>Envoyer un message</h3>
             <form class="contact_us_form row" action="contact_process.php" method="post"  novalidate="novalidate">
                 <div class="form-group col-lg-4">
-                    <input type="text" class="form-control" id="name" name="name" placeholder="Full Name *">
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Nom complet *" required>
                 </div>
                 <div class="form-group col-lg-4">
-                    <input type="email" class="form-control" id="email" name="email" placeholder="Email Address *">
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Adresse mail *" required>
                 </div>
                 <div class="form-group col-lg-12">
-                    <textarea class="form-control" name="message" id="message" rows="1" placeholder="Type Your Message..."></textarea>
+                    <textarea class="form-control" name="message" id="message" rows="1" placeholder="Votre message..." required></textarea>
                 </div>
                 <div class="form-group col-lg-12">
                     <button type="submit" value="submit" class="btn update_btn form-control">Envoyer</button>

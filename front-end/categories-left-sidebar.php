@@ -44,8 +44,8 @@
 
     <!--================Categories Banner Area =================-->
         <section class="categories_banner_area">
-            <div class="container" style="padding:0px;">
-                <div class="c_banner_inner">
+            <div class="container">
+                <div class="c_banner_inner" style="padding: 30px 0px">
                     <h3>Produits listes</h3>
                     <ul>
                         <li><a href="#">Accueil</a></li>
@@ -220,6 +220,7 @@
         <script src="vendors/vertical-slider/js/jQuery.verticalCarousel.js"></script>
         <script src="vendors/jquery-ui/jquery-ui.js"></script>
         
+    <script src="js/sweetalert2.all.min.js"></script>
         <script src="js/theme.js"></script>
         <script src="js/add_cart.js"></script>
     </body>

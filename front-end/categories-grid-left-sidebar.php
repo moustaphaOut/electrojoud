@@ -46,7 +46,7 @@
     <!--================Categories Banner Area =================-->
         <section class="categories_banner_area">
             <div class="container">
-                <div class="c_banner_inner">
+                <div class="c_banner_inner" style="padding: 30px 0px">
                     <h3>Produits avec details</h3>
                     <ul>
                         <li><a href="#">Accueil</a></li>

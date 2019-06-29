@@ -9,7 +9,8 @@ $password =md5($_POST['password']);
 //$password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
 $sql = "SELECT * FROM client WHERE email_client='{$email}' AND password_client='{$password}';";
-
+	var_dump($sql);
+	//return 0;
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_array($result);
 $id_client = $row['id_client'];

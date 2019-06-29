@@ -5,7 +5,13 @@ function add_to_cart(id){
     url     : 'add_to_cart.php',
     data    : {'id' : id, 'type': "add_product"},
     success : function(response){
-      alert("le produit est ajouté a votre panier");
+        Swal.fire({
+          position: 'top-end',
+          type: 'success',
+          title: 'Votre article a été ajouté au panier',
+          showConfirmButton: false,
+          timer: 1500
+        })
             },
     error   : function(errResponse){
       alert(errResponse);
@@ -21,7 +27,7 @@ function delete_from_cart(id){
     url     : 'add_to_cart.php',
     data    : {'id' : id, 'type': "delete"},
     success : function(response){
-      alert("le produit est supp");
+            location.reload();
             },
     error   : function(errResponse){
       alert(errResponse);

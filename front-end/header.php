@@ -11,7 +11,23 @@
                     <span class="navbar-toggler-icon"></span>
 
                 </button>
+                <?php
+                    $nb=0;
+                    if(isset($_SESSION['idUser'])){
+                        require_once('connection.php');
+                        $query = "SELECT count(*) as nb_panier FROM wishlist where id_client={$_SESSION['idUser']}";
+                        //var_dump($query);
+                        $result = mysqli_query($conn, $query);
+                        $row = mysqli_fetch_array($result);
+                        $nb = $row['nb_panier'];
+                    }
+                ?>
+                <style type="text/css">
+                    .cart_cart a:before {
+                        content: "<?php echo $nb; ?>";
+                    }
 
+                </style>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item dropdown submenu active">
@@ -31,7 +47,8 @@
                     <ul class="navbar-nav justify-content-end">
                         <li class="search_icon"><a href="#"><i class="icon-magnifier icons"></i></a></li>
                         <li class="user_icon"><a href="profile_2.php"><i class="icon-user icons"></i></a></li>
-                        <li class="cart_cart"><a href="shopping-cart2.php"><i class="icon-handbag icons"></i></a></li>
+                        <li class="cart_cart" >
+                            <a href="shopping-cart2.php"><i class="fa fa-cart-arrow-down"></i></a></li>
                     </ul>
                 </div>
             </nav>

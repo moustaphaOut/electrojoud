@@ -82,6 +82,7 @@
                         $result = mysqli_query($conn, $requtte);
                         while ($row = $result->fetch_assoc()):
                         $sql = "SELECT sum(qty*product_unit_price) as sum_tt FROM orderdetail where id_order={$row['id_order']};";
+                        //var_dump($sql);
                         $rst = mysqli_query($conn, $sql);
                         $row2 = $rst->fetch_assoc();
                         ?>

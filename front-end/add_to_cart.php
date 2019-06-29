@@ -18,9 +18,13 @@ if(isset($_POST["id"]) && $_POST['type'] == "delete") {
   if(!$result)
     echo "Error :".$sql;
 }else if(isset($_POST["id"]) && $_POST['type'] =="add_product") {
-  $sql = "INSERT INTO wishlist (id_client, id_product) VALUES ({$_SESSION['idUser']}, {$_POST["id"]})";
-  var_dump($sql);
-  $result = mysqli_query($conn, $sql);
-  if(!$result)
-    echo "Error :".$sql;
+  $sqlCheck = "SELECT * from wishlist WHERE id_client = {$_SESSION['idUser']} and id_product={$_POST["id"]}";
+  $result2 = mysqli_query($conn, $sqlCheck);
+  if(mysqli_num_rows($result2)==0){
+    $sql = "INSERT INTO wishlist (id_client, id_product) VALUES ({$_SESSION['idUser']}, {$_POST["id"]})";
+    var_dump($sql);
+    $result = mysqli_query($conn, $sql);
+    if(!$result)
+      echo "Error :".$sql;
+  }
 }

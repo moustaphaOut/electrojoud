@@ -1,3 +1,8 @@
+<?php
+  session_start();
+  if(!isset($_SESSION['idUser']))
+  echo "<script> location.replace('login.php'); </script>";
+?>
     <!-- Sidebar -->
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
@@ -6,7 +11,7 @@
         <div class="sidebar-brand-icon rotate-n-15">
           <i class="fas fa-laugh-wink"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">Ecommerce<sup>2019</sup></div>
+        <div class="sidebar-brand-text mx-3">Electro<sup>Joud</sup></div>
       </a>
 
       <!-- Divider -->

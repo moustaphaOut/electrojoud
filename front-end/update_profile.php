@@ -5,6 +5,7 @@ $id = $_POST['id'];
 $prenom = $_POST['prenom'];
 $nom = $_POST['nom'];
 $email = $_POST['mail'];
+$old_password = md5($_POST['old_password']);
 $pass = md5($_POST['password']);
 $phone = $_POST['phone'];
 $adresse = $_POST['adress'];
@@ -26,13 +27,19 @@ else
 var_dump($sql);
 $conn->query($sql);
 
-$query = " UPDATE client SET  nom_client ='$nom', prenom_client ='$prenom', email_client ='$email', password_client ='$pass', telephone_client ='$phone', image_client = '$image' WHERE id_client = '".$_POST['id']."' ";
+$sqlCheck = "SELECT * from client WHERE id_client = '".$_POST['id']."' ";
+$result2 = mysqli_query($conn, $sqlCheck);
+$checkRow = mysqli_fetch_array($result2);
+if($checkRow['password_client'] == $old_password){
+	$query = " UPDATE client SET  nom_client ='$nom', prenom_client ='$prenom', email_client ='$email', password_client ='$pass', telephone_client ='$phone', image_client = '$image' WHERE id_client = '".$_POST['id']."' ";
 
-if ($conn->query($query) === TRUE) {
-    header("Location: profile_2.php");
-    echo 'success';
-} else {
-    echo "Error: " . $query . "<br>" . $conn->error;
+	if ($conn->query($query) === TRUE) {
+	    header("Location: profile_2.php");
+	    echo 'success';
+	} else {
+	    echo "Error: " . $query . "<br>" . $conn->error;
+	}
+}else{
+	header("Location: profile_2.php?err=1&idRow=".$_POST['id']);
 }
-
 $conn->close();

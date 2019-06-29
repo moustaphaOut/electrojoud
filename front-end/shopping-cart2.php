@@ -47,9 +47,9 @@
     ?>
 
         <!--================Categories Banner Area =================-->
-        <section class="solid_banner_area">
+        <section class="categories_banner_area">
             <div class="container">
-                <div class="solid_banner_inner">
+                <div class="c_banner_inner" style="padding: 50px 0px">
                     <h3>Panier</h3>
                     <ul>
                         <li><a href="#">Accueil</a></li>

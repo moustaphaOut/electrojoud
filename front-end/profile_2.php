@@ -116,9 +116,10 @@ if(isset($_GET['idRow'])){
                             <br />
                         
                             <?php 
-
                             if(!empty($idRow)):
-                                if($_GET['err'] == 2)
+                                if( isset($_GET['err']) && $_GET['err'] == 1)
+                                    echo "<script> alert('false old password');</script>";
+                                if( isset($_GET['err']) && $_GET['err'] == 2)
                                     echo "<script> alert('complete information first');</script>";
                                 $query = "SELECT * FROM client where id_client={$idRow}";
                                 //var_dump($query);
@@ -160,9 +161,12 @@ if(isset($_GET['idRow'])){
                                             <i>Email</i>
                                             <input value="<?php echo $email ?>" name="mail" type="email"
                                                    class="form-control validate" required><br>
-                                            <i>Password</i>
-                                            <input value="<?php echo $password ?>" name="password" type="password"
-                                                   class="form-control validate"><br>
+                                            <i>Old Password</i>
+                                            <input value="" name="old_password" type="password"
+                                                   class="form-control validate" required><br>
+                                            <i>New Password</i>
+                                            <input value="" name="password" type="password"
+                                                   class="form-control validate" required><br>
                                             <i>phone</i>
                                             <input value="<?php echo $phone ?>" name="phone" type="text"
                                                    class="form-control validate"><br>

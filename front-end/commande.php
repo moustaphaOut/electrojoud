@@ -14,10 +14,10 @@ $id_adress = $row['id_adress'];
 $date = date('Y-m-d H:i:s');
 $dateShipping = date('Y-m-d H:i:s');
 
-$query = "INSERT INTO ordeer(id_client, id_adress, order_date, prix_livraison, shipping_date, shipping_status, status) VALUES ({$_SESSION['idUser']},{$id_adress},'{$date}',0,'{$dateShipping}','En cours de traitement',1);";
+$query = "INSERT INTO ordeer(id_client, id_adress, order_date, prix_livraison, shipping_date, shipping_status, status) VALUES ({$_SESSION['idUser']},{$id_adress},'{$date}',0,'{$dateShipping}','En cours de traitement','Pas encore livré');";
 
 $result2 = mysqli_query($conn, $query);
-$query2 = "SELECT LAST_INSERT_ID(id_order) as id_order from ordeer";
+$query2 = "SELECT LAST_INSERT_ID(id_order) as id_order from ordeer  ORDER BY id_order DESC limit 1;";
 $rstt = mysqli_query($conn, $query2);
 $roww = mysqli_fetch_array($rstt);
 $id_order = $roww['id_order'];
